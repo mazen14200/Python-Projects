@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قصّ ولصق — صانع الكولاج السريالي</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="chips">
+      <span class="chip"></span><span class="chip"></span><span class="chip"></span>
+    </div>
+    <h1>قصّ ولصق</h1>
+    <p class="subtitle">
+      اكتب أي كلمات إنجليزية بأي شكل تحبه، وهيّا يدوّر على صورها، يفصلها عن
+      خلفيتها، ويلزقها في مشهد سريالي واحد.
+    </p>
+  </header>
+
+  <div class="grid">
+
+    <section class="card">
+      <h2>الكلمات</h2>
+      <p class="hint">
+        اكتب الكلمات بأي صيغة — بفواصل، بعلامة +، بمسافات، أو كل كلمة
+        في سطر، بعلامات تنصيص أو من غيرها، جوه أقواس {} أو [] أو () أو
+        من غيرها خالص. هنحوّلها تلقائيًا للصيغة اللي السكريبت فاهمها.
+      </p>
+
+      <textarea id="words" placeholder="desk, cat, car"></textarea>
+
+      <div class="examples">
+        أمثلة مقبولة كلها:<br>
+        <code>desk + cat + car</code><br>
+        <code>(desk + cat + car)</code><br>
+        <code>{desk + cat + car}</code><br>
+        <code>[desk + cat + car]</code><br>
+        <code>desk, cat, car</code><br>
+        <code>"desk","cat","car"</code><br>
+        <code>{"desk","cat","car"}</code><br>
+        <code>desk<br>cat<br>car</code>
+      </div>
+
+      <button id="go">أنشئ الصورتين</button>
+    </section>
+
+    <section class="card">
+      <h2>حالة العملية</h2>
+
+      <div class="progress-shell">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="status-line" id="statusLine">في انتظار البدء...</div>
+
+      <div class="log" id="logBox"></div>
+
+      <div class="result" id="result">
+        <div class="done-badge">✅ Done — تم بنجاح</div>
+        <div id="imagesList"></div>
+      </div>
+
+      <div class="error-box" id="errorBox"></div>
+    </section>
+
+  </div>
+
+  <footer class="note">الصورتين بيتحفظوا جنب surreal_compose.py على جهازك.</footer>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

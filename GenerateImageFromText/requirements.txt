@@ -1,0 +1,5 @@
+duckduckgo_search
+requests
+pillow
+rembg
+onnxruntime

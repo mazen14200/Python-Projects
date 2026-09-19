@@ -1,0 +1,7 @@
+ddgs
+requests
+pillow
+rembg
+onnxruntime
+numpy
+flask

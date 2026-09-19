@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج اللغة الإنجليزية للرياضة | A1 → C1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0c;
+    --bg2:#111114;
+    --card:#161618;
+    --gold:#d4af37;
+    --gold-light:#f2d675;
+    --gold-dim:#8a7228;
+    --text:#eae6da;
+    --text-dim:#a8a49a;
+    --border:#2a2620;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:radial-gradient(circle at 20% 0%, #1a1712 0%, var(--bg) 55%);
+    color:var(--text);
+    font-family:'Tajawal','Poppins',sans-serif;
+    line-height:1.7;
+  }
+  .en{ font-family:'Poppins','Tajawal',sans-serif; direction:ltr; unicode-bidi:isolate; }
+
+  header{
+    text-align:center;
+    padding:48px 20px 32px;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#151310,transparent);
+  }
+  header h1{
+    font-size:2.1em;
+    margin:0 0 6px;
+    background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-dim));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-weight:900;
+  }
+  header p{ color:var(--text-dim); margin:0; font-size:1.05em; }
+  header .sub{ margin-top:10px; font-size:.95em; color:var(--gold-dim); letter-spacing:.5px;}
+
+  .container{ max-width:1000px; margin:0 auto; padding:28px 18px 80px; }
+
+  nav.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:30px;
+    position:sticky;
+    top:0;
+    background:rgba(10,10,12,.92);
+    backdrop-filter:blur(6px);
+    padding:14px 8px;
+    z-index:10;
+    border-bottom:1px solid var(--border);
+  }
+  nav.tabs button{
+    background:var(--card);
+    color:var(--text-dim);
+    border:1px solid var(--border);
+    padding:9px 18px;
+    border-radius:999px;
+    font-family:inherit;
+    font-weight:700;
+    font-size:.92em;
+    cursor:pointer;
+    transition:.2s;
+  }
+  nav.tabs button:hover{ border-color:var(--gold-dim); color:var(--text); }
+  nav.tabs button.active{
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));
+    color:#1a1509;
+    border-color:var(--gold);
+  }
+
+  .panel{ display:none; animation:fade .35s ease; }
+  .panel.active{ display:block; }
+  @keyframes fade{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .level-badge{
+    display:inline-block;
+    padding:5px 16px;
+    border:1px solid var(--gold-dim);
+    border-radius:999px;
+    color:var(--gold-light);
+    font-weight:700;
+    font-size:.85em;
+    margin-bottom:6px;
+  }
+  .section-title{
+    font-size:1.35em;
+    color:var(--gold-light);
+    margin:34px 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+    font-weight:700;
+  }
+  .section-title:first-of-type{ margin-top:8px; }
+
+  table.vocab{ width:100%; border-collapse:collapse; background:var(--card); border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+  table.vocab th{
+    background:#1c1a14;
+    color:var(--gold);
+    text-align:right;
+    padding:11px 14px;
+    font-size:.9em;
+    border-bottom:1px solid var(--border);
+  }
+  table.vocab td{ padding:10px 14px; border-bottom:1px solid #201e1a; font-size:.95em; }
+  table.vocab tr:last-child td{ border-bottom:none; }
+  table.vocab tr:hover{ background:#1a1815; }
+  table.vocab td.num{ color:var(--gold-dim); width:34px; font-weight:700; }
+  table.vocab td.word{ direction:ltr; text-align:left; font-family:'Poppins',sans-serif; color:#fff; font-weight:600; }
+
+  .qa-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:14px;
+    border-right:3px solid var(--gold-dim);
+  }
+  .qa-card .q{ direction:ltr; text-align:left; color:var(--gold-light); font-family:'Poppins',sans-serif; font-weight:600; margin-bottom:8px; }
+  .qa-card .q::before{ content:"Q: "; color:var(--gold); }
+  .qa-card .a{ direction:ltr; text-align:left; color:var(--text); font-family:'Poppins',sans-serif; }
+  .qa-card .a::before{ content:"A: "; color:var(--gold-dim); font-weight:700; }
+
+  .sentence-list{ background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .sentence-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:11px 16px;
+    border-bottom:1px solid #201e1a;
+  }
+  .sentence-item:last-child{ border-bottom:none; }
+  .sentence-item:hover{ background:#1a1815; }
+  .sentence-item .n{ color:var(--gold-dim); font-weight:700; min-width:26px; }
+  .sentence-item .en{ color:#fff; flex:1; min-width:220px; }
+  .sentence-item .ar{ color:var(--text-dim); flex:1; }
+
+  .cat-title{
+    color:var(--gold);
+    font-weight:700;
+    margin:26px 0 8px;
+    font-size:1.05em;
+  }
+
+  footer{ text-align:center; color:var(--text-dim); padding:30px 12px; font-size:.85em; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>برنامج تعلّم الإنجليزية عن طريق الرياضة</h1>
+  <p>من مستوى A1 (مبتدئ) لغاية C1 (متقدم)</p>
+  <div class="sub">مفردات • أسئلة محادثة • إجابات نموذجية بالإنجليزية الأمريكية</div>
+</header>
+
+<div class="container">
+
+  <nav class="tabs">
+    <button class="tablink active" data-tab="a1">A1</button>
+    <button class="tablink" data-tab="a2">A2</button>
+    <button class="tablink" data-tab="b1">B1</button>
+    <button class="tablink" data-tab="b2">B2</button>
+    <button class="tablink" data-tab="c1">C1</button>
+    <button class="tablink" data-tab="s100">أهم 100 جملة</button>
+  </nav>
+
+  <!-- ===================== A1 ===================== -->
+  <div class="panel active" id="a1">
+    <span class="level-badge">A1 · Beginner</span>
+    <div class="section-title">أهم 20 كلمة</div>
+    <table class="vocab">
+      <tr><th class="num">#</th><th>English</th><th>بالمصري</th></tr>
+      <tr><td class="num">1</td><td class="word">sport</td><td>رياضة</td></tr>
+      <tr><td class="num">2</td><td class="word">ball</td><td>كورة</td></tr>
+      <tr><td class="num">3</td><td class="word">team</td><td>فريق</td></tr>
+      <tr><td class="num">4</td><td class="word">play</td><td>يلعب</td></tr>
+      <tr><td class="num">5</td><td class="word">run</td><td>يجري</td></tr>
+      <tr><td class="num">6</td><td class="word">win</td><td>يكسب</td></tr>
+      <tr><td class="num">7</td><td class="word">lose</td><td>يخسر</td></tr>
+      <tr><td class="num">8</td><td class="word">game</td><td>ماتش / لعبة</td></tr>
+      <tr><td class="num">9</td><td class="word">gym</td><td>جيم / صالة رياضية</td></tr>
+      <tr><td class="num">10</td><td class="word">swim</td><td>يعوم</td></tr>
+      <tr><td class="num">11</td><td class="word">jump</td><td>يقفز</td></tr>
+      <tr><td class="num">12</td><td class="word">kick</td><td>يشوط / يضرب بالرجل</td></tr>
+      <tr><td class="num">13</td><td class="word">throw</td><td>يرمي</td></tr>
+      <tr><td class="num">14</td><td class="word">score</td><td>يسجّل هدف / نقطة</td></tr>
+      <tr><td class="num">15</td><td class="word">coach</td><td>مدرب</td></tr>
+      <tr><td class="num">16</td><td class="word">player</td><td>لاعب</td></tr>
+      <tr><td class="num">17</td><td class="word">field</td><td>ملعب</td></tr>
+      <tr><td class="num">18</td><td class="word">match</td><td>ماتش</td></tr>
+      <tr><td class="num">19</td><td class="word">exercise</td><td>تمرين</td></tr>
+      <tr><td class="num">20</td><td class="word">fast</td><td>سريع</td></tr>
+    </table>
+
+    <div class="section-title">أسئلة للمحادثة + إجابات نموذجية</div>
+    <div class="qa-card"><div class="q">Do you like sports?</div><div class="a">Yes, I like sports. I like soccer.</div></div>
+    <div class="qa-card"><div class="q">What is your favorite sport?</div><div class="a">My favorite sport is basketball.</div></div>
+    <div class="qa-card"><div class="q">Do you play any sport?</div><div class="a">Yes, I play soccer with my friends.</div></div>
+    <div class="qa-card"><div class="q">Where do you play?</div><div class="a">I play at the park near my house.</div></div>
+    <div class="qa-card"><div class="q">Who do you play with?</div><div class="a">I play with my brother and my friends.</div></div>
+  </div>
+
+  <!-- ===================== A2 ===================== -->
+  <div class="panel" id="a2">
+    <span class="level-badge">A2 · Elementary</span>
+    <div class="section-title">أهم 20 كلمة</div>
+    <table class="vocab">
+      <tr><th class="num">#</th><th>English</th><th>بالمصري</th></tr>
+      <tr><td class="num">1</td><td class="word">stadium</td><td>استاد</td></tr>
+      <tr><td class="num">2</td><td class="word">tournament</td><td>بطولة</td></tr>
+      <tr><td class="num">3</td><td class="word">referee</td><td>حكم</td></tr>
+      <tr><td class="num">4</td><td class="word">goal</td><td>هدف</td></tr>
+      <tr><td class="num">5</td><td class="word">championship</td><td>بطولة كبرى</td></tr>
+      <tr><td class="num">6</td><td class="word">practice</td><td>تمرين</td></tr>
+      <tr><td class="num">7</td><td class="word">training</td><td>تدريب</td></tr>
+      <tr><td class="num">8</td><td class="word">injury</td><td>إصابة</td></tr>
+      <tr><td class="num">9</td><td class="word">athlete</td><td>رياضي محترف</td></tr>
+      <tr><td class="num">10</td><td class="word">competition</td><td>منافسة</td></tr>
+      <tr><td class="num">11</td><td class="word">defense</td><td>دفاع</td></tr>
+      <tr><td class="num">12</td><td class="word">offense</td><td>هجوم</td></tr>
+      <tr><td class="num">13</td><td class="word">teammate</td><td>زميل في الفريق</td></tr>
+      <tr><td class="num">14</td><td class="word">uniform</td><td>زي الفريق</td></tr>
+      <tr><td class="num">15</td><td class="word">whistle</td><td>صافرة</td></tr>
+      <tr><td class="num">16</td><td class="word">victory</td><td>انتصار</td></tr>
+      <tr><td class="num">17</td><td class="word">defeat</td><td>هزيمة</td></tr>
+      <tr><td class="num">18</td><td class="word">warm-up</td><td>إحماء</td></tr>
+      <tr><td class="num">19</td><td class="word">stretch</td><td>يتمطط</td></tr>
+      <tr><td class="num">20</td><td class="word">fitness</td><td>لياقة بدنية</td></tr>
+    </table>
+
+    <div class="section-title">أسئلة للمحادثة + إجابات نموذجية</div>
+    <div class="qa-card"><div class="q">How often do you exercise?</div><div class="a">I exercise three times a week at the gym.</div></div>
+    <div class="qa-card"><div class="q">What sports did you play as a child?</div><div class="a">When I was a child, I played soccer and swimming.</div></div>
+    <div class="qa-card"><div class="q">Do you prefer team sports or individual sports?</div><div class="a">I prefer team sports because I like playing with my friends.</div></div>
+    <div class="qa-card"><div class="q">What equipment do you need for your sport?</div><div class="a">For soccer, I need a ball, shoes, and a uniform.</div></div>
+    <div class="qa-card"><div class="q">Have you ever won a competition?</div><div class="a">Yes, I won a small tournament last year with my team.</div></div>
+  </div>
+
+  <!-- ===================== B1 ===================== -->
+  <div class="panel" id="b1">
+    <span class="level-badge">B1 · Intermediate</span>
+    <div class="section-title">أهم 20 كلمة</div>
+    <table class="vocab">
+      <tr><th class="num">#</th><th>English</th><th>بالمصري</th></tr>
+      <tr><td class="num">1</td><td class="word">endurance</td><td>قدرة على التحمل</td></tr>
+      <tr><td class="num">2</td><td class="word">technique</td><td>أسلوب / تكنيك</td></tr>
+      <tr><td class="num">3</td><td class="word">strategy</td><td>استراتيجية</td></tr>
+      <tr><td class="num">4</td><td class="word">opponent</td><td>الخصم</td></tr>
+      <tr><td class="num">5</td><td class="word">qualify</td><td>يتأهل</td></tr>
+      <tr><td class="num">6</td><td class="word">eliminate</td><td>يقصي / يخرج من المسابقة</td></tr>
+      <tr><td class="num">7</td><td class="word">record (n.)</td><td>رقم قياسي</td></tr>
+      <tr><td class="num">8</td><td class="word">overtime</td><td>وقت إضافي</td></tr>
+      <tr><td class="num">9</td><td class="word">penalty</td><td>ضربة جزاء</td></tr>
+      <tr><td class="num">10</td><td class="word">substitute</td><td>بديل</td></tr>
+      <tr><td class="num">11</td><td class="word">tactic</td><td>خطة / تكتيك</td></tr>
+      <tr><td class="num">12</td><td class="word">sportsmanship</td><td>روح رياضية</td></tr>
+      <tr><td class="num">13</td><td class="word">spectator</td><td>متفرج</td></tr>
+      <tr><td class="num">14</td><td class="word">league</td><td>دوري</td></tr>
+      <tr><td class="num">15</td><td class="word">draft</td><td>نظام اختيار اللاعبين</td></tr>
+      <tr><td class="num">16</td><td class="word">contract</td><td>عقد</td></tr>
+      <tr><td class="num">17</td><td class="word">sponsor</td><td>راعي / شركة راعية</td></tr>
+      <tr><td class="num">18</td><td class="word">broadcast</td><td>بث</td></tr>
+      <tr><td class="num">19</td><td class="word">commentary</td><td>تعليق رياضي</td></tr>
+      <tr><td class="num">20</td><td class="word">rivalry</td><td>ندية / منافسة تاريخية</td></tr>
+    </table>
+
+    <div class="section-title">أسئلة للمحادثة + إجابات نموذجية</div>
+    <div class="qa-card"><div class="q">What's the difference between a hobby and a professional sport for you?</div><div class="a">A hobby is something you do for fun in your free time, but a professional sport is a career where athletes train every day and get paid to compete.</div></div>
+    <div class="qa-card"><div class="q">Describe a memorable sports match you watched.</div><div class="a">I remember watching a championship game that went into overtime. Both teams played with incredible energy, and the winning goal came in the final seconds.</div></div>
+    <div class="qa-card"><div class="q">Why do you think sportsmanship is important?</div><div class="a">Sportsmanship is important because it teaches respect, fairness, and how to handle both winning and losing gracefully.</div></div>
+    <div class="qa-card"><div class="q">How has technology changed sports?</div><div class="a">Technology has changed sports a lot, especially with video replays, fitness trackers, and better training equipment that help athletes improve.</div></div>
+    <div class="qa-card"><div class="q">What's your opinion on sports salaries?</div><div class="a">I think some salaries are too high compared to other important jobs, but I understand that sports generate huge amounts of money.</div></div>
+  </div>
+
+  <!-- ===================== B2 ===================== -->
+  <div class="panel" id="b2">
+    <span class="level-badge">B2 · Upper-Intermediate</span>
+    <div class="section-title">أهم 20 كلمة</div>
+    <table class="vocab">
+      <tr><th class="num">#</th><th>English</th><th>بالمصري</th></tr>
+      <tr><td class="num">1</td><td class="word">momentum</td><td>زخم</td></tr>
+      <tr><td class="num">2</td><td class="word">underdog</td><td>الطرف المتوقع خسارته</td></tr>
+      <tr><td class="num">3</td><td class="word">veteran</td><td>لاعب مخضرم</td></tr>
+      <tr><td class="num">4</td><td class="word">rookie</td><td>لاعب مبتدئ</td></tr>
+      <tr><td class="num">5</td><td class="word">benchmark</td><td>معيار</td></tr>
+      <tr><td class="num">6</td><td class="word">resilience</td><td>صمود</td></tr>
+      <tr><td class="num">7</td><td class="word">discipline</td><td>انضباط</td></tr>
+      <tr><td class="num">8</td><td class="word">adrenaline</td><td>الإثارة / هرمون الأدرينالين</td></tr>
+      <tr><td class="num">9</td><td class="word">stamina</td><td>قدرة تحمل بدني</td></tr>
+      <tr><td class="num">10</td><td class="word">conditioning</td><td>تهيئة بدنية</td></tr>
+      <tr><td class="num">11</td><td class="word">recruit</td><td>يضم لاعب جديد</td></tr>
+      <tr><td class="num">12</td><td class="word">scholarship</td><td>منحة دراسية رياضية</td></tr>
+      <tr><td class="num">13</td><td class="word">doping</td><td>تعاطي منشطات</td></tr>
+      <tr><td class="num">14</td><td class="word">controversy</td><td>جدل</td></tr>
+      <tr><td class="num">15</td><td class="word">playoff</td><td>الأدوار الإقصائية</td></tr>
+      <tr><td class="num">16</td><td class="word">elimination</td><td>إقصاء</td></tr>
+      <tr><td class="num">17</td><td class="word">dynasty</td><td>فريق مهيمن لفترة طويلة</td></tr>
+      <tr><td class="num">18</td><td class="word">legacy</td><td>إرث</td></tr>
+      <tr><td class="num">19</td><td class="word">comeback</td><td>عودة قوية</td></tr>
+      <tr><td class="num">20</td><td class="word">milestone</td><td>إنجاز / محطة فارقة</td></tr>
+    </table>
+
+    <div class="section-title">أسئلة للمحادثة + إجابات نموذجية</div>
+    <div class="qa-card"><div class="q">Do you think doping should be more heavily punished? Why?</div><div class="a">Yes, I believe doping should carry stricter penalties because it undermines fair competition and puts pressure on clean athletes to cheat as well.</div></div>
+    <div class="qa-card"><div class="q">How do you think youth sports culture affects children's development?</div><div class="a">Youth sports can build discipline and teamwork, but excessive pressure from parents or coaches can lead to burnout and take the joy out of the game.</div></div>
+    <div class="qa-card"><div class="q">What role do sponsors play in modern sports?</div><div class="a">Sponsors provide the funding that keeps leagues and athletes financially viable, but their influence can sometimes shift the focus toward marketing over the sport itself.</div></div>
+    <div class="qa-card"><div class="q">Discuss the impact of injuries on an athlete's career.</div><div class="a">A serious injury can derail an athlete's career, forcing early retirement or a long, difficult recovery that affects their performance and confidence.</div></div>
+    <div class="qa-card"><div class="q">How do underdog stories affect fans' emotional connection to sports?</div><div class="a">Underdog stories create a powerful emotional bond because fans root for the team that overcomes the odds, which makes victory feel more meaningful.</div></div>
+  </div>
+
+  <!-- ===================== C1 ===================== -->
+  <div class="panel" id="c1">
+    <span class="level-badge">C1 · Advanced</span>
+    <div class="section-title">أهم 20 كلمة</div>
+    <table class="vocab">
+      <tr><th class="num">#</th><th>English</th><th>بالمصري</th></tr>
+      <tr><td class="num">1</td><td class="word">attrition</td><td>استنزاف</td></tr>
+      <tr><td class="num">2</td><td class="word">tenacity</td><td>إصرار وعناد</td></tr>
+      <tr><td class="num">3</td><td class="word">camaraderie</td><td>روح الفريق / الألفة</td></tr>
+      <tr><td class="num">4</td><td class="word">adversity</td><td>الشدائد / الظروف الصعبة</td></tr>
+      <tr><td class="num">5</td><td class="word">juggernaut</td><td>قوة جبارة لا تُقهر</td></tr>
+      <tr><td class="num">6</td><td class="word">trajectory</td><td>مسار المسيرة</td></tr>
+      <tr><td class="num">7</td><td class="word">scrutiny</td><td>تدقيق ومراقبة</td></tr>
+      <tr><td class="num">8</td><td class="word">arbitration</td><td>تحكيم قانوني</td></tr>
+      <tr><td class="num">9</td><td class="word">endorsement</td><td>إعلان/رعاية شخصية للاعب</td></tr>
+      <tr><td class="num">10</td><td class="word">antitrust</td><td>مكافحة الاحتكار</td></tr>
+      <tr><td class="num">11</td><td class="word">unprecedented</td><td>غير مسبوق</td></tr>
+      <tr><td class="num">12</td><td class="word">formidable</td><td>قوي جدًا / مرعب</td></tr>
+      <tr><td class="num">13</td><td class="word">relentless</td><td>لا يكل ولا يمل</td></tr>
+      <tr><td class="num">14</td><td class="word">exemplary</td><td>نموذجي يُحتذى به</td></tr>
+      <tr><td class="num">15</td><td class="word">philanthropic</td><td>خيري / إنساني</td></tr>
+      <tr><td class="num">16</td><td class="word">synergy</td><td>تكامل وتناغم</td></tr>
+      <tr><td class="num">17</td><td class="word">meritocracy</td><td>نظام الجدارة</td></tr>
+      <tr><td class="num">18</td><td class="word">catalyst</td><td>عامل محفز</td></tr>
+      <tr><td class="num">19</td><td class="word">litigation</td><td>نزاع/قضية قانونية</td></tr>
+      <tr><td class="num">20</td><td class="word">gravitas</td><td>هيبة ووقار</td></tr>
+    </table>
+
+    <div class="section-title">أسئلة للمحادثة + إجابات نموذجية</div>
+    <div class="qa-card"><div class="q">To what extent should sports organizations be held accountable for the mental health of athletes?</div><div class="a">I'd argue organizations bear significant responsibility, since the intense scrutiny and pressure athletes face are direct products of the system; providing robust psychological support shouldn't be optional.</div></div>
+    <div class="qa-card"><div class="q">How has the commercialization of sports affected its original spirit of competition?</div><div class="a">Commercialization has undeniably shifted priorities toward revenue and entertainment value, sometimes at the expense of grassroots development, though it has also expanded opportunities for athletes worldwide.</div></div>
+    <div class="qa-card"><div class="q">Discuss the ethical implications of genetic engineering in athletic performance.</div><div class="a">Genetic engineering raises profound questions about fairness and what we consider a "natural" achievement, potentially creating an unbridgeable gap between enhanced and unenhanced athletes.</div></div>
+    <div class="qa-card"><div class="q">What's your view on the relationship between national identity and international sports competitions?</div><div class="a">International competitions often become a proxy for national pride, which can unite people constructively but also fuel unhealthy rivalries that go beyond the sport itself.</div></div>
+    <div class="qa-card"><div class="q">How might AI and data analytics reshape coaching and strategy in the coming decade?</div><div class="a">AI will likely give coaches unprecedented insight into player performance and opposition tendencies, though the human elements of leadership and motivation will remain irreplaceable.</div></div>
+  </div>
+
+  <!-- ===================== 100 SENTENCES ===================== -->
+  <div class="panel" id="s100">
+    <span class="level-badge">Real-Life American English</span>
+    <div class="section-title">أكتر 100 جملة استخدامًا في أمريكا في مجال الرياضة</div>
+
+    <div class="cat-title">🗣️ كلام عام</div>
+    <div class="sentence-list" id="cat1"></div>
+
+    <div class="cat-title">📺 كلام المشجعين والمتابعة</div>
+    <div class="sentence-list" id="cat2"></div>
+
+    <div class="cat-title">🏃 اللعب والتمرين</div>
+    <div class="sentence-list" id="cat3"></div>
+
+    <div class="cat-title">🎙️ التعليق والتحليل</div>
+    <div class="sentence-list" id="cat4"></div>
+
+    <div class="cat-title">💪 التشجيع</div>
+    <div class="sentence-list" id="cat5"></div>
+
+    <div class="cat-title">🏆 بعد الماتش والنتيجة</div>
+    <div class="sentence-list" id="cat6"></div>
+
+    <div class="cat-title">👕 الفرق والدوري</div>
+    <div class="sentence-list" id="cat7"></div>
+
+    <div class="cat-title">🏋️ الجيم واللياقة</div>
+    <div class="sentence-list" id="cat8"></div>
+
+    <div class="cat-title">✨ عام / متفرقات</div>
+    <div class="sentence-list" id="cat9"></div>
+  </div>
+
+</div>
+
+<footer>برنامج تعليمي مصمم لتعلّم الإنجليزية الأمريكية من خلال الرياضة</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tablink');
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      tabs.forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  const data = {
+    cat1: [
+      ["Do you follow any sports?","انت بتتابع رياضة؟"],
+      ["What's your favorite team?","ايه فريقك المفضل؟"],
+      ["I'm a huge fan of the Lakers.","أنا فان كبير لفريق الليكرز."],
+      ["Let's watch the game tonight.","يلا نتفرج على الماتش الليلة."],
+      ["What time does the game start?","الماتش هيبدأ الساعة كام؟"],
+      ["Who's playing tonight?","مين اللي هيلعب الليلة؟"],
+      ["I never miss a game.","أنا مش بفوّت ماتش خالص."],
+      ["Are you going to the stadium?","هتروح الاستاد؟"],
+      ["I have tickets for the game.","معايا تذاكر للماتش."],
+      ["Let's grab some snacks before the game.","يلا ناخد سناكس قبل الماتش."]
+    ],
+    cat2: [
+      ["What's the score?","النتيجة كام؟"],
+      ["They're winning by ten points.","هما فايزين بعشر نقط."],
+      ["It's a tie game.","الماتش تعادل."],
+      ["We're losing, but there's still time.","احنا خسرانين، بس لسه فيه وقت."],
+      ["That was an amazing shot!","دي تسديدة رهيبة!"],
+      ["What a save!","يا سلام على التصدي ده!"],
+      ["He scored again!","سجّل تاني!"],
+      ["That's a foul!","دي فاول!"],
+      ["The referee made the wrong call.","الحكم غلط في القرار."],
+      ["Come on, let's go!","يلا بينا!"],
+      ["Defense! Defense!","دفاع! دفاع!"],
+      ["I can't believe they lost.","مش مصدق إنهم خسروا."],
+      ["That was a close game.","الماتش كان قريّب جدًا."],
+      ["Overtime is so exciting.","الوقت الإضافي مثير جدًا."],
+      ["He's the best player on the team.","هو أحسن لاعب في الفريق."]
+    ],
+    cat3: [
+      ["I play basketball every weekend.","بلعب باسكت كل ويكند."],
+      ["Do you want to play a pickup game?","عايز نلعب ماتش سريع؟"],
+      ["I need to warm up first.","محتاج أسخّن الأول."],
+      ["Let's shoot some hoops.","يلا نلعب شوية شوتات."],
+      ["I'm going for a run this morning.","هاجري شوية الصبح ده."],
+      ["I hit the gym every day.","بروح الجيم كل يوم."],
+      ["Let's play one-on-one.","يلا نلعب واحد ضد واحد."],
+      ["I'm working on my technique.","بشتغل على أسلوبي."],
+      ["He has a strong throw.","رمِيته قوية."],
+      ["She's really fast on the court.","هي سريعة جدًا في الملعب."],
+      ["I pulled a muscle.","حصلي شد عضلي."],
+      ["Take it easy, don't overdo it.","خد بالك، متزودّش."],
+      ["Let's do some stretching first.","يلا نعمل تمطيط الأول."],
+      ["I need new running shoes.","محتاج جزمة جري جديدة."],
+      ["Are you sore from yesterday's workout?","عضلاتك واجعاك من تمرين إمبارح؟"]
+    ],
+    cat4: [
+      ["He's on fire tonight.","النهاردة شغال زي النار."],
+      ["They need to step up their game.","لازم يرفعوا مستواهم."],
+      ["This team has great chemistry.","الفريق ده عنده انسجام رهيب."],
+      ["Their defense is really solid.","دفاعهم قوي جدًا."],
+      ["He's a game changer.","هو بيغيّر مجرى اللعبة."],
+      ["That was a huge upset.","دي كانت مفاجأة كبيرة."],
+      ["They're the underdogs in this match.","هما الطرف المتوقّع خسارته في الماتش ده."],
+      ["He's having a career year.","ده أحسن موسم في مشواره."],
+      ["The coach called a timeout.","المدرب طلب تايم أوت."],
+      ["They need a strong second half.","محتاجين شوط تاني قوي."]
+    ],
+    cat5: [
+      ["Good job, keep it up!","برافو عليك، كمّل كده!"],
+      ["You've got this!","انت قدها!"],
+      ["Don't give up!","متستسلمش!"],
+      ["Nice shot!","تسديدة حلوة!"],
+      ["Great pass!","باسة جامدة!"],
+      ["Way to go!","كده بالظبط!"],
+      ["Push harder!","اجتهد أكتر!"],
+      ["Almost there, keep pushing!","قرّبت خلصت، كمّل!"],
+      ["You played really well today.","انت لعبت كويس جدًا النهاردة."],
+      ["That was a great effort.","ده مجهود رائع."]
+    ],
+    cat6: [
+      ["We won!","احنا كسبنا!"],
+      ["We lost, but we played hard.","خسرنا، بس لعبنا بكل قوتنا."],
+      ["It was a great game overall.","كان ماتش حلو عمومًا."],
+      ["They dominated the whole game.","هما سيطروا على الماتش كله."],
+      ["It came down to the last second.","اتحسمت في آخر ثانية."],
+      ["What a comeback!","يا سلام على العودة دي!"],
+      ["They blew a big lead.","ضيّعوا فارق كبير."],
+      ["Better luck next time.","حظ أوفر المرة الجاية."],
+      ["That's a tough loss to swallow.","الخسارة دي صعب تتقبّلها."],
+      ["They deserved the win.","هما يستاهلوا الفوز."]
+    ],
+    cat7: [
+      ["Which team do you root for?","انت بتشجع مين؟"],
+      ["I've been a fan since I was a kid.","أنا فان من وأنا صغير."],
+      ["Our team made the playoffs.","فريقنا وصل للأدوار الإقصائية."],
+      ["They got knocked out in the first round.","اتقصّوا من الدور الأول."],
+      ["He got traded to another team.","اتباع لفريق تاني."],
+      ["He signed a new contract.","وقّع عقد جديد."],
+      ["She's a free agent now.","هي لاعبة حرة دلوقتي."],
+      ["The draft is coming up soon.","نظام اختيار اللاعبين الجديد قرّب."],
+      ["They're rebuilding the team this season.","بيعيدوا بناء الفريق الموسم ده."],
+      ["This is a rebuilding year for us.","الموسم ده موسم إعادة بناء بالنسبالنا."]
+    ],
+    cat8: [
+      ["I'm trying to get in shape.","بحاول أرجع لياقتي."],
+      ["I've been hitting the weights hard.","باشتغل بجد على الأوزان."],
+      ["Cardio isn't really my thing.","الكارديو مش بتاعي أوي."],
+      ["I need a rest day.","محتاج يوم راحة."],
+      ["Let's spot each other.","يلا نأمّن على بعض."],
+      ["I'm trying to build muscle.","بحاول أبني عضل."],
+      ["I need to work on my endurance.","محتاج أشتغل على قدرة التحمل بتاعتي."],
+      ["Don't skip leg day.","متسيبش يوم الرجل."],
+      ["I'm on a training plan.","أنا ماشي على خطة تدريب."],
+      ["My coach pushes me really hard.","مدربي بيضغط عليا جدًا."]
+    ],
+    cat9: [
+      ["Sports bring people together.","الرياضة بتجمع الناس."],
+      ["That was one for the history books.","ده ماتش هيتسجل في التاريخ."],
+      ["He's a legend in this sport.","هو أسطورة في الرياضة دي."],
+      ["They have a huge rivalry.","بينهم ندية قوية."],
+      ["It's do or die for them now.","دلوقتي إما يفوزوا إما يخرجوا خالص."],
+      ["Every point matters now.","كل نقطة بقت مهمة دلوقتي."],
+      ["This game is a must-win.","الماتش ده لازم يتكسب."],
+      ["I bet on the wrong team.","راهنت على الفريق الغلط."],
+      ["Let's catch the highlights later.","يلا نتفرج على أهم اللقطات بعدين."],
+      ["Sports never fail to surprise me.","الرياضة دايمًا بتفاجئني."]
+    ]
+  };
+
+  let counter = 1;
+  Object.keys(data).forEach(catId=>{
+    const container = document.getElementById(catId);
+    data[catId].forEach(([en,ar])=>{
+      const row = document.createElement('div');
+      row.className='sentence-item';
+      row.innerHTML = `<div class="n">${counter}</div><div class="en">${en}</div><div class="ar">${ar}</div>`;
+      container.appendChild(row);
+      counter++;
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Street Talk Mastery — من الشارع للثقة الكاملة</title>
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --bg-alt:#141416;
+    --card:#1a1a1d;
+    --gold:#c9a227;
+    --gold-bright:#e8c766;
+    --text:#ece7db;
+    --text-dim:#9a958a;
+    --line:#2a2a2d;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:radial-gradient(1200px 600px at 80% -10%, #1c1a10 0%, var(--bg) 55%);
+    color:var(--text);
+    font-family: 'Georgia', 'Amiri', serif;
+    line-height:1.7;
+  }
+  .en{ font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; }
+  header{
+    padding:40px 20px 30px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  header::before{
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 40px, rgba(201,162,39,0.04) 40px 41px);
+    pointer-events:none;
+  }
+  header h1{
+    font-size:2.1em;
+    margin:0 0 6px;
+    color:var(--gold-bright);
+    letter-spacing:1px;
+  }
+  header .sub{
+    color:var(--text-dim);
+    font-size:1.05em;
+  }
+  header .sub .en{ color:var(--gold); font-style:italic; }
+
+  nav.levels{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    padding:20px 12px;
+    background:var(--bg-alt);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:10;
+  }
+  nav.levels button{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--text-dim);
+    padding:9px 16px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:'Trebuchet MS',sans-serif;
+    font-size:0.9em;
+    transition:all .2s;
+  }
+  nav.levels button.active, nav.levels button:hover{
+    border-color:var(--gold);
+    color:var(--gold-bright);
+    background:rgba(201,162,39,0.08);
+  }
+
+  main{ max-width:900px; margin:0 auto; padding:24px 16px 60px; }
+
+  section.level{ display:none; animation:fade .3s ease; }
+  section.level.active{ display:block; }
+  @keyframes fade{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .level-head{
+    display:flex; align-items:baseline; gap:12px;
+    border-bottom:2px solid var(--gold); padding-bottom:10px; margin-bottom:20px;
+  }
+  .level-head .badge{
+    font-family:'Trebuchet MS',sans-serif;
+    background:var(--gold); color:#1a1607;
+    padding:4px 12px; border-radius:6px; font-weight:bold; font-size:0.95em;
+  }
+  .level-head h2{ margin:0; color:var(--gold-bright); font-size:1.3em; }
+  .level-head .theme{ color:var(--text-dim); font-size:0.95em; margin-right:auto; }
+
+  h3.section-title{
+    color:var(--gold); font-size:1.05em; margin:26px 0 12px;
+    display:flex; align-items:center; gap:8px;
+  }
+  h3.section-title::before{ content:"◆"; color:var(--gold); font-size:0.7em; }
+
+  table.vocab{ width:100%; border-collapse:collapse; background:var(--card); border-radius:8px; overflow:hidden; }
+  table.vocab th{
+    background:#20200f; color:var(--gold-bright); text-align:right; padding:9px 12px;
+    font-size:0.85em; font-family:'Trebuchet MS',sans-serif; border-bottom:1px solid var(--line);
+  }
+  table.vocab td{ padding:9px 12px; border-bottom:1px solid var(--line); font-size:0.95em; vertical-align:top; }
+  table.vocab tr:last-child td{ border-bottom:none; }
+  table.vocab td.en{ color:var(--gold-bright); font-weight:bold; }
+  table.vocab tr:hover{ background:rgba(201,162,39,0.05); }
+
+  .qa-card{
+    background:var(--card); border:1px solid var(--line); border-right:3px solid var(--gold);
+    border-radius:8px; padding:14px 16px; margin-bottom:12px;
+  }
+  .qa-card .q{ color:var(--gold-bright); font-family:'Trebuchet MS',sans-serif; font-weight:bold; margin-bottom:6px; }
+  .qa-card .a{ color:var(--text); }
+  .qa-card .a::before{ content:"→ "; color:var(--gold); }
+
+  /* sentence bank */
+  .bank-tabs{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+  .bank-tabs button{
+    background:transparent; border:1px solid var(--line); color:var(--text-dim);
+    padding:7px 12px; border-radius:20px; font-size:0.82em; cursor:pointer;
+    font-family:'Trebuchet MS',sans-serif;
+  }
+  .bank-tabs button.active{ border-color:var(--gold); color:var(--gold-bright); background:rgba(201,162,39,0.08); }
+  .bank-cat{ display:none; }
+  .bank-cat.active{ display:block; }
+  .sentence-row{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:10px 4px; border-bottom:1px solid var(--line);
+    font-size:0.93em;
+  }
+  .sentence-row:hover{ background:rgba(201,162,39,0.04); }
+  .sentence-row .num{ color:var(--gold); min-width:26px; font-family:'Trebuchet MS',sans-serif; font-size:0.85em; }
+  .sentence-row .eng{ flex:2; color:var(--gold-bright); }
+  .sentence-row .arb{ flex:2; color:var(--text-dim); text-align:right; }
+
+  .count-note{
+    text-align:center; color:var(--text-dim); font-size:0.85em; margin-top:18px;
+    border-top:1px dashed var(--line); padding-top:14px;
+  }
+  footer{ text-align:center; color:var(--text-dim); font-size:0.8em; padding:24px; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Street Talk Mastery</h1>
+  <div class="sub">برنامج من A1 إلى C1 — كلام الشارع، الصحاب، القهوة، الهزار، السخرية، وأخذ حقك بجدارة<br>
+  <span class="en">Street • Friends • Coffee • Jokes • Sarcasm • Standing Your Ground</span></div>
+</header>
+
+<nav class="levels" id="levelNav">
+  <button data-level="a1" class="active">A1</button>
+  <button data-level="a2">A2</button>
+  <button data-level="b1">B1</button>
+  <button data-level="b2">B2</button>
+  <button data-level="c1">C1</button>
+  <button data-level="bank">بنك الجمل (300+)</button>
+</nav>
+
+<main>
+
+<!-- A1 -->
+<section class="level active" id="a1">
+  <div class="level-head">
+    <span class="badge">A1</span>
+    <h2>البداية — تحية وهزار بسيط وقهوة</h2>
+    <span class="theme en">Basics: greetings, simple jokes, coffee</span>
+  </div>
+
+  <h3 class="section-title">أهم 20 كلمة</h3>
+  <table class="vocab">
+    <tr><th>English</th><th>المعنى بالمصري</th></tr>
+    <tr><td class="en">Hey</td><td>هاي / يا</td></tr>
+    <tr><td class="en">What's up?</td><td>أخبارك ايه؟</td></tr>
+    <tr><td class="en">Bro</td><td>يا اخويا / يا برو</td></tr>
+    <tr><td class="en">Buddy</td><td>يا صاحبي</td></tr>
+    <tr><td class="en">Coffee</td><td>قهوة</td></tr>
+    <tr><td class="en">To go</td><td>تيك اواي</td></tr>
+    <tr><td class="en">Black coffee</td><td>قهوة سادة</td></tr>
+    <tr><td class="en">Sugar</td><td>سكر</td></tr>
+    <tr><td class="en">Cream / Milk</td><td>لبن</td></tr>
+    <tr><td class="en">Funny</td><td>مضحك</td></tr>
+    <tr><td class="en">Joke</td><td>نكتة</td></tr>
+    <tr><td class="en">Laugh</td><td>يضحك</td></tr>
+    <tr><td class="en">Friend</td><td>صاحب</td></tr>
+    <tr><td class="en">Hang out</td><td>نقعد سوا</td></tr>
+    <tr><td class="en">Tired</td><td>تعبان</td></tr>
+    <tr><td class="en">Busy</td><td>مشغول</td></tr>
+    <tr><td class="en">Later</td><td>بعدين</td></tr>
+    <tr><td class="en">See you</td><td>أشوفك</td></tr>
+    <tr><td class="en">Cool</td><td>تمام / حلو</td></tr>
+    <tr><td class="en">No way</td><td>مستحيل / ولا يمكن</td></tr>
+  </table>
+
+  <h3 class="section-title">أسئلة للمحادثة + إجابات نموذجية</h3>
+  <div class="qa-card"><div class="q en">What's your name and where are you from?</div><div class="a en">My name is Sam, and I'm from Chicago.</div></div>
+  <div class="qa-card"><div class="q en">Do you like coffee?</div><div class="a en">Yeah, I love coffee, especially in the morning.</div></div>
+  <div class="qa-card"><div class="q en">What do you usually do with your friends?</div><div class="a en">We usually just hang out and grab some food.</div></div>
+  <div class="qa-card"><div class="q en">Is this joke funny to you?</div><div class="a en">Yeah, it's pretty funny, actually.</div></div>
+</section>
+
+<!-- A2 -->
+<section class="level" id="a2">
+  <div class="level-head">
+    <span class="badge">A2</span>
+    <h2>خطوة جاية — دعوات ونكت بسيطة</h2>
+    <span class="theme en">Small talk, invites, simple jokes</span>
+  </div>
+
+  <h3 class="section-title">أهم 20 كلمة</h3>
+  <table class="vocab">
+    <tr><th>English</th><th>المعنى بالمصري</th></tr>
+    <tr><td class="en">What's good?</td><td>اخبارك</td></tr>
+    <tr><td class="en">Chill</td><td>استريح / خليك هادي</td></tr>
+    <tr><td class="en">Hang out</td><td>نتسكع</td></tr>
+    <tr><td class="en">Crew</td><td>الشلة</td></tr>
+    <tr><td class="en">Squad</td><td>الجروب</td></tr>
+    <tr><td class="en">Deal</td><td>اتفقنا</td></tr>
+    <tr><td class="en">For real</td><td>بجد</td></tr>
+    <tr><td class="en">No cap</td><td>بجد مفيش كدب</td></tr>
+    <tr><td class="en">Crack up</td><td>يموت من الضحك</td></tr>
+    <tr><td class="en">Cracking jokes</td><td>بيهزر</td></tr>
+    <tr><td class="en">Banter</td><td>هزار</td></tr>
+    <tr><td class="en">Tease</td><td>يضايق بهزار</td></tr>
+    <tr><td class="en">Roast</td><td>يفرقع في حد بهزار</td></tr>
+    <tr><td class="en">Lighten up</td><td>خفف</td></tr>
+    <tr><td class="en">Hilarious</td><td>مضحك جدًا</td></tr>
+    <tr><td class="en">Iced coffee</td><td>قهوة مثلجة</td></tr>
+    <tr><td class="en">To-go cup</td><td>كوباية تيك اواي</td></tr>
+    <tr><td class="en">Refill</td><td>تعبئة تانية</td></tr>
+    <tr><td class="en">Treat (someone)</td><td>يعزم</td></tr>
+    <tr><td class="en">My bad</td><td>غلطتي / آسف</td></tr>
+  </table>
+
+  <h3 class="section-title">أسئلة للمحادثة + إجابات نموذجية</h3>
+  <div class="qa-card"><div class="q en">What do you and your friends usually do on weekends?</div><div class="a en">We usually chill, grab some coffee, and just talk for hours.</div></div>
+  <div class="qa-card"><div class="q en">Can you tell me a simple joke?</div><div class="a en">Sure, here's one: why don't skeletons fight each other? They don't have the guts!</div></div>
+  <div class="qa-card"><div class="q en">How do you order your coffee?</div><div class="a en">I usually get an iced coffee with a little sugar, no cream.</div></div>
+  <div class="qa-card"><div class="q en">What do you do when someone teases you?</div><div class="a en">I just laugh it off, it's no big deal.</div></div>
+</section>
+
+<!-- B1 -->
+<section class="level" id="b1">
+  <div class="level-head">
+    <span class="badge">B1</span>
+    <h2>هزار الصحاب — كافيه وسخرية خفيفة</h2>
+    <span class="theme en">Banter, coffee culture, light sarcasm</span>
+  </div>
+
+  <h3 class="section-title">أهم 20 كلمة</h3>
+  <table class="vocab">
+    <tr><th>English</th><th>المعنى بالمصري</th></tr>
+    <tr><td class="en">Cut it out</td><td>بطل كده</td></tr>
+    <tr><td class="en">Quit playing</td><td>بطل تهزار</td></tr>
+    <tr><td class="en">Dead serious</td><td>جاد جدًا</td></tr>
+    <tr><td class="en">Spill the tea</td><td>احكيلي كل حاجة</td></tr>
+    <tr><td class="en">Low-key</td><td>شوية بس مش معلن</td></tr>
+    <tr><td class="en">High-key</td><td>علنًا وبصراحة</td></tr>
+    <tr><td class="en">Save face</td><td>يحفظ ماء الوجه</td></tr>
+    <tr><td class="en">Throw shade</td><td>يقول كلام فيه غمز</td></tr>
+    <tr><td class="en">Sarcastic</td><td>ساخر</td></tr>
+    <tr><td class="en">Sarcasm</td><td>سخرية</td></tr>
+    <tr><td class="en">Burn</td><td>رد نار (هزار جارح)</td></tr>
+    <tr><td class="en">Clap back</td><td>يرد بحدة</td></tr>
+    <tr><td class="en">Mess with someone</td><td>يستغبى على حد</td></tr>
+    <tr><td class="en">Call someone out</td><td>يفضح حد</td></tr>
+    <tr><td class="en">Keep it real</td><td>يبقى صريح</td></tr>
+    <tr><td class="en">Barista</td><td>عامل القهوة</td></tr>
+    <tr><td class="en">Order</td><td>طلب</td></tr>
+    <tr><td class="en">Tab</td><td>حساب مفتوح</td></tr>
+    <tr><td class="en">Cash or card</td><td>كاش ولا فيزا</td></tr>
+    <tr><td class="en">Hit the spot</td><td>كانت بالظبط اللي محتاجه</td></tr>
+  </table>
+
+  <h3 class="section-title">أسئلة للمحادثة + إجابات نموذجية</h3>
+  <div class="qa-card"><div class="q en">How do you usually react to sarcasm from friends?</div><div class="a en">Honestly, I just roll with it and throw some sarcasm back.</div></div>
+  <div class="qa-card"><div class="q en">What's the vibe like at your favorite coffee shop?</div><div class="a en">It's super chill, good music, and the baristas actually know my order.</div></div>
+  <div class="qa-card"><div class="q en">Have you ever been "roasted" by a friend? How did it feel?</div><div class="a en">Yeah, all the time — it's just how we show love, honestly.</div></div>
+  <div class="qa-card"><div class="q en">What's an inside joke you have with your friends?</div><div class="a en">We have this one joke from a road trip that still cracks us up.</div></div>
+</section>
+
+<!-- B2 -->
+<section class="level" id="b2">
+  <div class="level-head">
+    <span class="badge">B2</span>
+    <h2>سخرية وردود جامدة — تثبيت الحدود</h2>
+    <span class="theme en">Sarcasm, comebacks, standing firm</span>
+  </div>
+
+  <h3 class="section-title">أهم 20 كلمة</h3>
+  <table class="vocab">
+    <tr><th>English</th><th>المعنى بالمصري</th></tr>
+    <tr><td class="en">Sassy</td><td>وقح بشياكة / جريء</td></tr>
+    <tr><td class="en">Snarky</td><td>لاذع</td></tr>
+    <tr><td class="en">Petty</td><td>تافه / حاقد شوية</td></tr>
+    <tr><td class="en">Shady</td><td>مريب / فيه غمز</td></tr>
+    <tr><td class="en">Read someone</td><td>يفضح شخصية حد بصراحة قاسية</td></tr>
+    <tr><td class="en">Drag someone</td><td>ينكل بحد لفظيًا</td></tr>
+    <tr><td class="en">Savage</td><td>وحشي / جامد في الرد</td></tr>
+    <tr><td class="en">Sting</td><td>يوجع (الكلام)</td></tr>
+    <tr><td class="en">Stand your ground</td><td>يثبت على موقفه</td></tr>
+    <tr><td class="en">Speak up</td><td>يتكلم بصوت عالي عن حقه</td></tr>
+    <tr><td class="en">Draw the line</td><td>يحدد حده</td></tr>
+    <tr><td class="en">Not having it</td><td>مش قابل الكلام ده</td></tr>
+    <tr><td class="en">Back off</td><td>ابعد عني</td></tr>
+    <tr><td class="en">Mind your business</td><td>خليك في حالك</td></tr>
+    <tr><td class="en">Deal with it</td><td>تعامل مع الموضوع</td></tr>
+    <tr><td class="en">Push someone's buttons</td><td>يستفز حد</td></tr>
+    <tr><td class="en">Get under someone's skin</td><td>يعصب حد</td></tr>
+    <tr><td class="en">Brush it off</td><td>يتجاهل الموضوع</td></tr>
+    <tr><td class="en">Hold your ground</td><td>يثبت على رأيه</td></tr>
+    <tr><td class="en">Call it what it is</td><td>يسمي الأمور بمسمياتها</td></tr>
+  </table>
+
+  <h3 class="section-title">أسئلة للمحادثة + إجابات نموذجية</h3>
+  <div class="qa-card"><div class="q en">How do you tell the difference between playful teasing and disrespect?</div><div class="a en">If it's making fun of something I actually care about, that's crossing the line.</div></div>
+  <div class="qa-card"><div class="q en">What's the sassiest comeback you've ever heard?</div><div class="a en">My friend once got told "bless your heart," and it was brutal.</div></div>
+  <div class="qa-card"><div class="q en">How do you handle someone who won't stop pushing your buttons?</div><div class="a en">I just tell them straight up to back off, no sugarcoating it.</div></div>
+  <div class="qa-card"><div class="q en">Do you think sarcasm is a good way to communicate feelings?</div><div class="a en">Sometimes, but it can backfire if the other person doesn't get it.</div></div>
+</section>
+
+<!-- C1 -->
+<section class="level" id="c1">
+  <div class="level-head">
+    <span class="badge">C1</span>
+    <h2>الاحتراف — ردود جامدة وأخذ حقك بجدارة</h2>
+    <span class="theme en">Sharp comebacks, roasts, self-respect</span>
+  </div>
+
+  <h3 class="section-title">أهم 20 كلمة</h3>
+  <table class="vocab">
+    <tr><th>English</th><th>المعنى بالمصري</th></tr>
+    <tr><td class="en">Roast session</td><td>جلسة هزار جامد</td></tr>
+    <tr><td class="en">Clapback culture</td><td>ثقافة الرد السريع</td></tr>
+    <tr><td class="en">Shut someone down</td><td>يسكت حد بالكلام</td></tr>
+    <tr><td class="en">Put someone in their place</td><td>يحط حد في مكانه</td></tr>
+    <tr><td class="en">Know your worth</td><td>تعرف قيمتك</td></tr>
+    <tr><td class="en">Stand up for yourself</td><td>تدافع عن نفسك</td></tr>
+    <tr><td class="en">Call a spade a spade</td><td>يسمي الأشياء بمسمياتها</td></tr>
+    <tr><td class="en">Read the room</td><td>يقرا الموقف</td></tr>
+    <tr><td class="en">Bite your tongue</td><td>يسكت نفسه عشان محدش يتضايق</td></tr>
+    <tr><td class="en">Hold your tongue</td><td>يمسك لسانه</td></tr>
+    <tr><td class="en">Speak your truth</td><td>يقول رأيه بصراحة</td></tr>
+    <tr><td class="en">Dead-ass</td><td>بجد اوي (تأكيد قوي)</td></tr>
+    <tr><td class="en">Straight up</td><td>بصراحة تامة</td></tr>
+    <tr><td class="en">Petty comeback</td><td>رد فيه شوية حقد بسيط</td></tr>
+    <tr><td class="en">Savage comeback</td><td>رد جامد قوي</td></tr>
+    <tr><td class="en">Don't test me</td><td>متجربنيش</td></tr>
+    <tr><td class="en">I don't play that</td><td>انا مش بلعب في الموضوع ده</td></tr>
+    <tr><td class="en">Know when to walk away</td><td>تعرف امتى تمشي</td></tr>
+    <tr><td class="en">Pick your battles</td><td>اختار معاركك</td></tr>
+    <tr><td class="en">Earn respect</td><td>يكسب احترام</td></tr>
+  </table>
+
+  <h3 class="section-title">أسئلة للمحادثة + إجابات نموذجية</h3>
+  <div class="qa-card"><div class="q en">How do you stand your ground in a conversation without being rude?</div><div class="a en">I stay calm, say exactly what I mean, and don't let anyone talk over me.</div></div>
+  <div class="qa-card"><div class="q en">What makes a comeback "savage" rather than just mean?</div><div class="a en">A savage comeback is sharp and quick, and it lands without needing to curse.</div></div>
+  <div class="qa-card"><div class="q en">How important is it to "know your worth" in friendships?</div><div class="a en">It's everything, because people treat you the way you let them.</div></div>
+  <div class="qa-card"><div class="q en">When is it better to walk away instead of arguing?</div><div class="a en">When the other person clearly isn't listening or respecting you at all.</div></div>
+</section>
+
+<!-- SENTENCE BANK -->
+<section class="level" id="bank">
+  <div class="level-head">
+    <span class="badge">📚</span>
+    <h2>بنك الجمل — أكتر الجمل استخدامًا في أمريكا</h2>
+    <span class="theme en">300+ high-frequency sentences</span>
+  </div>
+  <div class="bank-tabs" id="bankTabs">
+    <button data-cat="street" class="active">الشارع</button>
+    <button data-cat="friends">الصحاب والقعدات</button>
+    <button data-cat="coffee">القهوة والكافيه</button>
+    <button data-cat="jokes">الهزار والضحك</button>
+    <button data-cat="sarcasm">السخرية والرد الجامد</button>
+    <button data-cat="rights">تاخد حقك بجدارة</button>
+  </div>
+  <div id="bankContent"></div>
+  <div class="count-note">
+    البنك دلوقتي فيه ٢٠٠٠ جملة كاملة، منظمة في ٦ فئات (حوالي ٣٣٣ جملة لكل فئة).
+  </div>
+</section>
+
+</main>
+
+<footer class="en">Street Talk Mastery — A1 to C1 Program</footer>
+
+<script>
+const levelBtns = document.querySelectorAll('#levelNav button');
+levelBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    levelBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('section.level').forEach(s=>s.classList.remove('active'));
+    document.getElementById(btn.dataset.level).classList.add('active');
+  });
+});
+
+const DATA = {
+street: [
+["What's good, man?","عامل ايه يا راجل؟"],["Yo, what's up?","ايه الاخبار؟"],["I got you.","انا معاك / هظبطلك الموضوع"],
+["That's on me.","دي عليا"],["Watch your back.","خلي بالك من نفسك"],["Keep it 100.","كن صريح ١٠٠٪"],
+["That's the block.","دي منطقتنا"],["Stay in your lane.","امشي في طريقك وبس"],["He's from around here.","هو من المنطقة دي"],
+["Don't start nothing.","متبدأش حاجة"],["It is what it is.","الدنيا كده"],["I'm not about that life.","مش من نوعية الحياة دي"],
+["We go way back.","احنا اصحاب من زمان"],["He's got my back.","هو ظهري"],["Don't sleep on it.","متستهونش بيها"],
+["That's real talk.","ده كلام جد"],["I'm out here grinding.","انا شغال بجد عشان اوصل"],["Keep your head up.","ارفع راسك"],
+["Money talks.","الفلوس بتتكلم"],["Trust nobody.","متثقش في حد"],["He runs these streets.","هو باشا الحتة دي"],
+["It's a jungle out here.","الدنيا برا زي الغابة"],["I ain't scared of nobody.","مش خايف من حد"],["Respect is earned.","الاحترام بيتكسب مش بيتاخد"],
+["Don't test me.","متجربنيش"],["I know the game.","انا عارف اللعبة"],["Keep your circle small.","خلي شلتك صغيرة وموثوقة"],
+["That's foul.","ده كلام مش نضيف"],["He switched up on me.","اتغير معايا فجأة"],["Everybody's got a hustle.","كل واحد بيدور على رزقه"],
+["That's a wrap.","خلصنا / انتهى الموضوع"],["I'm just trying to survive.","انا بس بحاول اعيش"],["Don't get it twisted.","متفهمنيش غلط"],
+["He's not built for this.","هو مش مناسب للحتة دي"],["Play it smart.","العب بذكاء"],["I don't owe you anything.","انا مش مديونلك بحاجة"],
+["Stay real.","خليك صريح"],["That's just how it goes.","كده بس الدنيا بتمشي"],["He's a straight shooter.","هو راجل صريح ومباشر"],
+["Keep grinding.","كمل اشتغل بجد"],["Nobody's gonna save you but you.","محدش هينقذك غيرك انت"],["It's all love.","كله محبة مفيش مشاكل"],
+["Don't burn bridges.","متقطعش العلاقات بحماقة"],["That's the code we live by.","دي القواعد اللي بنعيش بيها"],["He's got history around here.","له تاريخ في المنطقة دي"],
+["I keep it moving.","بكمل في حياتي وخلاص"],["Watch who you trust.","خلي بالك مين اللي تثق فيه"],["Real ones stick around.","الاصحاب الحقيقيين بيفضلوا موجودين"],
+["I'm built different.","انا مختلف عن غيري"],["That's just the streets talking.","ده كلام الشارع بس"],
+["Around here, reality means everything.","هنا، الواقع يعني كل حاجة."],["You can't buy hard work.","متقدرش تشتري الشغل الجامد."],["Nobody talks about discipline like that.","محدش بيتكلم عن الانضباط كده."],
+["That's just the struggle for you.","ده التعب وبس."],["I don't play with the truth.","مش بهزر في موضوع الحقيقة."],["Where I'm from, your hustle comes first.","من عندي، شقاك بييجي الاول."],
+["Around here, hard work means everything.","هنا، الشغل الجامد يعني كل حاجة."],["You gotta respect the block.","لازم تحترم الحتة."],["Around here, brotherhood means everything.","هنا، الاخوة يعني كل حاجة."],
+["Survival is earned, not given.","النجاة بيتكسب مش بيتاديله."],["In this life, family is everything.","في الحياة دي، العيلة هو كل حاجة."],["Where I'm from, history comes first.","من عندي، التاريخ بييجي الاول."],
+["Where I'm from, the code comes first.","من عندي، القواعد بييجي الاول."],["I don't play with your word.","مش بهزر في موضوع كلامك."],["You gotta respect the crew.","لازم تحترم الشلة."],
+["You gotta respect family.","لازم تحترم العيلة."],["I don't play with trust.","مش بهزر في موضوع الثقة."],["Nobody talks about the hustle like that.","محدش بيتكلم عن الشقا كده."],
+["I don't play with loyalty.","مش بهزر في موضوع الولاء."],["You can't buy your journey.","متقدرش تشتري رحلتك."],["Respect is earned, not given.","الاحترام بيتكسب مش بيتاديله."],
+["Where I'm from, the game comes first.","من عندي، اللعبة بييجي الاول."],["Nobody talks about your name like that.","محدش بيتكلم عن اسمك كده."],["Nobody talks about honesty like that.","محدش بيتكلم عن الصراحة كده."],
+["You gotta respect the hood.","لازم تحترم الحومة."],["In this life, the hustle is everything.","في الحياة دي، الشقا هو كل حاجة."],["You gotta respect your name.","لازم تحترم اسمك."],
+["Nobody talks about the streets like that.","محدش بيتكلم عن الشارع كده."],["Where I'm from, your grind comes first.","من عندي، تعبك بييجي الاول."],["You can't buy patience.","متقدرش تشتري الصبر."],
+["The truth is earned, not given.","الحقيقة بيتكسب مش بيتاديله."],["Your grind is earned, not given.","تعبك بيتكسب مش بيتاديله."],["Around here, your legacy means everything.","هنا، اثرك يعني كل حاجة."],
+["You can't buy the struggle.","متقدرش تشتري التعب."],["I don't play with survival.","مش بهزر في موضوع النجاة."],["I don't play with the game.","مش بهزر في موضوع اللعبة."],
+["Nobody talks about the past like that.","محدش بيتكلم عن الماضي كده."],["In this life, your circle is everything.","في الحياة دي، شلتك هو كل حاجة."],["Brotherhood is earned, not given.","الاخوة بيتكسب مش بيتاديله."],
+["That's just your circle for you.","ده شلتك وبس."],["You can't buy your roots.","متقدرش تشتري اصلك."],["You gotta respect your roots.","لازم تحترم اصلك."],
+["Around here, ambition means everything.","هنا، الطموح يعني كل حاجة."],["You can't buy family.","متقدرش تشتري العيلة."],["You gotta respect your legacy.","لازم تحترم اثرك."],
+["Street smarts is earned, not given.","فهلوة الشارع بيتكسب مش بيتاديله."],["I don't play with the streets.","مش بهزر في موضوع الشارع."],["Around here, your reputation means everything.","هنا، سمعتك يعني كل حاجة."],
+["In this life, respect is everything.","في الحياة دي، الاحترام هو كل حاجة."],["I don't play with your grind.","مش بهزر في موضوع تعبك."],["In this life, trust is everything.","في الحياة دي، الثقة هو كل حاجة."],
+["Family is earned, not given.","العيلة بيتكسب مش بيتاديله."],["Nobody talks about the block like that.","محدش بيتكلم عن الحتة كده."],["Nobody talks about the game like that.","محدش بيتكلم عن اللعبة كده."],
+["In this life, street smarts is everything.","في الحياة دي، فهلوة الشارع هو كل حاجة."],["Where I'm from, the block comes first.","من عندي، الحتة بييجي الاول."],["You can't buy your reputation.","متقدرش تشتري سمعتك."],
+["In this life, the grind is everything.","في الحياة دي، الشغل الجامد هو كل حاجة."],["The streets is earned, not given.","الشارع بيتكسب مش بيتاديله."],["In this life, honesty is everything.","في الحياة دي، الصراحة هو كل حاجة."],
+["Where I'm from, the truth comes first.","من عندي، الحقيقة بييجي الاول."],["In this life, the streets is everything.","في الحياة دي، الشارع هو كل حاجة."],["Nobody talks about the grind like that.","محدش بيتكلم عن الشغل الجامد كده."],
+["You can't buy the truth.","متقدرش تشتري الحقيقة."],["Around here, trust means everything.","هنا، الثقة يعني كل حاجة."],["You can't buy your circle.","متقدرش تشتري شلتك."],
+["Hard work is earned, not given.","الشغل الجامد بيتكسب مش بيتاديله."],["You can't buy your word.","متقدرش تشتري كلامك."],["Around here, the code means everything.","هنا، القواعد يعني كل حاجة."],
+["That's just hard work for you.","ده الشغل الجامد وبس."],["Loyalty is earned, not given.","الولاء بيتكسب مش بيتاديله."],["You can't buy ambition.","متقدرش تشتري الطموح."],
+["You gotta respect street smarts.","لازم تحترم فهلوة الشارع."],["I don't play with ambition.","مش بهزر في موضوع الطموح."],["Around here, your roots means everything.","هنا، اصلك يعني كل حاجة."],
+["I don't play with the crew.","مش بهزر في موضوع الشلة."],["In this life, the crew is everything.","في الحياة دي، الشلة هو كل حاجة."],["That's just family for you.","ده العيلة وبس."],
+["You gotta respect history.","لازم تحترم التاريخ."],["Trust is earned, not given.","الثقة بيتكسب مش بيتاديله."],["Where I'm from, the struggle comes first.","من عندي، التعب بييجي الاول."],
+["In this life, the struggle is everything.","في الحياة دي، التعب هو كل حاجة."],["In this life, your journey is everything.","في الحياة دي، رحلتك هو كل حاجة."],["That's just your reputation for you.","ده سمعتك وبس."],
+["Your name is earned, not given.","اسمك بيتكسب مش بيتاديله."],["In this life, the code is everything.","في الحياة دي، القواعد هو كل حاجة."],["The block is earned, not given.","الحتة بيتكسب مش بيتاديله."],
+["You gotta respect the hustle.","لازم تحترم الشقا."],["Nobody talks about your word like that.","محدش بيتكلم عن كلامك كده."],["Where I'm from, patience comes first.","من عندي، الصبر بييجي الاول."],
+["Around here, the past means everything.","هنا، الماضي يعني كل حاجة."],["You can't buy the grind.","متقدرش تشتري الشغل الجامد."],["Around here, the hood means everything.","هنا، الحومة يعني كل حاجة."],
+["That's just the truth for you.","ده الحقيقة وبس."],["Where I'm from, your reputation comes first.","من عندي، سمعتك بييجي الاول."],["In this life, your reputation is everything.","في الحياة دي، سمعتك هو كل حاجة."],
+["Where I'm from, street smarts comes first.","من عندي، فهلوة الشارع بييجي الاول."],["That's just your journey for you.","ده رحلتك وبس."],["You can't buy your legacy.","متقدرش تشتري اثرك."],
+["You can't buy loyalty.","متقدرش تشتري الولاء."],["The hustle is earned, not given.","الشقا بيتكسب مش بيتاديله."],["You gotta respect your reputation.","لازم تحترم سمعتك."],
+["That's just reality for you.","ده الواقع وبس."],["Around here, the hustle means everything.","هنا، الشقا يعني كل حاجة."],["In this life, your legacy is everything.","في الحياة دي، اثرك هو كل حاجة."],
+["Around here, your grind means everything.","هنا، تعبك يعني كل حاجة."],["Around here, honesty means everything.","هنا، الصراحة يعني كل حاجة."],["That's just patience for you.","ده الصبر وبس."],
+["That's just your hustle for you.","ده شقاك وبس."],["That's just your legacy for you.","ده اثرك وبس."],["You gotta respect your grind.","لازم تحترم تعبك."],
+["You gotta respect respect.","لازم تحترم الاحترام."],["Around here, the streets means everything.","هنا، الشارع يعني كل حاجة."],["I don't play with history.","مش بهزر في موضوع التاريخ."],
+["You gotta respect your circle.","لازم تحترم شلتك."],["That's just your roots for you.","ده اصلك وبس."],["You gotta respect the truth.","لازم تحترم الحقيقة."],
+["You gotta respect your word.","لازم تحترم كلامك."],["Nobody talks about the truth like that.","محدش بيتكلم عن الحقيقة كده."],["Where I'm from, the grind comes first.","من عندي، الشغل الجامد بييجي الاول."],
+["You can't buy trust.","متقدرش تشتري الثقة."],["Around here, the block means everything.","هنا، الحتة يعني كل حاجة."],["Nobody talks about your legacy like that.","محدش بيتكلم عن اثرك كده."],
+["Nobody talks about your hustle like that.","محدش بيتكلم عن شقاك كده."],["Where I'm from, your journey comes first.","من عندي، رحلتك بييجي الاول."],["Your reputation is earned, not given.","سمعتك بيتكسب مش بيتاديله."],
+["Around here, your hustle means everything.","هنا، شقاك يعني كل حاجة."],["Around here, your circle means everything.","هنا، شلتك يعني كل حاجة."],["Your word is earned, not given.","كلامك بيتكسب مش بيتاديله."],
+["Your hustle is earned, not given.","شقاك بيتكسب مش بيتاديله."],["That's just the hood for you.","ده الحومة وبس."],["In this life, your name is everything.","في الحياة دي، اسمك هو كل حاجة."],
+["Around here, street smarts means everything.","هنا، فهلوة الشارع يعني كل حاجة."],["Discipline is earned, not given.","الانضباط بيتكسب مش بيتاديله."],["That's just your name for you.","ده اسمك وبس."],
+["That's just honesty for you.","ده الصراحة وبس."],["That's just the code for you.","ده القواعد وبس."],["Around here, family means everything.","هنا، العيلة يعني كل حاجة."],
+["Nobody talks about reality like that.","محدش بيتكلم عن الواقع كده."],["Nobody talks about ambition like that.","محدش بيتكلم عن الطموح كده."],["You gotta respect the past.","لازم تحترم الماضي."],
+["That's just the crew for you.","ده الشلة وبس."],["That's just the past for you.","ده الماضي وبس."],["You can't buy history.","متقدرش تشتري التاريخ."],
+["Nobody talks about history like that.","محدش بيتكلم عن التاريخ كده."],["Where I'm from, reality comes first.","من عندي، الواقع بييجي الاول."],["Nobody talks about street smarts like that.","محدش بيتكلم عن فهلوة الشارع كده."],
+["Nobody talks about your struggle like that.","محدش بيتكلم عن تعبك كده."],["I don't play with your name.","مش بهزر في موضوع اسمك."],["That's just discipline for you.","ده الانضباط وبس."],
+["In this life, the block is everything.","في الحياة دي، الحتة هو كل حاجة."],["You can't buy the hustle.","متقدرش تشتري الشقا."],["You gotta respect brotherhood.","لازم تحترم الاخوة."],
+["Nobody talks about the struggle like that.","محدش بيتكلم عن التعب كده."],["You gotta respect loyalty.","لازم تحترم الولاء."],["You can't buy the game.","متقدرش تشتري اللعبة."],
+["Around here, the game means everything.","هنا، اللعبة يعني كل حاجة."],["You gotta respect honesty.","لازم تحترم الصراحة."],["I don't play with your legacy.","مش بهزر في موضوع اثرك."],
+["You gotta respect patience.","لازم تحترم الصبر."],["In this life, discipline is everything.","في الحياة دي، الانضباط هو كل حاجة."],["Where I'm from, your name comes first.","من عندي، اسمك بييجي الاول."],
+["You can't buy reality.","متقدرش تشتري الواقع."],["You gotta respect your hustle.","لازم تحترم شقاك."],["You can't buy brotherhood.","متقدرش تشتري الاخوة."],
+["Around here, the crew means everything.","هنا، الشلة يعني كل حاجة."],["I don't play with honesty.","مش بهزر في موضوع الصراحة."],["Nobody talks about the crew like that.","محدش بيتكلم عن الشلة كده."],
+["Your circle is earned, not given.","شلتك بيتكسب مش بيتاديله."],["You gotta respect survival.","لازم تحترم النجاة."],["You can't buy discipline.","متقدرش تشتري الانضباط."],
+["Where I'm from, family comes first.","من عندي، العيلة بييجي الاول."],["Where I'm from, respect comes first.","من عندي، الاحترام بييجي الاول."],["You can't buy your struggle.","متقدرش تشتري تعبك."],
+["You can't buy respect.","متقدرش تشتري الاحترام."],["I don't play with the past.","مش بهزر في موضوع الماضي."],["Around here, history means everything.","هنا، التاريخ يعني كل حاجة."],
+["I don't play with your circle.","مش بهزر في موضوع شلتك."],["I don't play with the hood.","مش بهزر في موضوع الحومة."],["Where I'm from, the hood comes first.","من عندي، الحومة بييجي الاول."],
+["You can't buy the streets.","متقدرش تشتري الشارع."],["The crew is earned, not given.","الشلة بيتكسب مش بيتاديله."],["You can't buy street smarts.","متقدرش تشتري فهلوة الشارع."],
+["You gotta respect the game.","لازم تحترم اللعبة."],["You can't buy the block.","متقدرش تشتري الحتة."],["I don't play with your reputation.","مش بهزر في موضوع سمعتك."],
+["You can't buy the crew.","متقدرش تشتري الشلة."],["That's just brotherhood for you.","ده الاخوة وبس."],["That's just history for you.","ده التاريخ وبس."],
+["I don't play with street smarts.","مش بهزر في موضوع فهلوة الشارع."],["Around here, your word means everything.","هنا، كلامك يعني كل حاجة."],["I don't play with the grind.","مش بهزر في موضوع الشغل الجامد."],
+["Where I'm from, survival comes first.","من عندي، النجاة بييجي الاول."],["I don't play with the struggle.","مش بهزر في موضوع التعب."],["Around here, discipline means everything.","هنا، الانضباط يعني كل حاجة."],
+["Ambition is earned, not given.","الطموح بيتكسب مش بيتاديله."],["Nobody talks about your roots like that.","محدش بيتكلم عن اصلك كده."],["Nobody talks about trust like that.","محدش بيتكلم عن الثقة كده."],
+["That's just street smarts for you.","ده فهلوة الشارع وبس."],["You gotta respect the struggle.","لازم تحترم التعب."],["Patience is earned, not given.","الصبر بيتكسب مش بيتاديله."],
+["In this life, your grind is everything.","في الحياة دي، تعبك هو كل حاجة."],["You gotta respect your journey.","لازم تحترم رحلتك."],["I don't play with your roots.","مش بهزر في موضوع اصلك."],
+["Nobody talks about your circle like that.","محدش بيتكلم عن شلتك كده."],["In this life, your roots is everything.","في الحياة دي، اصلك هو كل حاجة."],["In this life, the hood is everything.","في الحياة دي، الحومة هو كل حاجة."],
+["I don't play with discipline.","مش بهزر في موضوع الانضباط."],["You gotta respect the grind.","لازم تحترم الشغل الجامد."],["Where I'm from, trust comes first.","من عندي، الثقة بييجي الاول."],
+["You gotta respect hard work.","لازم تحترم الشغل الجامد."],["That's just loyalty for you.","ده الولاء وبس."],["That's just the game for you.","ده اللعبة وبس."],
+["I don't play with family.","مش بهزر في موضوع العيلة."],["Around here, your struggle means everything.","هنا، تعبك يعني كل حاجة."],["Where I'm from, the crew comes first.","من عندي، الشلة بييجي الاول."],
+["You can't buy your hustle.","متقدرش تشتري شقاك."],["That's just your word for you.","ده كلامك وبس."],["The struggle is earned, not given.","التعب بيتكسب مش بيتاديله."],
+["Nobody talks about survival like that.","محدش بيتكلم عن النجاة كده."],["I don't play with respect.","مش بهزر في موضوع الاحترام."],["Your legacy is earned, not given.","اثرك بيتكسب مش بيتاديله."],
+["Nobody talks about hard work like that.","محدش بيتكلم عن الشغل الجامد كده."],["That's just the streets for you.","ده الشارع وبس."],["That's just respect for you.","ده الاحترام وبس."],
+["In this life, the truth is everything.","في الحياة دي، الحقيقة هو كل حاجة."],["Where I'm from, the past comes first.","من عندي، الماضي بييجي الاول."],["Around here, your name means everything.","هنا، اسمك يعني كل حاجة."],
+["Honesty is earned, not given.","الصراحة بيتكسب مش بيتاديله."],["Reality is earned, not given.","الواقع بيتكسب مش بيتاديله."],["Where I'm from, your roots comes first.","من عندي، اصلك بييجي الاول."],
+["Nobody talks about loyalty like that.","محدش بيتكلم عن الولاء كده."],["You can't buy the hood.","متقدرش تشتري الحومة."],["You gotta respect your struggle.","لازم تحترم تعبك."],
+["Your journey is earned, not given.","رحلتك بيتكسب مش بيتاديله."],["In this life, your word is everything.","في الحياة دي، كلامك هو كل حاجة."],["Where I'm from, the hustle comes first.","من عندي، الشقا بييجي الاول."],
+["Around here, the struggle means everything.","هنا، التعب يعني كل حاجة."],["You can't buy honesty.","متقدرش تشتري الصراحة."],["That's just the hustle for you.","ده الشقا وبس."],
+["In this life, ambition is everything.","في الحياة دي، الطموح هو كل حاجة."],["You gotta respect ambition.","لازم تحترم الطموح."],["In this life, brotherhood is everything.","في الحياة دي، الاخوة هو كل حاجة."],
+["I don't play with the block.","مش بهزر في موضوع الحتة."],["You gotta respect the streets.","لازم تحترم الشارع."],["That's just ambition for you.","ده الطموح وبس."],
+["That's just the grind for you.","ده الشغل الجامد وبس."],["I don't play with your journey.","مش بهزر في موضوع رحلتك."],["I don't play with your hustle.","مش بهزر في موضوع شقاك."],
+["Where I'm from, ambition comes first.","من عندي، الطموح بييجي الاول."],["You can't buy your grind.","متقدرش تشتري تعبك."],["Nobody talks about brotherhood like that.","محدش بيتكلم عن الاخوة كده."],
+["You gotta respect the code.","لازم تحترم القواعد."],["Your roots is earned, not given.","اصلك بيتكسب مش بيتاديله."],["Where I'm from, loyalty comes first.","من عندي، الولاء بييجي الاول."],
+["Around here, patience means everything.","هنا، الصبر يعني كل حاجة."],["I don't play with hard work.","مش بهزر في موضوع الشغل الجامد."],["Where I'm from, honesty comes first.","من عندي، الصراحة بييجي الاول."],
+["Around here, survival means everything.","هنا، النجاة يعني كل حاجة."],["Nobody talks about respect like that.","محدش بيتكلم عن الاحترام كده."],["You can't buy the past.","متقدرش تشتري الماضي."],
+["Where I'm from, your word comes first.","من عندي، كلامك بييجي الاول."],["Where I'm from, your struggle comes first.","من عندي، تعبك بييجي الاول."],["In this life, survival is everything.","في الحياة دي، النجاة هو كل حاجة."],
+["Where I'm from, the streets comes first.","من عندي، الشارع بييجي الاول."],["Around here, your journey means everything.","هنا، رحلتك يعني كل حاجة."],["In this life, the game is everything.","في الحياة دي، اللعبة هو كل حاجة."],
+["That's just survival for you.","ده النجاة وبس."],["Where I'm from, your legacy comes first.","من عندي، اثرك بييجي الاول."],["Around here, the grind means everything.","هنا، الشغل الجامد يعني كل حاجة."],
+["You gotta respect discipline.","لازم تحترم الانضباط."],["Your struggle is earned, not given.","تعبك بيتكسب مش بيتاديله."],["In this life, your hustle is everything.","في الحياة دي، شقاك هو كل حاجة."],
+["Nobody talks about your journey like that.","محدش بيتكلم عن رحلتك كده."],["Nobody talks about patience like that.","محدش بيتكلم عن الصبر كده."],["Around here, respect means everything.","هنا، الاحترام يعني كل حاجة."],
+["Nobody talks about your grind like that.","محدش بيتكلم عن تعبك كده."],["I don't play with patience.","مش بهزر في موضوع الصبر."],["Nobody talks about your reputation like that.","محدش بيتكلم عن سمعتك كده."],
+["In this life, hard work is everything.","في الحياة دي، الشغل الجامد هو كل حاجة."],["In this life, loyalty is everything.","في الحياة دي، الولاء هو كل حاجة."],["You can't buy the code.","متقدرش تشتري القواعد."],
+["Where I'm from, brotherhood comes first.","من عندي، الاخوة بييجي الاول."]
+],
+friends: [
+["Wanna hang out later?","عايز نتقابل بعدين؟"],["Let's grab a bite.","يلا ناكل حاجة"],["I'm down for whatever.","انا موافق على اي حاجة"],
+["Let's catch up soon.","يلا نتقابل ونتكلم قريب"],["Long time no see!","بقالنا كتير مشفناش بعض"],["What have you been up to?","بتعمل ايه من زمان؟"],
+["Let's plan something this weekend.","يلا نظبط حاجة الويكند ده"],["I missed you, man.","اشتقتلك يا صاحبي"],["Same time, same place?","نفس الميعاد ونفس المكان؟"],
+["Count me in.","انا معاكم"],["I'll bring the snacks.","انا هاجيب الاكلات"],["Let's binge a show tonight.","يلا نتفرج مسلسل كامل الليلة"],
+["You're always welcome here.","انت دايما مرحب بيك هنا"],["We should do this more often.","لازم نعمل كده اكتر"],["Text me when you're free.","ابعتلي لما تفضى"],
+["I've got your back always.","انا معاك دايما"],["Let's road trip this summer.","يلا نعمل رحلة بالعربية الصيف ده"],["I owe you one.","انا مديونلك بحاجة"],
+["Group chat is popping tonight.","الجروب مليان كلام النهاردة"],["Let's meet halfway.","يلا نتقابل في نص الطريق"],["Are you free tonight?","انت فاضي الليلة؟"],
+["I'll pick you up.","هعديك"],["We're basically family.","احنا زي العيلة تقريبا"],["That's my ride or die.","ده صاحبي اللي معايا في كل حاجة"],
+["I can always count on you.","دايما اقدر اعتمد عليك"],["Let's just wing it.","يلا نمشي عالفاضي بدون خطة"],["I'll cover you this time.","انا هدفع عنك المرة دي"],
+["What's the plan for tonight?","ايه الخطة النهاردة الليلة؟"],["Let's just vibe.","يلا بس نستمتع بالوقت"],["He's my day one.","هو صاحبي من الاول"],
+["Let's not overthink it.","متفكرش كتير خليها تلقائية"],["I'll be there in five.","هوصل في خمس دقايق"],["Save me a seat.","احجزلي مكان"],
+["We're on the same page.","احنا فاهمين بعض"],["Let's keep in touch.","يلا نفضل على تواصل"],["I trust you with anything.","بثق فيك في اي حاجة"],
+["Let's throw a get-together.","يلا نعمل تجمع صغير"],["I'll text the group.","هبعت للجروب"],["We never run out of things to talk about.","مبنخلصش كلام لما نتقابل"],
+["Let's make some memories.","يلا نعمل ذكريات"],["You know me too well.","انت عارفني كويس اوي"],["I'll always show up for you.","هكون موجود ليك دايما"],
+["Let's not lose touch.","متخلناش نبعد عن بعض"],["That's what friends are for.","ده اللي الاصحاب بيعملوه"],["I'll drop everything for you.","هسيب اي حاجة عشانك"],
+["Let's just laugh it off.","يلا بس نضحك عليها ونخلص"],["We're inseparable.","احنا مش بننفصل عن بعض"],["Let's make it a tradition.","يلا نخليها عادة سنوية"],
+["You always know how to cheer me up.","دايما عارف تفرحني"],["I'm grateful for you.","انا شاكر ليك وجودك"],
+["Who's down to hit the gym?","مين موافق نروح الجيم؟"],["Let's go to an amusement park tonight.","يلا نروح مدينة ملاهي الليلة."],["Who's down to have a barbecue?","مين موافق نعمل شوي؟"],
+["Let's plan to go to an amusement park next week.","يلا نظبط نروح مدينة ملاهي الاسبوع الجاي."],["It's been a while since we study together.","بقالنا فترة ما نذاكر مع بعضناش."],["Who's down to do karaoke?","مين موافق نغني كاريوكي؟"],
+["Let's go to the mall tonight.","يلا نروح المول الليلة."],["I'm in the mood to go for a walk.","نفسي نمشي."],["Wanna have a picnic this weekend?","عايز نعمل بيكنيك الويكند ده؟"],
+["How about we visit a museum tomorrow?","ايه رأيك نزور متحف بكرة؟"],["Wanna go to the mall this weekend?","عايز نروح المول الويكند ده؟"],["It's been a while since we go to the mall.","بقالنا فترة ما نروح المولناش."],
+["Let's play video games tonight.","يلا نلعب فيديو جيمز الليلة."],["Who's down to catch a game?","مين موافق نتفرج ماتش؟"],["It's been a while since we grab pizza.","بقالنا فترة ما ناكل بيتزاناش."],
+["I feel like we should have a movie marathon soon.","حاسس لازم نعمل ماراثون افلام قريب."],["I feel like we should have a barbecue soon.","حاسس لازم نعمل شوي قريب."],["I feel like we should play video games soon.","حاسس لازم نلعب فيديو جيمز قريب."],
+["Let's grab pizza tonight.","يلا ناكل بيتزا الليلة."],["I feel like we should go to an amusement park soon.","حاسس لازم نروح مدينة ملاهي قريب."],["Wanna watch a movie this weekend?","عايز نتفرج فيلم الويكند ده؟"],
+["I'm in the mood to study together.","نفسي نذاكر مع بعض."],["How about we go hiking tomorrow?","ايه رأيك نمشي في الجبل بكرة؟"],["It's been a while since we have a bonfire.","بقالنا فترة ما نعمل نار مخيمناش."],
+["How about we go swimming tomorrow?","ايه رأيك نعوم بكرة؟"],["I feel like we should plan a trip soon.","حاسس لازم نظبط رحلة قريب."],["It's been a while since we go hiking.","بقالنا فترة ما نمشي في الجبلناش."],
+["Who's down to go thrifting?","مين موافق نتسوق حاجات مستعملة؟"],["Wanna go to a concert this weekend?","عايز نروح حفلة الويكند ده؟"],["It's been a while since we check out a new café.","بقالنا فترة ما نجرب كافيه جديدناش."],
+["I feel like we should have a picnic soon.","حاسس لازم نعمل بيكنيك قريب."],["Who's down to have a movie marathon?","مين موافق نعمل ماراثون افلام؟"],["I'm in the mood to take a road trip.","نفسي نعمل رحلة بالعربية."],
+["Who's down to visit a museum?","مين موافق نزور متحف؟"],["I'm in the mood to do a photo shoot.","نفسي نعمل تصوير."],["How about we cook dinner together tomorrow?","ايه رأيك نطبخ عشا مع بعض بكرة؟"],
+["How about we study together tomorrow?","ايه رأيك نذاكر مع بعض بكرة؟"],["I feel like we should go for coffee soon.","حاسس لازم ناخد قهوة قريب."],["I feel like we should grab pizza soon.","حاسس لازم ناكل بيتزا قريب."],
+["Wanna visit a museum this weekend?","عايز نزور متحف الويكند ده؟"],["Who's down to study together?","مين موافق نذاكر مع بعض؟"],["I'm in the mood to cook dinner together.","نفسي نطبخ عشا مع بعض."],
+["How about we do a photo shoot tomorrow?","ايه رأيك نعمل تصوير بكرة؟"],["Let's plan to take a road trip next week.","يلا نظبط نعمل رحلة بالعربية الاسبوع الجاي."],["I feel like we should cook dinner together soon.","حاسس لازم نطبخ عشا مع بعض قريب."],
+["Wanna study together this weekend?","عايز نذاكر مع بعض الويكند ده؟"],["Let's play basketball tonight.","يلا نلعب باسكت الليلة."],["Who's down to cook dinner together?","مين موافق نطبخ عشا مع بعض؟"],
+["Wanna cook dinner together this weekend?","عايز نطبخ عشا مع بعض الويكند ده؟"],["Wanna check out a new café this weekend?","عايز نجرب كافيه جديد الويكند ده؟"],["I'm in the mood to watch the sunset.","نفسي نتفرج الغروب."],
+["Let's play cards tonight.","يلا نلعب ورق الليلة."],["Let's go to a concert tonight.","يلا نروح حفلة الليلة."],["How about we go to the mall tomorrow?","ايه رأيك نروح المول بكرة؟"],
+["Let's go bowling tonight.","يلا نلعب بولينج الليلة."],["Let's plan to go dancing next week.","يلا نظبط نرقص الاسبوع الجاي."],["Wanna play football this weekend?","عايز نلعب كورة الويكند ده؟"],
+["I'm in the mood to spend a beach day.","نفسي نقضي يوم على البحر."],["It's been a while since we do karaoke.","بقالنا فترة ما نغني كاريوكيناش."],["Let's plan to grab pizza next week.","يلا نظبط ناكل بيتزا الاسبوع الجاي."],
+["I'm in the mood to have a bonfire.","نفسي نعمل نار مخيم."],["I feel like we should play football soon.","حاسس لازم نلعب كورة قريب."],["How about we go for a walk tomorrow?","ايه رأيك نمشي بكرة؟"],
+["I feel like we should go camping soon.","حاسس لازم نعسكر قريب."],["I feel like we should go to the mall soon.","حاسس لازم نروح المول قريب."],["It's been a while since we play video games.","بقالنا فترة ما نلعب فيديو جيمزناش."],
+["I feel like we should have a game night soon.","حاسس لازم نعمل ليلة العاب قريب."],["I'm in the mood to go thrifting.","نفسي نتسوق حاجات مستعملة."],["Wanna catch a game this weekend?","عايز نتفرج ماتش الويكند ده؟"],
+["It's been a while since we take a road trip.","بقالنا فترة ما نعمل رحلة بالعربيةناش."],["I'm in the mood to hit the gym.","نفسي نروح الجيم."],["It's been a while since we go fishing.","بقالنا فترة ما نصطاد سمكناش."],
+["I feel like we should play cards soon.","حاسس لازم نلعب ورق قريب."],["I feel like we should spend a beach day soon.","حاسس لازم نقضي يوم على البحر قريب."],["Let's plan to go for coffee next week.","يلا نظبط ناخد قهوة الاسبوع الجاي."],
+["Let's plan to cook dinner together next week.","يلا نظبط نطبخ عشا مع بعض الاسبوع الجاي."],["How about we plan a trip tomorrow?","ايه رأيك نظبط رحلة بكرة؟"],["Who's down to play video games?","مين موافق نلعب فيديو جيمز؟"],
+["Let's plan to watch a movie next week.","يلا نظبط نتفرج فيلم الاسبوع الجاي."],["Let's plan to play cards next week.","يلا نظبط نلعب ورق الاسبوع الجاي."],["Let's plan to catch a game next week.","يلا نظبط نتفرج ماتش الاسبوع الجاي."],
+["Let's plan to go skating next week.","يلا نظبط نلعب سكيتنج الاسبوع الجاي."],["Let's plan to watch the sunset next week.","يلا نظبط نتفرج الغروب الاسبوع الجاي."],["Who's down to take a road trip?","مين موافق نعمل رحلة بالعربية؟"],
+["I feel like we should do karaoke soon.","حاسس لازم نغني كاريوكي قريب."],["Let's go thrifting tonight.","يلا نتسوق حاجات مستعملة الليلة."],["How about we play basketball tomorrow?","ايه رأيك نلعب باسكت بكرة؟"],
+["Let's plan to have a movie marathon next week.","يلا نظبط نعمل ماراثون افلام الاسبوع الجاي."],["I feel like we should watch a movie soon.","حاسس لازم نتفرج فيلم قريب."],["I feel like we should hit the gym soon.","حاسس لازم نروح الجيم قريب."],
+["Let's plan to check out a new café next week.","يلا نظبط نجرب كافيه جديد الاسبوع الجاي."],["I feel like we should go fishing soon.","حاسس لازم نصطاد سمك قريب."],["Wanna go to an amusement park this weekend?","عايز نروح مدينة ملاهي الويكند ده؟"],
+["How about we go dancing tomorrow?","ايه رأيك نرقص بكرة؟"],["Let's have a picnic tonight.","يلا نعمل بيكنيك الليلة."],["It's been a while since we have a game night.","بقالنا فترة ما نعمل ليلة العابناش."],
+["Who's down to grab pizza?","مين موافق ناكل بيتزا؟"],["Let's have a game night tonight.","يلا نعمل ليلة العاب الليلة."],["Who's down to play football?","مين موافق نلعب كورة؟"],
+["It's been a while since we go for coffee.","بقالنا فترة ما ناخد قهوةناش."],["I'm in the mood to go bowling.","نفسي نلعب بولينج."],["Wanna go for coffee this weekend?","عايز ناخد قهوة الويكند ده؟"],
+["How about we play cards tomorrow?","ايه رأيك نلعب ورق بكرة؟"],["I feel like we should watch the sunset soon.","حاسس لازم نتفرج الغروب قريب."],["It's been a while since we have a barbecue.","بقالنا فترة ما نعمل شويناش."],
+["Wanna take a road trip this weekend?","عايز نعمل رحلة بالعربية الويكند ده؟"],["Wanna go skating this weekend?","عايز نلعب سكيتنج الويكند ده؟"],["How about we catch a game tomorrow?","ايه رأيك نتفرج ماتش بكرة؟"],
+["How about we have a barbecue tomorrow?","ايه رأيك نعمل شوي بكرة؟"],["Let's watch a movie tonight.","يلا نتفرج فيلم الليلة."],["Who's down to go bowling?","مين موافق نلعب بولينج؟"],
+["Let's plan to go to a concert next week.","يلا نظبط نروح حفلة الاسبوع الجاي."],["Wanna go bowling this weekend?","عايز نلعب بولينج الويكند ده؟"],["It's been a while since we have a movie marathon.","بقالنا فترة ما نعمل ماراثون افلامناش."],
+["I'm in the mood to have a picnic.","نفسي نعمل بيكنيك."],["It's been a while since we visit a museum.","بقالنا فترة ما نزور متحفناش."],["I feel like we should have a bonfire soon.","حاسس لازم نعمل نار مخيم قريب."],
+["How about we check out a new café tomorrow?","ايه رأيك نجرب كافيه جديد بكرة؟"],["Let's plan to go thrifting next week.","يلا نظبط نتسوق حاجات مستعملة الاسبوع الجاي."],["Let's plan to play video games next week.","يلا نظبط نلعب فيديو جيمز الاسبوع الجاي."],
+["Who's down to go to an amusement park?","مين موافق نروح مدينة ملاهي؟"],["How about we go fishing tomorrow?","ايه رأيك نصطاد سمك بكرة؟"],["Who's down to watch the sunset?","مين موافق نتفرج الغروب؟"],
+["Who's down to go to a concert?","مين موافق نروح حفلة؟"],["Wanna go fishing this weekend?","عايز نصطاد سمك الويكند ده؟"],["Who's down to play basketball?","مين موافق نلعب باسكت؟"],
+["It's been a while since we cook dinner together.","بقالنا فترة ما نطبخ عشا مع بعضناش."],["Who's down to go skating?","مين موافق نلعب سكيتنج؟"],["I'm in the mood to go to the mall.","نفسي نروح المول."],
+["Let's plan to go camping next week.","يلا نظبط نعسكر الاسبوع الجاي."],["Let's plan to have a bonfire next week.","يلا نظبط نعمل نار مخيم الاسبوع الجاي."],["How about we do karaoke tomorrow?","ايه رأيك نغني كاريوكي بكرة؟"],
+["I feel like we should play basketball soon.","حاسس لازم نلعب باسكت قريب."],["I'm in the mood to go dancing.","نفسي نرقص."],["How about we go thrifting tomorrow?","ايه رأيك نتسوق حاجات مستعملة بكرة؟"],
+["Let's plan to have a picnic next week.","يلا نظبط نعمل بيكنيك الاسبوع الجاي."],["I'm in the mood to go fishing.","نفسي نصطاد سمك."],["Wanna have a bonfire this weekend?","عايز نعمل نار مخيم الويكند ده؟"],
+["Let's plan to hit the gym next week.","يلا نظبط نروح الجيم الاسبوع الجاي."],["It's been a while since we watch the sunset.","بقالنا فترة ما نتفرج الغروبناش."],["I feel like we should go skating soon.","حاسس لازم نلعب سكيتنج قريب."],
+["How about we take a road trip tomorrow?","ايه رأيك نعمل رحلة بالعربية بكرة؟"],["How about we go for coffee tomorrow?","ايه رأيك ناخد قهوة بكرة؟"],["I'm in the mood to go skating.","نفسي نلعب سكيتنج."],
+["Wanna grab pizza this weekend?","عايز ناكل بيتزا الويكند ده؟"],["I'm in the mood to grab pizza.","نفسي ناكل بيتزا."],["Who's down to watch a movie?","مين موافق نتفرج فيلم؟"],
+["Let's go for a walk tonight.","يلا نمشي الليلة."],["It's been a while since we go to a concert.","بقالنا فترة ما نروح حفلةناش."],["It's been a while since we go camping.","بقالنا فترة ما نعسكرناش."],
+["Who's down to have a bonfire?","مين موافق نعمل نار مخيم؟"],["How about we watch a movie tomorrow?","ايه رأيك نتفرج فيلم بكرة؟"],["I'm in the mood to watch a movie.","نفسي نتفرج فيلم."],
+["Let's plan to go bowling next week.","يلا نظبط نلعب بولينج الاسبوع الجاي."],["Let's have a barbecue tonight.","يلا نعمل شوي الليلة."],["Who's down to have a picnic?","مين موافق نعمل بيكنيك؟"],
+["How about we go to a concert tomorrow?","ايه رأيك نروح حفلة بكرة؟"],["Who's down to spend a beach day?","مين موافق نقضي يوم على البحر؟"],["Who's down to do a photo shoot?","مين موافق نعمل تصوير؟"],
+["It's been a while since we go dancing.","بقالنا فترة ما نرقصناش."],["I'm in the mood to play basketball.","نفسي نلعب باسكت."],["Let's do a photo shoot tonight.","يلا نعمل تصوير الليلة."],
+["I'm in the mood to visit a museum.","نفسي نزور متحف."],["Who's down to play cards?","مين موافق نلعب ورق؟"],["It's been a while since we go skating.","بقالنا فترة ما نلعب سكيتنجناش."],
+["I'm in the mood to go to an amusement park.","نفسي نروح مدينة ملاهي."],["Wanna have a movie marathon this weekend?","عايز نعمل ماراثون افلام الويكند ده؟"],["I'm in the mood to have a movie marathon.","نفسي نعمل ماراثون افلام."],
+["How about we go skating tomorrow?","ايه رأيك نلعب سكيتنج بكرة؟"],["Wanna have a barbecue this weekend?","عايز نعمل شوي الويكند ده؟"],["Who's down to go hiking?","مين موافق نمشي في الجبل؟"],
+["Let's have a movie marathon tonight.","يلا نعمل ماراثون افلام الليلة."],["How about we have a movie marathon tomorrow?","ايه رأيك نعمل ماراثون افلام بكرة؟"],["Let's go swimming tonight.","يلا نعوم الليلة."],
+["Let's try a new restaurant tonight.","يلا نجرب مطعم جديد الليلة."],["I'm in the mood to go to a concert.","نفسي نروح حفلة."],["I'm in the mood to catch a game.","نفسي نتفرج ماتش."],
+["It's been a while since we have a picnic.","بقالنا فترة ما نعمل بيكنيكناش."],["It's been a while since we spend a beach day.","بقالنا فترة ما نقضي يوم على البحرناش."],["I feel like we should study together soon.","حاسس لازم نذاكر مع بعض قريب."],
+["Let's plan to have a barbecue next week.","يلا نظبط نعمل شوي الاسبوع الجاي."],["How about we go to an amusement park tomorrow?","ايه رأيك نروح مدينة ملاهي بكرة؟"],["Let's plan to try a new restaurant next week.","يلا نظبط نجرب مطعم جديد الاسبوع الجاي."],
+["Let's plan to go hiking next week.","يلا نظبط نمشي في الجبل الاسبوع الجاي."],["Wanna go dancing this weekend?","عايز نرقص الويكند ده؟"],["It's been a while since we go to an amusement park.","بقالنا فترة ما نروح مدينة ملاهيناش."],
+["Let's go fishing tonight.","يلا نصطاد سمك الليلة."],["I feel like we should take a road trip soon.","حاسس لازم نعمل رحلة بالعربية قريب."],["I feel like we should go hiking soon.","حاسس لازم نمشي في الجبل قريب."],
+["Let's do karaoke tonight.","يلا نغني كاريوكي الليلة."],["It's been a while since we try a new restaurant.","بقالنا فترة ما نجرب مطعم جديدناش."],["I feel like we should try a new restaurant soon.","حاسس لازم نجرب مطعم جديد قريب."],
+["It's been a while since we play cards.","بقالنا فترة ما نلعب ورقناش."],["I'm in the mood to have a game night.","نفسي نعمل ليلة العاب."],["Wanna go for a walk this weekend?","عايز نمشي الويكند ده؟"],
+["It's been a while since we go thrifting.","بقالنا فترة ما نتسوق حاجات مستعملةناش."],["Let's go dancing tonight.","يلا نرقص الليلة."],["Who's down to go for coffee?","مين موافق ناخد قهوة؟"],
+["How about we spend a beach day tomorrow?","ايه رأيك نقضي يوم على البحر بكرة؟"],["Let's watch the sunset tonight.","يلا نتفرج الغروب الليلة."],["Let's have a bonfire tonight.","يلا نعمل نار مخيم الليلة."],
+["Let's plan to visit a museum next week.","يلا نظبط نزور متحف الاسبوع الجاي."],["I feel like we should go thrifting soon.","حاسس لازم نتسوق حاجات مستعملة قريب."],["It's been a while since we play basketball.","بقالنا فترة ما نلعب باسكتناش."],
+["How about we grab pizza tomorrow?","ايه رأيك ناكل بيتزا بكرة؟"],["Let's study together tonight.","يلا نذاكر مع بعض الليلة."],["I'm in the mood to go camping.","نفسي نعسكر."],
+["It's been a while since we catch a game.","بقالنا فترة ما نتفرج ماتشناش."],["How about we hit the gym tomorrow?","ايه رأيك نروح الجيم بكرة؟"],["Let's plan to have a game night next week.","يلا نظبط نعمل ليلة العاب الاسبوع الجاي."],
+["How about we go bowling tomorrow?","ايه رأيك نلعب بولينج بكرة؟"],["Let's spend a beach day tonight.","يلا نقضي يوم على البحر الليلة."],["Who's down to go fishing?","مين موافق نصطاد سمك؟"],
+["Wanna have a game night this weekend?","عايز نعمل ليلة العاب الويكند ده؟"],["Who's down to go camping?","مين موافق نعسكر؟"],["Let's hit the gym tonight.","يلا نروح الجيم الليلة."],
+["Wanna do a photo shoot this weekend?","عايز نعمل تصوير الويكند ده؟"],["Let's visit a museum tonight.","يلا نزور متحف الليلة."],["Let's plan to play basketball next week.","يلا نظبط نلعب باسكت الاسبوع الجاي."],
+["I feel like we should go to a concert soon.","حاسس لازم نروح حفلة قريب."],["Wanna do karaoke this weekend?","عايز نغني كاريوكي الويكند ده؟"],["Wanna play basketball this weekend?","عايز نلعب باسكت الويكند ده؟"],
+["Let's plan to do karaoke next week.","يلا نظبط نغني كاريوكي الاسبوع الجاي."],["Who's down to go swimming?","مين موافق نعوم؟"],["How about we watch the sunset tomorrow?","ايه رأيك نتفرج الغروب بكرة؟"],
+["I feel like we should check out a new café soon.","حاسس لازم نجرب كافيه جديد قريب."],["How about we have a game night tomorrow?","ايه رأيك نعمل ليلة العاب بكرة؟"],["Wanna play video games this weekend?","عايز نلعب فيديو جيمز الويكند ده؟"],
+["I feel like we should go bowling soon.","حاسس لازم نلعب بولينج قريب."],["Wanna plan a trip this weekend?","عايز نظبط رحلة الويكند ده؟"],["It's been a while since we plan a trip.","بقالنا فترة ما نظبط رحلةناش."],
+["Let's check out a new café tonight.","يلا نجرب كافيه جديد الليلة."],["Wanna go thrifting this weekend?","عايز نتسوق حاجات مستعملة الويكند ده؟"],["Let's go for coffee tonight.","يلا ناخد قهوة الليلة."],
+["I'm in the mood to play football.","نفسي نلعب كورة."],["Let's plan to go to the mall next week.","يلا نظبط نروح المول الاسبوع الجاي."],["Wanna go swimming this weekend?","عايز نعوم الويكند ده؟"],
+["It's been a while since we watch a movie.","بقالنا فترة ما نتفرج فيلمناش."],["I'm in the mood to go hiking.","نفسي نمشي في الجبل."],["Who's down to check out a new café?","مين موافق نجرب كافيه جديد؟"],
+["Let's plan to spend a beach day next week.","يلا نظبط نقضي يوم على البحر الاسبوع الجاي."],["Wanna hit the gym this weekend?","عايز نروح الجيم الويكند ده؟"],["Who's down to try a new restaurant?","مين موافق نجرب مطعم جديد؟"],
+["Let's plan a trip tonight.","يلا نظبط رحلة الليلة."],["Wanna try a new restaurant this weekend?","عايز نجرب مطعم جديد الويكند ده؟"],["Who's down to go to the mall?","مين موافق نروح المول؟"],
+["How about we play football tomorrow?","ايه رأيك نلعب كورة بكرة؟"],["Let's go camping tonight.","يلا نعسكر الليلة."],["Let's plan to do a photo shoot next week.","يلا نظبط نعمل تصوير الاسبوع الجاي."],
+["I'm in the mood to go for coffee.","نفسي ناخد قهوة."],["Wanna spend a beach day this weekend?","عايز نقضي يوم على البحر الويكند ده؟"],["Let's play football tonight.","يلا نلعب كورة الليلة."],
+["Wanna play cards this weekend?","عايز نلعب ورق الويكند ده؟"],["It's been a while since we play football.","بقالنا فترة ما نلعب كورةناش."],["Let's plan to plan a trip next week.","يلا نظبط نظبط رحلة الاسبوع الجاي."],
+["Who's down to plan a trip?","مين موافق نظبط رحلة؟"],["How about we play video games tomorrow?","ايه رأيك نلعب فيديو جيمز بكرة؟"],["I'm in the mood to play cards.","نفسي نلعب ورق."],
+["I feel like we should go swimming soon.","حاسس لازم نعوم قريب."],["I'm in the mood to plan a trip.","نفسي نظبط رحلة."],["Let's go skating tonight.","يلا نلعب سكيتنج الليلة."],
+["I feel like we should go dancing soon.","حاسس لازم نرقص قريب."],["How about we try a new restaurant tomorrow?","ايه رأيك نجرب مطعم جديد بكرة؟"],["Wanna go hiking this weekend?","عايز نمشي في الجبل الويكند ده؟"],
+["I feel like we should do a photo shoot soon.","حاسس لازم نعمل تصوير قريب."],["I feel like we should visit a museum soon.","حاسس لازم نزور متحف قريب."],["Let's catch a game tonight.","يلا نتفرج ماتش الليلة."],
+["Let's cook dinner together tonight.","يلا نطبخ عشا مع بعض الليلة."],["I feel like we should catch a game soon.","حاسس لازم نتفرج ماتش قريب."],["Let's go hiking tonight.","يلا نمشي في الجبل الليلة."],
+["Wanna watch the sunset this weekend?","عايز نتفرج الغروب الويكند ده؟"],["It's been a while since we go for a walk.","بقالنا فترة ما نمشيناش."],["Let's plan to go for a walk next week.","يلا نظبط نمشي الاسبوع الجاي."],
+["It's been a while since we go bowling.","بقالنا فترة ما نلعب بولينجناش."],["Let's plan to go swimming next week.","يلا نظبط نعوم الاسبوع الجاي."],["I'm in the mood to do karaoke.","نفسي نغني كاريوكي."],
+["It's been a while since we go swimming.","بقالنا فترة ما نعومناش."],["Who's down to go for a walk?","مين موافق نمشي؟"],["Who's down to have a game night?","مين موافق نعمل ليلة العاب؟"],
+["It's been a while since we do a photo shoot.","بقالنا فترة ما نعمل تصويرناش."],["Wanna go camping this weekend?","عايز نعسكر الويكند ده؟"],["I'm in the mood to play video games.","نفسي نلعب فيديو جيمز."],
+["Let's take a road trip tonight.","يلا نعمل رحلة بالعربية الليلة."]
+],
+coffee: [
+["Can I get a large iced latte?","ممكن لاتيه مثلج كبير؟"],["To go, please.","تيك اواي لو سمحت"],["For here or to go?","هنا ولا تيك اواي؟"],
+["Extra shot of espresso, please.","شوت اسبريسو زيادة لو سمحت"],["No sugar for me.","من غير سكر لي"],["Can I get oat milk instead?","ممكن حليب شوفان بدل اللبن؟"],
+["What's your best seller?","ايه اكتر حاجة بتتباع عندكم؟"],["I'll have the usual.","هاخد المعتاد بتاعي"],["Do you have Wi-Fi here?","عندكم واي فاي هنا؟"],
+["Can I get a refill?","ممكن تملي تاني؟"],["This place has the best vibe.","المكان ده جو حلو اوي"],["I'm addicted to caffeine.","انا مدمن كافيين"],
+["Let's meet at the coffee shop.","يلا نتقابل في الكافيه"],["Do you take cards?","بتاخدوا فيزا؟"],["Keep the change.","الباقي ليك"],
+["This coffee hits different.","القهوة دي طعمها مختلف"],["Can I get that iced?","ممكن اخدها مثلجة؟"],["I need my morning coffee fix.","لازم اخد جرعة القهوة بتاعتي الصبح"],
+["Let's grab a coffee and talk.","يلا ناخد قهوة ونتكلم"],["This is my go-to spot.","ده المكان اللي بروح عليه دايما"],["The barista knows my order by heart.","عامل القهوة حافظ طلبي غيبا"],
+["Can you make it extra hot?","ممكن تخليها سخنة اوي؟"],["I'll pay for both.","هدفع للاتنين"],["Split the bill?","نقسم الحساب؟"],
+["This café is my second home.","الكافيه ده بيتي التاني"],["Do you have any pastries left?","عندكم حلويات لسه فاضلة؟"],["I like it strong.","بحبها تقيلة"],
+["Let's sit outside today.","يلا نقعد برا النهاردة"],["This is way too sweet.","دي حلوة اوي كده"],["Can I get it decaf?","ممكن من غير كافيين؟"],
+["Table for two, please.","ترابيزة لشخصين لو سمحت"],["Let's people-watch for a bit.","يلا نتفرج على الناس شوية"],["This place got a new menu.","المكان ده عمل مينيو جديد"],
+["I love the smell of fresh coffee.","بحب ريحة القهوة الطازة"],["Let's try a new flavor today.","يلا نجرب طعم جديد النهاردة"],["Can I get almond milk?","ممكن حليب لوز؟"],
+["I need caffeine before I function.","محتاج كافيين قبل ما اقدر اشتغل"],["This is my study spot.","ده المكان اللي بذاكر فيه"],["Let's catch up over coffee.","يلا نتكلم ونحكي على قهوة"],
+["It's on me today.","النهاردة عليا"],["Can you add whipped cream?","ممكن تحط كريمة؟"],["This place is always packed.","المكان ده دايما زحمة"],
+["Let's beat the morning rush.","يلا نسبق الزحمة الصبح"],["I'll take it iced, not hot.","هاخدها مثلجة مش سخنة"],["Do you do loyalty cards?","عندكم كروت ولاء (خصومات)؟"],
+["This latte art is beautiful.","الرسمة على اللاتيه جميلة اوي"],["Can I sit here?","ممكن اقعد هنا؟"],["I need a caffeine break.","محتاج بريك كافيين"],
+["Let's make this our weekly thing.","يلا نخليها عادتنا الاسبوعية"],["Nothing beats a good cup of coffee.","مفيش حاجة تعدي كوباية قهوة كويسة"],
+["Can you make that a large coffee instead?","ممكن تخليها قهوة لارج بدالها؟"],["I'm craving a medium coffee right now.","نفسي في قهوة ميديم دلوقتي اوي."],["I'm craving a small coffee right now.","نفسي في قهوة سمول دلوقتي اوي."],
+["Do you have frappuccino today?","عندكم فرابتشينو النهاردة؟"],["I switched to cortado lately.","بقيت باخد كورتادو في الفترة اللي فاتت."],["Nothing beats a iced latte in the morning.","مفيش حاجة تعدي لاتيه مثلج الصبح."],
+["Nothing beats a affogato in the morning.","مفيش حاجة تعدي افوجاتو الصبح."],["Can I get a hot chocolate?","ممكن شوكولاتة سخنة؟"],["A flat white, please, to go.","فلات وايت لو سمحت، تيك اواي."],
+["I'm craving a coffee with an extra shot right now.","نفسي في قهوة بشوت زيادة دلوقتي اوي."],["A hazelnut coffee, please, to go.","قهوة بندق لو سمحت، تيك اواي."],["I switched to coffee with less ice lately.","بقيت باخد قهوة بتلج اقل في الفترة اللي فاتت."],
+["I always order a coffee with vanilla syrup.","بطلب قهوة بشراب الفانيليا دايما."],["I always order a flat white.","بطلب فلات وايت دايما."],["Can you make that a iced americano instead?","ممكن تخليها اميريكانو مثلج بدالها؟"],
+["I'll have a coffee with decaf, please.","هاخد قهوة بمن غير كافيين لو سمحت."],["I switched to coffee with extra hot lately.","بقيت باخد قهوة بسخنة اوي في الفترة اللي فاتت."],["I'll have a coffee with less ice, please.","هاخد قهوة بتلج اقل لو سمحت."],
+["Can I get a chai latte?","ممكن شاي لاتيه؟"],["I always order a pumpkin spice latte.","بطلب بمبكن سبايس لاتيه دايما."],["I'm craving a latte right now.","نفسي في لاتيه دلوقتي اوي."],
+["I'll have a coffee with extra whip, please.","هاخد قهوة بكريمة زيادة لو سمحت."],["Do you have affogato today?","عندكم افوجاتو النهاردة؟"],["I'll have a affogato, please.","هاخد افوجاتو لو سمحت."],
+["Can I get a hazelnut coffee?","ممكن قهوة بندق؟"],["A iced latte, please, to go.","لاتيه مثلج لو سمحت، تيك اواي."],["I'm craving a macchiato right now.","نفسي في ماكياتو دلوقتي اوي."],
+["Can I get a espresso?","ممكن اسبريسو؟"],["Can I get a coffee with oat milk?","ممكن قهوة بحليب الشوفان؟"],["Can you make that a coffee with oat milk instead?","ممكن تخليها قهوة بحليب الشوفان بدالها؟"],
+["A cafe au lait, please, to go.","كافيه او لييه لو سمحت، تيك اواي."],["Nothing beats a mocha in the morning.","مفيش حاجة تعدي موكا الصبح."],["I always order a drip coffee.","بطلب قهوة فلتر دايما."],
+["Do you have chai latte today?","عندكم شاي لاتيه النهاردة؟"],["Let's grab a iced americano on the way.","يلا ناخد اميريكانو مثلج في الطريق."],["Let's grab a extra-large coffee on the way.","يلا ناخد قهوة اكسترا لارج في الطريق."],
+["I always order a hazelnut coffee.","بطلب قهوة بندق دايما."],["I always order a cold brew.","بطلب كولد برو دايما."],["I'm craving a pumpkin spice latte right now.","نفسي في بمبكن سبايس لاتيه دلوقتي اوي."],
+["Can you make that a cafe au lait instead?","ممكن تخليها كافيه او لييه بدالها؟"],["Can you make that a coffee with no sugar instead?","ممكن تخليها قهوة بمن غير سكر بدالها؟"],["I always order a coffee with extra foam.","بطلب قهوة بفوم زيادة دايما."],
+["Nothing beats a Irish coffee in the morning.","مفيش حاجة تعدي قهوة ايرلندية الصبح."],["Can I get a cold brew?","ممكن كولد برو؟"],["Do you have small coffee today?","عندكم قهوة سمول النهاردة؟"],
+["I'll have a caramel macchiato, please.","هاخد كراميل ماكياتو لو سمحت."],["I'm craving a coffee with half sweet right now.","نفسي في قهوة بنص حلاوة دلوقتي اوي."],["I'm craving a iced americano right now.","نفسي في اميريكانو مثلج دلوقتي اوي."],
+["A coffee with decaf, please, to go.","قهوة بمن غير كافيين لو سمحت، تيك اواي."],["Nothing beats a cappuccino in the morning.","مفيش حاجة تعدي كابتشينو الصبح."],["A pumpkin spice latte, please, to go.","بمبكن سبايس لاتيه لو سمحت، تيك اواي."],
+["Can I get a caramel macchiato?","ممكن كراميل ماكياتو؟"],["I'll have a coffee with cinnamon on top, please.","هاخد قهوة بالقرفة فوق لو سمحت."],["Do you have vanilla latte today?","عندكم فانيليا لاتيه النهاردة؟"],
+["Can you make that a small coffee instead?","ممكن تخليها قهوة سمول بدالها؟"],["Let's grab a medium coffee on the way.","يلا ناخد قهوة ميديم في الطريق."],["I always order a coffee with almond milk.","بطلب قهوة بحليب اللوز دايما."],
+["I always order a small coffee.","بطلب قهوة سمول دايما."],["Do you have Irish coffee today?","عندكم قهوة ايرلندية النهاردة؟"],["I switched to small coffee lately.","بقيت باخد قهوة سمول في الفترة اللي فاتت."],
+["Let's grab a flat white on the way.","يلا ناخد فلات وايت في الطريق."],["I'm craving a iced latte right now.","نفسي في لاتيه مثلج دلوقتي اوي."],["I always order a mocha.","بطلب موكا دايما."],
+["Nothing beats a coffee with almond milk in the morning.","مفيش حاجة تعدي قهوة بحليب اللوز الصبح."],["Can you make that a espresso instead?","ممكن تخليها اسبريسو بدالها؟"],["I'm craving a coffee with decaf right now.","نفسي في قهوة بمن غير كافيين دلوقتي اوي."],
+["Do you have coffee with no sugar today?","عندكم قهوة بمن غير سكر النهاردة؟"],["I always order a medium coffee.","بطلب قهوة ميديم دايما."],["Let's grab a small coffee on the way.","يلا ناخد قهوة سمول في الطريق."],
+["Do you have coffee with half sweet today?","عندكم قهوة بنص حلاوة النهاردة؟"],["I always order a affogato.","بطلب افوجاتو دايما."],["Let's grab a coffee with extra whip on the way.","يلا ناخد قهوة بكريمة زيادة في الطريق."],
+["Can you make that a coffee with extra foam instead?","ممكن تخليها قهوة بفوم زيادة بدالها؟"],["Nothing beats a coffee with extra foam in the morning.","مفيش حاجة تعدي قهوة بفوم زيادة الصبح."],["I'll have a frappuccino, please.","هاخد فرابتشينو لو سمحت."],
+["A large coffee, please, to go.","قهوة لارج لو سمحت، تيك اواي."],["Nothing beats a drip coffee in the morning.","مفيش حاجة تعدي قهوة فلتر الصبح."],["Nothing beats a cold brew in the morning.","مفيش حاجة تعدي كولد برو الصبح."],
+["I always order a frappuccino.","بطلب فرابتشينو دايما."],["Can you make that a coffee with no whip instead?","ممكن تخليها قهوة بمن غير كريمة بدالها؟"],["Let's grab a coffee with decaf on the way.","يلا ناخد قهوة بمن غير كافيين في الطريق."],
+["A cold brew, please, to go.","كولد برو لو سمحت، تيك اواي."],["A caramel macchiato, please, to go.","كراميل ماكياتو لو سمحت، تيك اواي."],["I always order a large coffee.","بطلب قهوة لارج دايما."],
+["Let's grab a caramel macchiato on the way.","يلا ناخد كراميل ماكياتو في الطريق."],["I switched to cafe au lait lately.","بقيت باخد كافيه او لييه في الفترة اللي فاتت."],["Do you have large coffee today?","عندكم قهوة لارج النهاردة؟"],
+["Can you make that a hazelnut coffee instead?","ممكن تخليها قهوة بندق بدالها؟"],["I'll have a extra-large coffee, please.","هاخد قهوة اكسترا لارج لو سمحت."],["Can you make that a nitro cold brew instead?","ممكن تخليها نيترو كولد برو بدالها؟"],
+["Nothing beats a coffee with decaf in the morning.","مفيش حاجة تعدي قهوة بمن غير كافيين الصبح."],["Do you have coffee with vanilla syrup today?","عندكم قهوة بشراب الفانيليا النهاردة؟"],["Nothing beats a cafe au lait in the morning.","مفيش حاجة تعدي كافيه او لييه الصبح."],
+["I switched to large coffee lately.","بقيت باخد قهوة لارج في الفترة اللي فاتت."],["Let's grab a coffee with extra hot on the way.","يلا ناخد قهوة بسخنة اوي في الطريق."],["Do you have hazelnut coffee today?","عندكم قهوة بندق النهاردة؟"],
+["Nothing beats a hazelnut coffee in the morning.","مفيش حاجة تعدي قهوة بندق الصبح."],["Can I get a mocha?","ممكن موكا؟"],["Nothing beats a coffee with less ice in the morning.","مفيش حاجة تعدي قهوة بتلج اقل الصبح."],
+["Nothing beats a coffee with no whip in the morning.","مفيش حاجة تعدي قهوة بمن غير كريمة الصبح."],["I'll have a vanilla latte, please.","هاخد فانيليا لاتيه لو سمحت."],["I'm craving a coffee with no whip right now.","نفسي في قهوة بمن غير كريمة دلوقتي اوي."],
+["Do you have matcha latte today?","عندكم ماتشا لاتيه النهاردة؟"],["A coffee with almond milk, please, to go.","قهوة بحليب اللوز لو سمحت، تيك اواي."],["I'm craving a coffee with less ice right now.","نفسي في قهوة بتلج اقل دلوقتي اوي."],
+["I'm craving a hot chocolate right now.","نفسي في شوكولاتة سخنة دلوقتي اوي."],["Can you make that a caramel macchiato instead?","ممكن تخليها كراميل ماكياتو بدالها؟"],["Let's grab a cappuccino on the way.","يلا ناخد كابتشينو في الطريق."],
+["Can I get a cappuccino?","ممكن كابتشينو؟"],["A vanilla latte, please, to go.","فانيليا لاتيه لو سمحت، تيك اواي."],["Can I get a iced americano?","ممكن اميريكانو مثلج؟"],
+["I'm craving a coffee with almond milk right now.","نفسي في قهوة بحليب اللوز دلوقتي اوي."],["A coffee with no sugar, please, to go.","قهوة بمن غير سكر لو سمحت، تيك اواي."],["Let's grab a latte on the way.","يلا ناخد لاتيه في الطريق."],
+["Nothing beats a extra-large coffee in the morning.","مفيش حاجة تعدي قهوة اكسترا لارج الصبح."],["Let's grab a affogato on the way.","يلا ناخد افوجاتو في الطريق."],["Can you make that a coffee with vanilla syrup instead?","ممكن تخليها قهوة بشراب الفانيليا بدالها؟"],
+["Let's grab a coffee with cinnamon on top on the way.","يلا ناخد قهوة بالقرفة فوق في الطريق."],["I switched to frappuccino lately.","بقيت باخد فرابتشينو في الفترة اللي فاتت."],["I'll have a coffee with soy milk, please.","هاخد قهوة بحليب الصويا لو سمحت."],
+["I'm craving a affogato right now.","نفسي في افوجاتو دلوقتي اوي."],["I'll have a coffee with vanilla syrup, please.","هاخد قهوة بشراب الفانيليا لو سمحت."],["Do you have cortado today?","عندكم كورتادو النهاردة؟"],
+["Can you make that a macchiato instead?","ممكن تخليها ماكياتو بدالها؟"],["Do you have coffee with an extra shot today?","عندكم قهوة بشوت زيادة النهاردة؟"],["I'll have a coffee with half sweet, please.","هاخد قهوة بنص حلاوة لو سمحت."],
+["Nothing beats a coffee with extra hot in the morning.","مفيش حاجة تعدي قهوة بسخنة اوي الصبح."],["Nothing beats a coffee with vanilla syrup in the morning.","مفيش حاجة تعدي قهوة بشراب الفانيليا الصبح."],["I switched to extra-large coffee lately.","بقيت باخد قهوة اكسترا لارج في الفترة اللي فاتت."],
+["I'll have a cappuccino, please.","هاخد كابتشينو لو سمحت."],["Can I get a coffee with cinnamon on top?","ممكن قهوة بالقرفة فوق؟"],["I always order a iced latte.","بطلب لاتيه مثلج دايما."],
+["Let's grab a cold brew on the way.","يلا ناخد كولد برو في الطريق."],["I switched to affogato lately.","بقيت باخد افوجاتو في الفترة اللي فاتت."],["Do you have iced latte today?","عندكم لاتيه مثلج النهاردة؟"],
+["Can I get a Irish coffee?","ممكن قهوة ايرلندية؟"],["Nothing beats a nitro cold brew in the morning.","مفيش حاجة تعدي نيترو كولد برو الصبح."],["I switched to coffee with oat milk lately.","بقيت باخد قهوة بحليب الشوفان في الفترة اللي فاتت."],
+["I'll have a mocha, please.","هاخد موكا لو سمحت."],["I'm craving a extra-large coffee right now.","نفسي في قهوة اكسترا لارج دلوقتي اوي."],["Let's grab a americano on the way.","يلا ناخد اميريكانو في الطريق."],
+["Do you have pumpkin spice latte today?","عندكم بمبكن سبايس لاتيه النهاردة؟"],["Nothing beats a vanilla latte in the morning.","مفيش حاجة تعدي فانيليا لاتيه الصبح."],["I'm craving a cappuccino right now.","نفسي في كابتشينو دلوقتي اوي."],
+["I always order a coffee with half sweet.","بطلب قهوة بنص حلاوة دايما."],["A mocha, please, to go.","موكا لو سمحت، تيك اواي."],["I switched to iced latte lately.","بقيت باخد لاتيه مثلج في الفترة اللي فاتت."],
+["I'm craving a mocha right now.","نفسي في موكا دلوقتي اوي."],["Let's grab a coffee with an extra shot on the way.","يلا ناخد قهوة بشوت زيادة في الطريق."],["Can you make that a drip coffee instead?","ممكن تخليها قهوة فلتر بدالها؟"],
+["I'll have a espresso, please.","هاخد اسبريسو لو سمحت."],["A hot chocolate, please, to go.","شوكولاتة سخنة لو سمحت، تيك اواي."],["Let's grab a mocha on the way.","يلا ناخد موكا في الطريق."],
+["Let's grab a coffee with vanilla syrup on the way.","يلا ناخد قهوة بشراب الفانيليا في الطريق."],["I'll have a hazelnut coffee, please.","هاخد قهوة بندق لو سمحت."],["I switched to coffee with no sugar lately.","بقيت باخد قهوة بمن غير سكر في الفترة اللي فاتت."],
+["I switched to hazelnut coffee lately.","بقيت باخد قهوة بندق في الفترة اللي فاتت."],["Do you have flat white today?","عندكم فلات وايت النهاردة؟"],["Nothing beats a iced americano in the morning.","مفيش حاجة تعدي اميريكانو مثلج الصبح."],
+["Nothing beats a large coffee in the morning.","مفيش حاجة تعدي قهوة لارج الصبح."],["I'm craving a matcha latte right now.","نفسي في ماتشا لاتيه دلوقتي اوي."],["Nothing beats a pumpkin spice latte in the morning.","مفيش حاجة تعدي بمبكن سبايس لاتيه الصبح."],
+["Nothing beats a coffee with half sweet in the morning.","مفيش حاجة تعدي قهوة بنص حلاوة الصبح."],["Do you have coffee with soy milk today?","عندكم قهوة بحليب الصويا النهاردة؟"],["I'll have a coffee with extra foam, please.","هاخد قهوة بفوم زيادة لو سمحت."],
+["I always order a coffee with cinnamon on top.","بطلب قهوة بالقرفة فوق دايما."],["Can I get a drip coffee?","ممكن قهوة فلتر؟"],["A extra-large coffee, please, to go.","قهوة اكسترا لارج لو سمحت، تيك اواي."],
+["I switched to espresso lately.","بقيت باخد اسبريسو في الفترة اللي فاتت."],["Let's grab a nitro cold brew on the way.","يلا ناخد نيترو كولد برو في الطريق."],["I'll have a hot chocolate, please.","هاخد شوكولاتة سخنة لو سمحت."],
+["I'll have a iced americano, please.","هاخد اميريكانو مثلج لو سمحت."],["Can you make that a coffee with almond milk instead?","ممكن تخليها قهوة بحليب اللوز بدالها؟"],["I'll have a cortado, please.","هاخد كورتادو لو سمحت."],
+["I switched to coffee with extra foam lately.","بقيت باخد قهوة بفوم زيادة في الفترة اللي فاتت."],["I always order a coffee with less ice.","بطلب قهوة بتلج اقل دايما."],["Let's grab a hazelnut coffee on the way.","يلا ناخد قهوة بندق في الطريق."],
+["I'm craving a hazelnut coffee right now.","نفسي في قهوة بندق دلوقتي اوي."],["Can you make that a coffee with extra whip instead?","ممكن تخليها قهوة بكريمة زيادة بدالها؟"],["I always order a americano.","بطلب اميريكانو دايما."],
+["Can you make that a affogato instead?","ممكن تخليها افوجاتو بدالها؟"],["I always order a chai latte.","بطلب شاي لاتيه دايما."],["I'll have a pumpkin spice latte, please.","هاخد بمبكن سبايس لاتيه لو سمحت."],
+["Do you have drip coffee today?","عندكم قهوة فلتر النهاردة؟"],["A frappuccino, please, to go.","فرابتشينو لو سمحت، تيك اواي."],["A coffee with an extra shot, please, to go.","قهوة بشوت زيادة لو سمحت، تيك اواي."],
+["Let's grab a coffee with half sweet on the way.","يلا ناخد قهوة بنص حلاوة في الطريق."],["Can you make that a pumpkin spice latte instead?","ممكن تخليها بمبكن سبايس لاتيه بدالها؟"],["Let's grab a chai latte on the way.","يلا ناخد شاي لاتيه في الطريق."],
+["Nothing beats a macchiato in the morning.","مفيش حاجة تعدي ماكياتو الصبح."],["I always order a coffee with extra whip.","بطلب قهوة بكريمة زيادة دايما."],["I'll have a coffee with oat milk, please.","هاخد قهوة بحليب الشوفان لو سمحت."],
+["Let's grab a coffee with less ice on the way.","يلا ناخد قهوة بتلج اقل في الطريق."],["I'm craving a cafe au lait right now.","نفسي في كافيه او لييه دلوقتي اوي."],["I always order a vanilla latte.","بطلب فانيليا لاتيه دايما."],
+["Let's grab a espresso on the way.","يلا ناخد اسبريسو في الطريق."],["I switched to latte lately.","بقيت باخد لاتيه في الفترة اللي فاتت."],["I switched to matcha latte lately.","بقيت باخد ماتشا لاتيه في الفترة اللي فاتت."],
+["I always order a hot chocolate.","بطلب شوكولاتة سخنة دايما."],["I switched to coffee with almond milk lately.","بقيت باخد قهوة بحليب اللوز في الفترة اللي فاتت."],["Can I get a flat white?","ممكن فلات وايت؟"],
+["I always order a macchiato.","بطلب ماكياتو دايما."],["I'm craving a coffee with oat milk right now.","نفسي في قهوة بحليب الشوفان دلوقتي اوي."],["Can you make that a matcha latte instead?","ممكن تخليها ماتشا لاتيه بدالها؟"],
+["A matcha latte, please, to go.","ماتشا لاتيه لو سمحت، تيك اواي."],["I'll have a medium coffee, please.","هاخد قهوة ميديم لو سمحت."],["Can you make that a coffee with cinnamon on top instead?","ممكن تخليها قهوة بالقرفة فوق بدالها؟"],
+["Can you make that a cortado instead?","ممكن تخليها كورتادو بدالها؟"],["Let's grab a frappuccino on the way.","يلا ناخد فرابتشينو في الطريق."],["I'm craving a coffee with extra foam right now.","نفسي في قهوة بفوم زيادة دلوقتي اوي."],
+["Can I get a coffee with soy milk?","ممكن قهوة بحليب الصويا؟"],["Can I get a cafe au lait?","ممكن كافيه او لييه؟"],["I'll have a coffee with no whip, please.","هاخد قهوة بمن غير كريمة لو سمحت."],
+["I switched to iced americano lately.","بقيت باخد اميريكانو مثلج في الفترة اللي فاتت."],["Do you have coffee with extra whip today?","عندكم قهوة بكريمة زيادة النهاردة؟"],["A cortado, please, to go.","كورتادو لو سمحت، تيك اواي."],
+["I switched to chai latte lately.","بقيت باخد شاي لاتيه في الفترة اللي فاتت."],["Nothing beats a coffee with an extra shot in the morning.","مفيش حاجة تعدي قهوة بشوت زيادة الصبح."],["I switched to cappuccino lately.","بقيت باخد كابتشينو في الفترة اللي فاتت."],
+["Do you have coffee with no whip today?","عندكم قهوة بمن غير كريمة النهاردة؟"],["A macchiato, please, to go.","ماكياتو لو سمحت، تيك اواي."],["I always order a coffee with extra hot.","بطلب قهوة بسخنة اوي دايما."],
+["Do you have cold brew today?","عندكم كولد برو النهاردة؟"],["A espresso, please, to go.","اسبريسو لو سمحت، تيك اواي."],["I'm craving a coffee with vanilla syrup right now.","نفسي في قهوة بشراب الفانيليا دلوقتي اوي."],
+["Can you make that a hot chocolate instead?","ممكن تخليها شوكولاتة سخنة بدالها؟"],["I switched to coffee with an extra shot lately.","بقيت باخد قهوة بشوت زيادة في الفترة اللي فاتت."],["I switched to pumpkin spice latte lately.","بقيت باخد بمبكن سبايس لاتيه في الفترة اللي فاتت."],
+["I'm craving a coffee with soy milk right now.","نفسي في قهوة بحليب الصويا دلوقتي اوي."],["I'm craving a vanilla latte right now.","نفسي في فانيليا لاتيه دلوقتي اوي."],["Can I get a nitro cold brew?","ممكن نيترو كولد برو؟"],
+["A nitro cold brew, please, to go.","نيترو كولد برو لو سمحت، تيك اواي."],["I switched to coffee with decaf lately.","بقيت باخد قهوة بمن غير كافيين في الفترة اللي فاتت."],["I switched to macchiato lately.","بقيت باخد ماكياتو في الفترة اللي فاتت."],
+["Nothing beats a espresso in the morning.","مفيش حاجة تعدي اسبريسو الصبح."],["I always order a matcha latte.","بطلب ماتشا لاتيه دايما."],["Can I get a coffee with extra whip?","ممكن قهوة بكريمة زيادة؟"],
+["Can you make that a vanilla latte instead?","ممكن تخليها فانيليا لاتيه بدالها؟"],["Can I get a latte?","ممكن لاتيه؟"],["I switched to flat white lately.","بقيت باخد فلات وايت في الفترة اللي فاتت."],
+["Can I get a vanilla latte?","ممكن فانيليا لاتيه؟"],["I switched to drip coffee lately.","بقيت باخد قهوة فلتر في الفترة اللي فاتت."],["Do you have mocha today?","عندكم موكا النهاردة؟"],
+["Can I get a coffee with extra hot?","ممكن قهوة بسخنة اوي؟"],["A coffee with extra whip, please, to go.","قهوة بكريمة زيادة لو سمحت، تيك اواي."],["Do you have coffee with extra hot today?","عندكم قهوة بسخنة اوي النهاردة؟"],
+["I'll have a matcha latte, please.","هاخد ماتشا لاتيه لو سمحت."],["Can I get a iced latte?","ممكن لاتيه مثلج؟"],["Nothing beats a coffee with oat milk in the morning.","مفيش حاجة تعدي قهوة بحليب الشوفان الصبح."],
+["Can I get a pumpkin spice latte?","ممكن بمبكن سبايس لاتيه؟"],["Do you have nitro cold brew today?","عندكم نيترو كولد برو النهاردة؟"],["I always order a coffee with soy milk.","بطلب قهوة بحليب الصويا دايما."],
+["Nothing beats a frappuccino in the morning.","مفيش حاجة تعدي فرابتشينو الصبح."],["Can I get a large coffee?","ممكن قهوة لارج؟"],["Do you have iced americano today?","عندكم اميريكانو مثلج النهاردة؟"],
+["Let's grab a coffee with soy milk on the way.","يلا ناخد قهوة بحليب الصويا في الطريق."],["Can you make that a coffee with less ice instead?","ممكن تخليها قهوة بتلج اقل بدالها؟"],["I switched to coffee with half sweet lately.","بقيت باخد قهوة بنص حلاوة في الفترة اللي فاتت."],
+["Can you make that a frappuccino instead?","ممكن تخليها فرابتشينو بدالها؟"],["Can I get a extra-large coffee?","ممكن قهوة اكسترا لارج؟"],["I'll have a Irish coffee, please.","هاخد قهوة ايرلندية لو سمحت."],
+["I always order a coffee with no whip.","بطلب قهوة بمن غير كريمة دايما."],["Let's grab a cafe au lait on the way.","يلا ناخد كافيه او لييه في الطريق."],["Nothing beats a coffee with extra whip in the morning.","مفيش حاجة تعدي قهوة بكريمة زيادة الصبح."],
+["I'll have a coffee with no sugar, please.","هاخد قهوة بمن غير سكر لو سمحت."],["Can I get a americano?","ممكن اميريكانو؟"],["I always order a nitro cold brew.","بطلب نيترو كولد برو دايما."],
+["I always order a espresso.","بطلب اسبريسو دايما."],["Do you have hot chocolate today?","عندكم شوكولاتة سخنة النهاردة؟"],["I'm craving a coffee with extra whip right now.","نفسي في قهوة بكريمة زيادة دلوقتي اوي."],
+["Can I get a macchiato?","ممكن ماكياتو؟"],["Do you have coffee with almond milk today?","عندكم قهوة بحليب اللوز النهاردة؟"],["A medium coffee, please, to go.","قهوة ميديم لو سمحت، تيك اواي."],
+["Nothing beats a latte in the morning.","مفيش حاجة تعدي لاتيه الصبح."],["Do you have macchiato today?","عندكم ماكياتو النهاردة؟"],["I'll have a latte, please.","هاخد لاتيه لو سمحت."],
+["Can you make that a coffee with soy milk instead?","ممكن تخليها قهوة بحليب الصويا بدالها؟"],["Do you have coffee with oat milk today?","عندكم قهوة بحليب الشوفان النهاردة؟"],["Let's grab a large coffee on the way.","يلا ناخد قهوة لارج في الطريق."],
+["Let's grab a pumpkin spice latte on the way.","يلا ناخد بمبكن سبايس لاتيه في الطريق."],["I'm craving a americano right now.","نفسي في اميريكانو دلوقتي اوي."],["Can you make that a coffee with an extra shot instead?","ممكن تخليها قهوة بشوت زيادة بدالها؟"],
+["I switched to coffee with extra whip lately.","بقيت باخد قهوة بكريمة زيادة في الفترة اللي فاتت."],["I'm craving a chai latte right now.","نفسي في شاي لاتيه دلوقتي اوي."]
+],
+jokes: [
+["You're kidding, right?","انت بتهزر صح؟"],["I'm just messing with you.","انا بس بهزر معاك"],["That joke killed me.","النكتة دي قتلتني من الضحك"],
+["Stop, you're too funny.","بس كده انت مضحك اوي"],["I can't stop laughing.","مش قادر ابطل ضحك"],["That was a good one.","دي كانت نكتة حلوة"],
+["He's got jokes for days.","عنده نكت مفيش اخرها"],["Don't take it personally, it's just banter.","متزعلش دي هزار بس"],["You walked right into that one.","انت اللي وقعت في الفخ ده لوحدك"],
+["I was just playing around.","انا كنت بس بهزر"],["That's hilarious.","ده مضحك جدا"],["You crack me up.","بتموتني من الضحك"],
+["Can't believe you fell for that.","مش مصدق انك صدقت ده"],["I'm dying, that's too good.","انا هموت دي حلوة اوي"],["He never misses with the jokes.","نكته دايما بتضرب"],
+["That's a classic dad joke.","دي نكتة قديمة زي نكت الأباء"],["I set that up perfectly.","انا هيأت الموقف ده بالظبط"],["You should do stand-up comedy.","لازم تعمل ستاند اب كوميدي"],
+["That pun was so bad it's good.","التورية دي وحشة اوي لدرجة انها حلوة"],["He's the class clown.","هو مهرج الفصل"],["I was just kidding around.","كنت بس بهزر"],
+["You have no chill.","مفيش عندك هدوء خالص"],["That joke didn't land.","النكتة دي ما ضربتش"],["I'll never let you live that down.","مش هسيبك تنسى الموقف ده ابدا"],
+["He's got a dark sense of humor.","عنده روح دعابة سودا"],["That's an inside joke between us.","دي نكتة بيننا احنا بس"],["I laughed so hard I cried.","ضحكت لدرجة اني عيطت"],
+["Don't be so serious, lighten up.","متبقاش جاد اوي هدي"],["That was a bad joke, but I laughed anyway.","النكتة كانت وحشة بس ضحكت برضو"],["He always knows how to make people laugh.","دايما عارف يضحك الناس"],
+["I couldn't keep a straight face.","مش قدرت اعمل وش جاد"],["That was funnier in my head.","كانت مضحكة اكتر في دماغي"],["You should've seen his face.","كان لازم تشوف وشه"],
+["That joke's getting old.","النكتة دي قديمة بقى"],["I'm not laughing with you, I'm laughing at you.","مش بضحك معاك، بضحك عليك"],["He roasted him so hard.","رد عليه بهزار جامد اوي"],
+["That comeback was savage.","الرد ده كان جامد قوي"],["I walked right into that joke.","وقعت في النكتة دي لوحدي"],["You've got jokes, huh?","عندك نكت يعني؟"],
+["That's a solid one-liner.","دي جملة نكتة قوية"],["He's the funniest guy I know.","هو اضحك واحد اعرفه"],["Can't take a joke, huh?","مش بتاخد هزار يعني؟"],
+["That was too soon.","دي كانت بدري شوية على الهزار ده"],["I set myself up for that.","انا اللي حطيت نفسي في الموقف ده"],["That's comedy gold.","دي نكتة ذهب"],
+["He never breaks character when joking.","ما بيغيرش وشه لما بيهزر"],["That joke aged well.","النكتة دي طلعت لسه بتضحك"],["I'm cracking up over here.","انا بموت من الضحك هنا"],
+["That was a solid roast.","ده كان رد هزار جامد"],["Comedy is subjective, I guess.","الضحك موضوع نسبي كده يمكن"],
+["I can't get over his timing.","مش قادر انسى توقيته."],["Nobody saw that prank coming.","محدش كان متوقع المقلب ده."],["I can't get over his stand-up set.","مش قادر انسى فقرته الكوميدية."],
+["that prank had me dying.","المقلب ده موتني من الضحك."],["Her sarcasm still makes me laugh.","سخريتها لسه بيضحكني."],["That TikTok still makes me laugh.","التيك توك ده لسه بيضحكني."],
+["I nearly cried from his dry humor.","قربت اعيط من دعابته الجافة."],["Nobody saw that story coming.","محدش كان متوقع الحدوتة دي."],["I can't get over her impression of the teacher.","مش قادر انسى تقليدها للمدرس."],
+["Nobody saw her impression of the teacher coming.","محدش كان متوقع تقليدها للمدرس."],["That comeback still makes me laugh.","الرد ده لسه بيضحكني."],["I nearly cried from that impression.","قربت اعيط من التقليد ده."],
+["that awkward moment had me dying.","الموقف المحرج ده موتني من الضحك."],["Nobody saw that group chat joke coming.","محدش كان متوقع نكتة الجروب دي."],["Her impression of the teacher still makes me laugh.","تقليدها للمدرس لسه بيضحكني."],
+["that comeback was too good.","الرد ده كان حلو اوي."],["Nobody saw her comedic timing coming.","محدش كان متوقع توقيتها الكوميدي."],["Her improv still makes me laugh.","ارتجالها لسه بيضحكني."],
+["I can't get over her reaction.","مش قادر انسى ردة فعلها."],["I nearly cried from that TikTok.","قربت اعيط من التيك توك ده."],["Everyone lost it over his running joke.","الكل مات ضحك على نكتته المستمرة."],
+["I keep thinking about his blooper.","لسه فاكر غلطته المضحكة."],["That one-liner still makes me laugh.","الجملة دي لسه بيضحكني."],["I can't get over that one-liner.","مش قادر انسى الجملة دي."],
+["His roast of me still makes me laugh.","هزاره عليا لسه بيضحكني."],["I keep thinking about his dry humor.","لسه فاكر دعابته الجافة."],["I can't get over that impression.","مش قادر انسى التقليد ده."],
+["his stand-up set was too good.","فقرته الكوميدية كان حلو اوي."],["I nearly cried from that meme.","قربت اعيط من الميم ده."],["Everyone lost it over the punchline.","الكل مات ضحك على خاتمة النكتة."],
+["His sense of humor still makes me laugh.","روح الدعابة بتاعته لسه بيضحكني."],["That roast still makes me laugh.","الهزار الجامد ده لسه بيضحكني."],["his delivery was too good.","طريقة القاه كان حلو اوي."],
+["Everyone lost it over her reaction.","الكل مات ضحك على ردة فعلها."],["the punchline had me dying.","خاتمة النكتة موتني من الضحك."],["I keep thinking about the punchline.","لسه فاكر خاتمة النكتة."],
+["I can't get over her comedic timing.","مش قادر انسى توقيتها الكوميدي."],["the punchline was too good.","خاتمة النكتة كان حلو اوي."],["that skit was too good.","المشهد ده كان حلو اوي."],
+["his delivery had me dying.","طريقة القاه موتني من الضحك."],["Nobody saw that roast coming.","محدش كان متوقع الهزار الجامد ده."],["Nobody saw her wit coming.","محدش كان متوقع خفة دمها."],
+["Everyone lost it over his blooper.","الكل مات ضحك على غلطته المضحكة."],["her humor was too good.","روح دعابتها كان حلو اوي."],["That pun still makes me laugh.","التورية دي لسه بيضحكني."],
+["Her comedic timing still makes me laugh.","توقيتها الكوميدي لسه بيضحكني."],["that face he made was too good.","الوش اللي عمله كان حلو اوي."],["I nearly cried from that face he made.","قربت اعيط من الوش اللي عمله."],
+["I can't get over that roast.","مش قادر انسى الهزار الجامد ده."],["that video had me dying.","الفيديو ده موتني من الضحك."],["Nobody saw the punchline coming.","محدش كان متوقع خاتمة النكتة."],
+["Everyone lost it over her clapback.","الكل مات ضحك على ردها السريع."],["Everyone lost it over his roast of me.","الكل مات ضحك على هزاره عليا."],["I keep thinking about her sarcasm.","لسه فاكر سخريتها."],
+["I keep thinking about that impression.","لسه فاكر التقليد ده."],["I can't get over that joke.","مش قادر انسى النكتة دي."],["Everyone lost it over that impression.","الكل مات ضحك على التقليد ده."],
+["Her humor still makes me laugh.","روح دعابتها لسه بيضحكني."],["I keep thinking about that meme.","لسه فاكر الميم ده."],["Nobody saw that awkward moment coming.","محدش كان متوقع الموقف المحرج ده."],
+["Nobody saw his jokes coming.","محدش كان متوقع نكته."],["Everyone lost it over that face he made.","الكل مات ضحك على الوش اللي عمله."],["I can't get over that pun.","مش قادر انسى التورية دي."],
+["her impression of the teacher had me dying.","تقليدها للمدرس موتني من الضحك."],["That joke still makes me laugh.","النكتة دي لسه بيضحكني."],["I can't get over his delivery.","مش قادر انسى طريقة القاه."],
+["I keep thinking about that prank.","لسه فاكر المقلب ده."],["I nearly cried from her reaction.","قربت اعيط من ردة فعلها."],["Everyone lost it over that TikTok.","الكل مات ضحك على التيك توك ده."],
+["that impression was too good.","التقليد ده كان حلو اوي."],["Everyone lost it over his delivery.","الكل مات ضحك على طريقة القاه."],["I nearly cried from her wit.","قربت اعيط من خفة دمها."],
+["her clapback was too good.","ردها السريع كان حلو اوي."],["That prank still makes me laugh.","المقلب ده لسه بيضحكني."],["I can't get over that comeback.","مش قادر انسى الرد ده."],
+["her reaction was too good.","ردة فعلها كان حلو اوي."],["I nearly cried from his delivery.","قربت اعيط من طريقة القاه."],["I keep thinking about his delivery.","لسه فاكر طريقة القاه."],
+["That meme still makes me laugh.","الميم ده لسه بيضحكني."],["I nearly cried from that roast.","قربت اعيط من الهزار الجامد ده."],["Nobody saw his blooper coming.","محدش كان متوقع غلطته المضحكة."],
+["That callback joke still makes me laugh.","نكتة الرجوع دي لسه بيضحكني."],["Nobody saw his stand-up set coming.","محدش كان متوقع فقرته الكوميدية."],["His running joke still makes me laugh.","نكتته المستمرة لسه بيضحكني."],
+["I keep thinking about his running joke.","لسه فاكر نكتته المستمرة."],["I nearly cried from his jokes.","قربت اعيط من نكته."],["that TikTok was too good.","التيك توك ده كان حلو اوي."],
+["I nearly cried from the punchline.","قربت اعيط من خاتمة النكتة."],["Everyone lost it over that awkward moment.","الكل مات ضحك على الموقف المحرج ده."],["His blooper still makes me laugh.","غلطته المضحكة لسه بيضحكني."],
+["his sense of humor had me dying.","روح الدعابة بتاعته موتني من الضحك."],["I nearly cried from his roast of me.","قربت اعيط من هزاره عليا."],["I keep thinking about that TikTok.","لسه فاكر التيك توك ده."],
+["I keep thinking about her comedic timing.","لسه فاكر توقيتها الكوميدي."],["Everyone lost it over her wit.","الكل مات ضحك على خفة دمها."],["I nearly cried from her sarcasm.","قربت اعيط من سخريتها."],
+["Nobody saw his sense of humor coming.","محدش كان متوقع روح الدعابة بتاعته."],["her improv was too good.","ارتجالها كان حلو اوي."],["I can't get over her humor.","مش قادر انسى روح دعابتها."],
+["his comedy had me dying.","كوميدياه موتني من الضحك."],["Everyone lost it over her impression of the teacher.","الكل مات ضحك على تقليدها للمدرس."],["I can't get over that group chat joke.","مش قادر انسى نكتة الجروب دي."],
+["Everyone lost it over that video.","الكل مات ضحك على الفيديو ده."],["Nobody saw that skit coming.","محدش كان متوقع المشهد ده."],["I keep thinking about that video.","لسه فاكر الفيديو ده."],
+["his timing had me dying.","توقيته موتني من الضحك."],["that pun had me dying.","التورية دي موتني من الضحك."],["His comedy still makes me laugh.","كوميدياه لسه بيضحكني."],
+["Everyone lost it over that meme.","الكل مات ضحك على الميم ده."],["I nearly cried from her humor.","قربت اعيط من روح دعابتها."],["I nearly cried from that group chat joke.","قربت اعيط من نكتة الجروب دي."],
+["That skit still makes me laugh.","المشهد ده لسه بيضحكني."],["her clapback had me dying.","ردها السريع موتني من الضحك."],["His timing still makes me laugh.","توقيته لسه بيضحكني."],
+["I keep thinking about that story.","لسه فاكر الحدوتة دي."],["I nearly cried from her comedic timing.","قربت اعيط من توقيتها الكوميدي."],["her improv had me dying.","ارتجالها موتني من الضحك."],
+["I nearly cried from her clapback.","قربت اعيط من ردها السريع."],["Nobody saw his delivery coming.","محدش كان متوقع طريقة القاه."],["I keep thinking about that callback joke.","لسه فاكر نكتة الرجوع دي."],
+["That impression still makes me laugh.","التقليد ده لسه بيضحكني."],["that pun was too good.","التورية دي كان حلو اوي."],["Everyone lost it over her sarcasm.","الكل مات ضحك على سخريتها."],
+["Everyone lost it over that comeback.","الكل مات ضحك على الرد ده."],["I can't get over his jokes.","مش قادر انسى نكته."],["her reaction had me dying.","ردة فعلها موتني من الضحك."],
+["his roast of me had me dying.","هزاره عليا موتني من الضحك."],["I can't get over his blooper.","مش قادر انسى غلطته المضحكة."],["I can't get over that story.","مش قادر انسى الحدوتة دي."],
+["That video still makes me laugh.","الفيديو ده لسه بيضحكني."],["Everyone lost it over that roast.","الكل مات ضحك على الهزار الجامد ده."],["I nearly cried from her improv.","قربت اعيط من ارتجالها."],
+["I can't get over that TikTok.","مش قادر انسى التيك توك ده."],["Nobody saw that comeback coming.","محدش كان متوقع الرد ده."],["Nobody saw his dry humor coming.","محدش كان متوقع دعابته الجافة."],
+["I can't get over his dry humor.","مش قادر انسى دعابته الجافة."],["his jokes was too good.","نكته كان حلو اوي."],["Nobody saw her improv coming.","محدش كان متوقع ارتجالها."],
+["his comedy was too good.","كوميدياه كان حلو اوي."],["that TikTok had me dying.","التيك توك ده موتني من الضحك."],["Everyone lost it over her improv.","الكل مات ضحك على ارتجالها."],
+["I keep thinking about her clapback.","لسه فاكر ردها السريع."],["His dry humor still makes me laugh.","دعابته الجافة لسه بيضحكني."],["I nearly cried from that story.","قربت اعيط من الحدوتة دي."],
+["that callback joke had me dying.","نكتة الرجوع دي موتني من الضحك."],["I keep thinking about her impression of the teacher.","لسه فاكر تقليدها للمدرس."],["I can't get over his sense of humor.","مش قادر انسى روح الدعابة بتاعته."],
+["Nobody saw his roast of me coming.","محدش كان متوقع هزاره عليا."],["I keep thinking about her wit.","لسه فاكر خفة دمها."],["Everyone lost it over her humor.","الكل مات ضحك على روح دعابتها."],
+["his running joke had me dying.","نكتته المستمرة موتني من الضحك."],["I can't get over that skit.","مش قادر انسى المشهد ده."],["his stand-up set had me dying.","فقرته الكوميدية موتني من الضحك."],
+["Nobody saw that TikTok coming.","محدش كان متوقع التيك توك ده."],["that skit had me dying.","المشهد ده موتني من الضحك."],["her comedic timing had me dying.","توقيتها الكوميدي موتني من الضحك."],
+["Everyone lost it over that pun.","الكل مات ضحك على التورية دي."],["I nearly cried from that one-liner.","قربت اعيط من الجملة دي."],["I keep thinking about that joke.","لسه فاكر النكتة دي."],
+["Everyone lost it over that callback joke.","الكل مات ضحك على نكتة الرجوع دي."],["His jokes still makes me laugh.","نكته لسه بيضحكني."],["Everyone lost it over that skit.","الكل مات ضحك على المشهد ده."],
+["Nobody saw his timing coming.","محدش كان متوقع توقيته."],["I keep thinking about that face he made.","لسه فاكر الوش اللي عمله."],["that callback joke was too good.","نكتة الرجوع دي كان حلو اوي."],
+["Nobody saw that face he made coming.","محدش كان متوقع الوش اللي عمله."],["I nearly cried from that skit.","قربت اعيط من المشهد ده."],["his roast of me was too good.","هزاره عليا كان حلو اوي."],
+["Nobody saw that callback joke coming.","محدش كان متوقع نكتة الرجوع دي."],["Everyone lost it over her comedic timing.","الكل مات ضحك على توقيتها الكوميدي."],["that face he made had me dying.","الوش اللي عمله موتني من الضحك."],
+["I keep thinking about that group chat joke.","لسه فاكر نكتة الجروب دي."],["Nobody saw her humor coming.","محدش كان متوقع روح دعابتها."],["Everyone lost it over that story.","الكل مات ضحك على الحدوتة دي."],
+["I keep thinking about that awkward moment.","لسه فاكر الموقف المحرج ده."],["his timing was too good.","توقيته كان حلو اوي."],["I can't get over that video.","مش قادر انسى الفيديو ده."],
+["Nobody saw that pun coming.","محدش كان متوقع التورية دي."],["I can't get over the punchline.","مش قادر انسى خاتمة النكتة."],["I keep thinking about her humor.","لسه فاكر روح دعابتها."],
+["that roast was too good.","الهزار الجامد ده كان حلو اوي."],["her humor had me dying.","روح دعابتها موتني من الضحك."],["I can't get over her sarcasm.","مش قادر انسى سخريتها."],
+["Everyone lost it over that group chat joke.","الكل مات ضحك على نكتة الجروب دي."],["his dry humor had me dying.","دعابته الجافة موتني من الضحك."],["Everyone lost it over his stand-up set.","الكل مات ضحك على فقرته الكوميدية."],
+["I nearly cried from that pun.","قربت اعيط من التورية دي."],["I can't get over her clapback.","مش قادر انسى ردها السريع."],["that awkward moment was too good.","الموقف المحرج ده كان حلو اوي."],
+["Everyone lost it over that prank.","الكل مات ضحك على المقلب ده."],["Nobody saw that impression coming.","محدش كان متوقع التقليد ده."],["Nobody saw his running joke coming.","محدش كان متوقع نكتته المستمرة."],
+["his blooper had me dying.","غلطته المضحكة موتني من الضحك."],["I can't get over his running joke.","مش قادر انسى نكتته المستمرة."],["that meme had me dying.","الميم ده موتني من الضحك."],
+["I nearly cried from that prank.","قربت اعيط من المقلب ده."],["That group chat joke still makes me laugh.","نكتة الجروب دي لسه بيضحكني."],["That story still makes me laugh.","الحدوتة دي لسه بيضحكني."],
+["I nearly cried from that video.","قربت اعيط من الفيديو ده."],["I keep thinking about his sense of humor.","لسه فاكر روح الدعابة بتاعته."],["that joke had me dying.","النكتة دي موتني من الضحك."],
+["that meme was too good.","الميم ده كان حلو اوي."],["that joke was too good.","النكتة دي كان حلو اوي."],["her sarcasm was too good.","سخريتها كان حلو اوي."],
+["I keep thinking about his jokes.","لسه فاكر نكته."],["I keep thinking about that comeback.","لسه فاكر الرد ده."],["Nobody saw that meme coming.","محدش كان متوقع الميم ده."],
+["I can't get over her improv.","مش قادر انسى ارتجالها."],["her sarcasm had me dying.","سخريتها موتني من الضحك."],["His delivery still makes me laugh.","طريقة القاه لسه بيضحكني."],
+["her wit was too good.","خفة دمها كان حلو اوي."],["I can't get over that callback joke.","مش قادر انسى نكتة الرجوع دي."],["that group chat joke was too good.","نكتة الجروب دي كان حلو اوي."],
+["I nearly cried from his stand-up set.","قربت اعيط من فقرته الكوميدية."],["Her wit still makes me laugh.","خفة دمها لسه بيضحكني."],["Nobody saw her sarcasm coming.","محدش كان متوقع سخريتها."],
+["I nearly cried from his running joke.","قربت اعيط من نكتته المستمرة."],["I nearly cried from that awkward moment.","قربت اعيط من الموقف المحرج ده."],["I can't get over his roast of me.","مش قادر انسى هزاره عليا."],
+["her wit had me dying.","خفة دمها موتني من الضحك."],["I nearly cried from his comedy.","قربت اعيط من كوميدياه."],["I nearly cried from his blooper.","قربت اعيط من غلطته المضحكة."],
+["Everyone lost it over his timing.","الكل مات ضحك على توقيته."],["that comeback had me dying.","الرد ده موتني من الضحك."],["her comedic timing was too good.","توقيتها الكوميدي كان حلو اوي."],
+["that impression had me dying.","التقليد ده موتني من الضحك."],["his dry humor was too good.","دعابته الجافة كان حلو اوي."],["I nearly cried from his sense of humor.","قربت اعيط من روح الدعابة بتاعته."],
+["That face he made still makes me laugh.","الوش اللي عمله لسه بيضحكني."],["I keep thinking about her improv.","لسه فاكر ارتجالها."],["I nearly cried from his timing.","قربت اعيط من توقيته."],
+["Everyone lost it over that joke.","الكل مات ضحك على النكتة دي."],["His stand-up set still makes me laugh.","فقرته الكوميدية لسه بيضحكني."],["that roast had me dying.","الهزار الجامد ده موتني من الضحك."],
+["I nearly cried from that joke.","قربت اعيط من النكتة دي."],["Nobody saw her reaction coming.","محدش كان متوقع ردة فعلها."],["I keep thinking about his timing.","لسه فاكر توقيته."],
+["her impression of the teacher was too good.","تقليدها للمدرس كان حلو اوي."],["that story was too good.","الحدوتة دي كان حلو اوي."],["I can't get over that prank.","مش قادر انسى المقلب ده."],
+["Everyone lost it over his sense of humor.","الكل مات ضحك على روح الدعابة بتاعته."],["Nobody saw that video coming.","محدش كان متوقع الفيديو ده."],["Everyone lost it over his dry humor.","الكل مات ضحك على دعابته الجافة."],
+["that video was too good.","الفيديو ده كان حلو اوي."],["I can't get over her wit.","مش قادر انسى خفة دمها."],["Everyone lost it over that one-liner.","الكل مات ضحك على الجملة دي."],
+["I keep thinking about his comedy.","لسه فاكر كوميدياه."],["that story had me dying.","الحدوتة دي موتني من الضحك."],["that group chat joke had me dying.","نكتة الجروب دي موتني من الضحك."],
+["Everyone lost it over his comedy.","الكل مات ضحك على كوميدياه."],["I keep thinking about his roast of me.","لسه فاكر هزاره عليا."],["I nearly cried from that comeback.","قربت اعيط من الرد ده."],
+["his sense of humor was too good.","روح الدعابة بتاعته كان حلو اوي."],["Nobody saw that joke coming.","محدش كان متوقع النكتة دي."],["I keep thinking about his stand-up set.","لسه فاكر فقرته الكوميدية."],
+["I keep thinking about that roast.","لسه فاكر الهزار الجامد ده."],["I keep thinking about her reaction.","لسه فاكر ردة فعلها."],["Everyone lost it over his jokes.","الكل مات ضحك على نكته."],
+["I can't get over that awkward moment.","مش قادر انسى الموقف المحرج ده."],["Nobody saw his comedy coming.","محدش كان متوقع كوميدياه."],["I keep thinking about that pun.","لسه فاكر التورية دي."],
+["I can't get over that meme.","مش قادر انسى الميم ده."],["The punchline still makes me laugh.","خاتمة النكتة لسه بيضحكني."],["I nearly cried from that callback joke.","قربت اعيط من نكتة الرجوع دي."],
+["his jokes had me dying.","نكته موتني من الضحك."],["I can't get over that face he made.","مش قادر انسى الوش اللي عمله."],["that one-liner was too good.","الجملة دي كان حلو اوي."],
+["Nobody saw that one-liner coming.","محدش كان متوقع الجملة دي."],["Her clapback still makes me laugh.","ردها السريع لسه بيضحكني."],["I keep thinking about that one-liner.","لسه فاكر الجملة دي."],
+["I keep thinking about that skit.","لسه فاكر المشهد ده."],["Her reaction still makes me laugh.","ردة فعلها لسه بيضحكني."],["that one-liner had me dying.","الجملة دي موتني من الضحك."],
+["Nobody saw her clapback coming.","محدش كان متوقع ردها السريع."],["I nearly cried from her impression of the teacher.","قربت اعيط من تقليدها للمدرس."],["his running joke was too good.","نكتته المستمرة كان حلو اوي."],
+["his blooper was too good.","غلطته المضحكة كان حلو اوي."],["That awkward moment still makes me laugh.","الموقف المحرج ده لسه بيضحكني."],["that prank was too good.","المقلب ده كان حلو اوي."],
+["I can't get over his comedy.","مش قادر انسى كوميدياه."],["That bit killed the whole room.","الفقرة دي موتت القاعة كلها ضحك"],["I still quote that joke.","لسه بقول النكتة دي"],
+["That gag never gets old.","المقلب ده عمره ما بيقدم"]
+],
+sarcasm: [
+["Oh, great, another Monday.","ايه الجمال يوم اتنين تاني"],["Wow, I'm so impressed.","واو انا معجب اوي (بسخرية)"],["Nice job, genius.","شغل تحفة يا عبقري"],
+["Sure, that'll work out perfectly.","اكيد الموضوع ده هيمشي تمام (بسخرية)"],["Real smooth.","تحفة يا نجم (بسخرية)"],["Oh, you're a real comedian.","بجد انت فنان كوميدي (بسخرية)"],
+["That's cute.","ده جميل (بسخرية عن حاجة تافهة)"],["Thanks for nothing.","متشكر جدا على مفيش"],["Well, that went well.","طب ده مشى تمام (بسخرية)"],
+["You don't say.","لا يمكن! (بسخرية)"],["What a shocker.","ايه المفاجأة (بسخرية)"],["I'm shaking with excitement.","انا رعشان من الحماس (بسخرية)"],
+["Oh, how original.","واو ده فكر جديد اوي (بسخرية)"],["Wow, never heard that before.","واو ده كلام جديد اوي (بسخرية)"],["Good for you.","كفاية عليك كده (بسخرية)"],
+["You're one to talk.","انت اخر واحد يتكلم في الموضوع ده"],["I'll believe it when I see it.","هصدق لما اشوف"],["That aged well.","ده طلع صح (بسخرية عن تنبؤ غلط)"],
+["Congratulations, you did the bare minimum.","مبروك عملت اقل حاجة ممكنة"],["Oh, I'm terrified.","ايوة انا خايف اوي (بسخرية)"],["Nice try.","محاولة كويسة (بسخرية)"],
+["Bless your heart.","ربنا يخليك (بسخرية لطيفة)"],["I can't even.","مش قادر استوعب"],["Whatever you say.","زي ما تقول (بسخرية)"],
+["I'm sure you know best.","اكيد انت عارف اكتر مني (بسخرية)"],["Sounds like a personal problem.","دي مشكلتك انت مش مشكلتي"],["That's rich coming from you.","الكلام ده غريب انه جاي منك"],
+["Oh really? I had no idea.","ايوة بجد؟ ما كنتش عارف خالص (بسخرية)"],["What a genius idea.","فكرة عبقرية بجد (بسخرية)"],["I'm so proud of you.","انا فخور بيك اوي (بسخرية)"],
+["Take your time, it's not like anyone's waiting.","خد وقتك محدش مستني اصلا (بسخرية)"],["Oh, I totally believe you.","طبعا انا مصدقك تماما (بسخرية)"],["Wow, groundbreaking.","واو انجاز عظيم (بسخرية)"],
+["I'm on the edge of my seat.","انا متلهف بجد (بسخرية)"],["Thanks, that's super helpful.","متشكر ده مفيد جدا (بسخرية)"],["Read the room.","افهم الموقف اللي احنا فيه"],
+["He didn't even flinch.","هو ولا اتأثر خالص"],["That was a savage comeback.","ده كان رد جامد قوي"],["She dragged him without saying a word.","هي نكلت فيه من غير ما تتكلم كتير"],
+["He got roasted in front of everyone.","اتفرقع فيه قدام الكل"],["That clapback was legendary.","الرد ده كان اسطوري"],["Don't start something you can't finish.","متبدأش حاجة مش هتقدر تخلصها"],
+["She has a way with words.","عندها اسلوب في الكلام يوجع"],["He never backs down from a roast battle.","ما بيتراجعش ابدا في معركة الهزار"],["That was below the belt.","ده كان كلام تحت الحزام"],
+["She shut him down instantly.","سكتته على طول"],["He didn't have a comeback for that.","ما كانش عنده رد على ده"],["That roast was too personal.","الرد ده كان شخصي اوي"],
+["She's known for her sharp tongue.","معروفة بلسانها الحاد"],["He always has the last word.","دايما بياخد اخر الكلام"],
+["Nice, his excuse. Real smooth.","تحفة، عذره. ناعم اوي."],["Oh, her explanation? Real genius move.","ايوة توضيحها؟ حركة عبقرية بجد."],["Sure, that response makes total sense.","اكيد الرد ده منطقي جدا."],
+["Oh, that map? Groundbreaking.","ايوة الخريطة دي؟ اكتشاف القرن."],["Sure, his parking makes total sense.","اكيد طريقة ركنه منطقي جدا."],["Nice, that solution. Real smooth.","تحفة، الحل ده. ناعم اوي."],
+["Nice, that font choice. Real smooth.","تحفة، اختيار الخط ده. ناعم اوي."],["Nice, his apology. Real smooth.","تحفة، اعتذاره. ناعم اوي."],["Oh, that strategy? Real genius move.","ايوة الاستراتيجية دي؟ حركة عبقرية بجد."],
+["Oh, that theory? Groundbreaking.","ايوة النظرية دي؟ اكتشاف القرن."],["Wow, your effort. Never would've guessed.","واو مجهودك. مكنتش هتوقع خالص."],["Nice, his handwriting. Real smooth.","تحفة، خطه. ناعم اوي."],
+["Wow, this weather. Never would've guessed.","واو الجو ده. مكنتش هتوقع خالص."],["Sure, his apology makes total sense.","اكيد اعتذاره منطقي جدا."],["Wow, this offer. Never would've guessed.","واو العرض ده. مكنتش هتوقع خالص."],
+["I'm sure this new rule will work out great.","اكيد القاعدة الجديدة دي هيمشي تمام."],["Oh, this Wi-Fi? Groundbreaking.","ايوة الواي فاي ده؟ اكتشاف القرن."],["Oh, this new rule? Real genius move.","ايوة القاعدة الجديدة دي؟ حركة عبقرية بجد."],
+["Wow, this update. Never would've guessed.","واو التحديث ده. مكنتش هتوقع خالص."],["Sure, her explanation makes total sense.","اكيد توضيحها منطقي جدا."],["Oh, his opinion? Groundbreaking.","ايوة رأيه؟ اكتشاف القرن."],
+["Oh, this traffic? Real genius move.","ايوة الزحمة دي؟ حركة عبقرية بجد."],["Wow, this traffic. Never would've guessed.","واو الزحمة دي. مكنتش هتوقع خالص."],["Nice, his logic. Real smooth.","تحفة، منطقه. ناعم اوي."],
+["Wow, his opinion. Never would've guessed.","واو رأيه. مكنتش هتوقع خالص."],["Sure, his driving makes total sense.","اكيد سواقته منطقي جدا."],["Oh, that idea? Groundbreaking.","ايوة الفكرة دي؟ اكتشاف القرن."],
+["Oh, his excuse? Real genius move.","ايوة عذره؟ حركة عبقرية بجد."],["Sure, his memory makes total sense.","اكيد ذاكرته منطقي جدا."],["Nice, her cooking. Real smooth.","تحفة، طبيخها. ناعم اوي."],
+["Sure, this offer makes total sense.","اكيد العرض ده منطقي جدا."],["Nice, this line. Real smooth.","تحفة، الطابور ده. ناعم اوي."],["I'm sure this traffic will work out great.","اكيد الزحمة دي هيمشي تمام."],
+["Oh, her outfit choice? Groundbreaking.","ايوة اختيارها للبس؟ اكتشاف القرن."],["Wow, his attitude. Never would've guessed.","واو تصرفاته. مكنتش هتوقع خالص."],["I'm sure this offer will work out great.","اكيد العرض ده هيمشي تمام."],
+["Oh, her math? Real genius move.","ايوة حسابها؟ حركة عبقرية بجد."],["Oh, her outfit? Real genius move.","ايوة هدومها؟ حركة عبقرية بجد."],["Oh, that response? Groundbreaking.","ايوة الرد ده؟ اكتشاف القرن."],
+["Sure, that comment makes total sense.","اكيد التعليق ده منطقي جدا."],["Oh, his opinion? Real genius move.","ايوة رأيه؟ حركة عبقرية بجد."],["I'm sure his handwriting will work out great.","اكيد خطه هيمشي تمام."],
+["Sure, this update makes total sense.","اكيد التحديث ده منطقي جدا."],["Wow, her cooking. Never would've guessed.","واو طبيخها. مكنتش هتوقع خالص."],["I'm sure his parking will work out great.","اكيد طريقة ركنه هيمشي تمام."],
+["Wow, that theory. Never would've guessed.","واو النظرية دي. مكنتش هتوقع خالص."],["I'm sure her feedback will work out great.","اكيد رأيها هيمشي تمام."],["Sure, his handwriting makes total sense.","اكيد خطه منطقي جدا."],
+["I'm sure that route will work out great.","اكيد الطريق ده هيمشي تمام."],["Oh, her plan B? Real genius move.","ايوة خطتها البديلة؟ حركة عبقرية بجد."],["Sure, his prediction makes total sense.","اكيد توقعه منطقي جدا."],
+["Wow, her explanation. Never would've guessed.","واو توضيحها. مكنتش هتوقع خالص."],["I'm sure this meeting will work out great.","اكيد الاجتماع ده هيمشي تمام."],["Oh, his parking? Groundbreaking.","ايوة طريقة ركنه؟ اكتشاف القرن."],
+["Sure, this new rule makes total sense.","اكيد القاعدة الجديدة دي منطقي جدا."],["Wow, her singing. Never would've guessed.","واو غناها. مكنتش هتوقع خالص."],["Nice, her singing. Real smooth.","تحفة، غناها. ناعم اوي."],
+["Wow, that response. Never would've guessed.","واو الرد ده. مكنتش هتوقع خالص."],["Oh, your timing? Real genius move.","ايوة توقيتك؟ حركة عبقرية بجد."],["Wow, that strategy. Never would've guessed.","واو الاستراتيجية دي. مكنتش هتوقع خالص."],
+["Nice, her explanation. Real smooth.","تحفة، توضيحها. ناعم اوي."],["Nice, that strategy. Real smooth.","تحفة، الاستراتيجية دي. ناعم اوي."],["Oh, that comment? Real genius move.","ايوة التعليق ده؟ حركة عبقرية بجد."],
+["Sure, her cooking makes total sense.","اكيد طبيخها منطقي جدا."],["Nice, this offer. Real smooth.","تحفة، العرض ده. ناعم اوي."],["Oh, his logic? Groundbreaking.","ايوة منطقه؟ اكتشاف القرن."],
+["I'm sure his logic will work out great.","اكيد منطقه هيمشي تمام."],["Oh, her singing? Groundbreaking.","ايوة غناها؟ اكتشاف القرن."],["Wow, that route. Never would've guessed.","واو الطريق ده. مكنتش هتوقع خالص."],
+["Wow, this deadline. Never would've guessed.","واو الديدلاين ده. مكنتش هتوقع خالص."],["Oh, that idea? Real genius move.","ايوة الفكرة دي؟ حركة عبقرية بجد."],["Oh, her plan B? Groundbreaking.","ايوة خطتها البديلة؟ اكتشاف القرن."],
+["I'm sure that decision will work out great.","اكيد القرار ده هيمشي تمام."],["Wow, her plan B. Never would've guessed.","واو خطتها البديلة. مكنتش هتوقع خالص."],["Nice, her plan B. Real smooth.","تحفة، خطتها البديلة. ناعم اوي."],
+["Oh, her promise? Groundbreaking.","ايوة وعدها؟ اكتشاف القرن."],["Sure, that map makes total sense.","اكيد الخريطة دي منطقي جدا."],["Nice, this traffic. Real smooth.","تحفة، الزحمة دي. ناعم اوي."],
+["I'm sure this recipe will work out great.","اكيد الوصفة دي هيمشي تمام."],["I'm sure her plan B will work out great.","اكيد خطتها البديلة هيمشي تمام."],["I'm sure her explanation will work out great.","اكيد توضيحها هيمشي تمام."],
+["I'm sure this weather will work out great.","اكيد الجو ده هيمشي تمام."],["Oh, her feedback? Real genius move.","ايوة رأيها؟ حركة عبقرية بجد."],["Nice, that theory. Real smooth.","تحفة، النظرية دي. ناعم اوي."],
+["Oh, this weather? Real genius move.","ايوة الجو ده؟ حركة عبقرية بجد."],["Oh, that strategy? Groundbreaking.","ايوة الاستراتيجية دي؟ اكتشاف القرن."],["Oh, her math? Groundbreaking.","ايوة حسابها؟ اكتشاف القرن."],
+["Wow, his parking. Never would've guessed.","واو طريقة ركنه. مكنتش هتوقع خالص."],["Oh, this weather? Groundbreaking.","ايوة الجو ده؟ اكتشاف القرن."],["Nice, your plan. Real smooth.","تحفة، خطتك. ناعم اوي."],
+["Oh, her cooking? Real genius move.","ايوة طبيخها؟ حركة عبقرية بجد."],["Nice, that decision. Real smooth.","تحفة، القرار ده. ناعم اوي."],["Nice, your effort. Real smooth.","تحفة، مجهودك. ناعم اوي."],
+["Oh, his parking? Real genius move.","ايوة طريقة ركنه؟ حركة عبقرية بجد."],["Oh, this deadline? Groundbreaking.","ايوة الديدلاين ده؟ اكتشاف القرن."],["Oh, his memory? Groundbreaking.","ايوة ذاكرته؟ اكتشاف القرن."],
+["Oh, her cooking? Groundbreaking.","ايوة طبيخها؟ اكتشاف القرن."],["I'm sure his attitude will work out great.","اكيد تصرفاته هيمشي تمام."],["Oh, his handwriting? Groundbreaking.","ايوة خطه؟ اكتشاف القرن."],
+["Nice, her outfit choice. Real smooth.","تحفة، اختيارها للبس. ناعم اوي."],["I'm sure his driving will work out great.","اكيد سواقته هيمشي تمام."],["Sure, her outfit makes total sense.","اكيد هدومها منطقي جدا."],
+["I'm sure that solution will work out great.","اكيد الحل ده هيمشي تمام."],["Sure, her singing makes total sense.","اكيد غناها منطقي جدا."],["Oh, that excuse? Real genius move.","ايوة العذر ده؟ حركة عبقرية بجد."],
+["Nice, that excuse. Real smooth.","تحفة، العذر ده. ناعم اوي."],["Nice, that map. Real smooth.","تحفة، الخريطة دي. ناعم اوي."],["Wow, his excuse. Never would've guessed.","واو عذره. مكنتش هتوقع خالص."],
+["I'm sure her tone will work out great.","اكيد نبرتها هيمشي تمام."],["Wow, your plan. Never would've guessed.","واو خطتك. مكنتش هتوقع خالص."],["Oh, her outfit? Groundbreaking.","ايوة هدومها؟ اكتشاف القرن."],
+["I'm sure her outfit will work out great.","اكيد هدومها هيمشي تمام."],["Sure, this Wi-Fi makes total sense.","اكيد الواي فاي ده منطقي جدا."],["Sure, her plan B makes total sense.","اكيد خطتها البديلة منطقي جدا."],
+["Nice, his memory. Real smooth.","تحفة، ذاكرته. ناعم اوي."],["Wow, his prediction. Never would've guessed.","واو توقعه. مكنتش هتوقع خالص."],["Oh, your plan? Groundbreaking.","ايوة خطتك؟ اكتشاف القرن."],
+["Nice, that response. Real smooth.","تحفة، الرد ده. ناعم اوي."],["Oh, that decision? Groundbreaking.","ايوة القرار ده؟ اكتشاف القرن."],["Oh, his budget? Groundbreaking.","ايوة ميزانيته؟ اكتشاف القرن."],
+["Wow, his driving. Never would've guessed.","واو سواقته. مكنتش هتوقع خالص."],["I'm sure that map will work out great.","اكيد الخريطة دي هيمشي تمام."],["Wow, her feedback. Never would've guessed.","واو رأيها. مكنتش هتوقع خالص."],
+["Sure, this recipe makes total sense.","اكيد الوصفة دي منطقي جدا."],["Wow, his apology. Never would've guessed.","واو اعتذاره. مكنتش هتوقع خالص."],["Sure, his budget makes total sense.","اكيد ميزانيته منطقي جدا."],
+["Sure, his attitude makes total sense.","اكيد تصرفاته منطقي جدا."],["Wow, his handwriting. Never would've guessed.","واو خطه. مكنتش هتوقع خالص."],["Oh, this update? Real genius move.","ايوة التحديث ده؟ حركة عبقرية بجد."],
+["Oh, his attitude? Real genius move.","ايوة تصرفاته؟ حركة عبقرية بجد."],["I'm sure his memory will work out great.","اكيد ذاكرته هيمشي تمام."],["Oh, her singing? Real genius move.","ايوة غناها؟ حركة عبقرية بجد."],
+["Nice, this deadline. Real smooth.","تحفة، الديدلاين ده. ناعم اوي."],["Wow, this line. Never would've guessed.","واو الطابور ده. مكنتش هتوقع خالص."],["Wow, this new rule. Never would've guessed.","واو القاعدة الجديدة دي. مكنتش هتوقع خالص."],
+["Oh, his driving? Real genius move.","ايوة سواقته؟ حركة عبقرية بجد."],["Sure, that decision makes total sense.","اكيد القرار ده منطقي جدا."],["I'm sure his budget will work out great.","اكيد ميزانيته هيمشي تمام."],
+["Wow, her outfit. Never would've guessed.","واو هدومها. مكنتش هتوقع خالص."],["I'm sure that idea will work out great.","اكيد الفكرة دي هيمشي تمام."],["Sure, his excuse makes total sense.","اكيد عذره منطقي جدا."],
+["Wow, that solution. Never would've guessed.","واو الحل ده. مكنتش هتوقع خالص."],["I'm sure his opinion will work out great.","اكيد رأيه هيمشي تمام."],["Oh, this recipe? Groundbreaking.","ايوة الوصفة دي؟ اكتشاف القرن."],
+["Wow, this meeting. Never would've guessed.","واو الاجتماع ده. مكنتش هتوقع خالص."],["Wow, his logic. Never would've guessed.","واو منطقه. مكنتش هتوقع خالص."],["Sure, this deadline makes total sense.","اكيد الديدلاين ده منطقي جدا."],
+["Oh, that excuse? Groundbreaking.","ايوة العذر ده؟ اكتشاف القرن."],["Wow, that excuse. Never would've guessed.","واو العذر ده. مكنتش هتوقع خالص."],["Oh, this line? Real genius move.","ايوة الطابور ده؟ حركة عبقرية بجد."],
+["Oh, that solution? Groundbreaking.","ايوة الحل ده؟ اكتشاف القرن."],["Wow, her outfit choice. Never would've guessed.","واو اختيارها للبس. مكنتش هتوقع خالص."],["Oh, that font choice? Groundbreaking.","ايوة اختيار الخط ده؟ اكتشاف القرن."],
+["I'm sure his apology will work out great.","اكيد اعتذاره هيمشي تمام."],["I'm sure that response will work out great.","اكيد الرد ده هيمشي تمام."],["Wow, that map. Never would've guessed.","واو الخريطة دي. مكنتش هتوقع خالص."],
+["Nice, this new rule. Real smooth.","تحفة، القاعدة الجديدة دي. ناعم اوي."],["Wow, that decision. Never would've guessed.","واو القرار ده. مكنتش هتوقع خالص."],["Oh, that map? Real genius move.","ايوة الخريطة دي؟ حركة عبقرية بجد."],
+["Wow, that comment. Never would've guessed.","واو التعليق ده. مكنتش هتوقع خالص."],["Oh, this update? Groundbreaking.","ايوة التحديث ده؟ اكتشاف القرن."],["Nice, her math. Real smooth.","تحفة، حسابها. ناعم اوي."],
+["I'm sure his excuse will work out great.","اكيد عذره هيمشي تمام."],["Oh, this deadline? Real genius move.","ايوة الديدلاين ده؟ حركة عبقرية بجد."],["Nice, this schedule. Real smooth.","تحفة، الجدول ده. ناعم اوي."],
+["Oh, this schedule? Real genius move.","ايوة الجدول ده؟ حركة عبقرية بجد."],["Oh, his logic? Real genius move.","ايوة منطقه؟ حركة عبقرية بجد."],["I'm sure this line will work out great.","اكيد الطابور ده هيمشي تمام."],
+["Nice, that comment. Real smooth.","تحفة، التعليق ده. ناعم اوي."],["Sure, that idea makes total sense.","اكيد الفكرة دي منطقي جدا."],["Nice, his driving. Real smooth.","تحفة، سواقته. ناعم اوي."],
+["Oh, his advice? Real genius move.","ايوة نصيحته؟ حركة عبقرية بجد."],["Oh, this meeting? Real genius move.","ايوة الاجتماع ده؟ حركة عبقرية بجد."],["Nice, this recipe. Real smooth.","تحفة، الوصفة دي. ناعم اوي."],
+["Wow, his memory. Never would've guessed.","واو ذاكرته. مكنتش هتوقع خالص."],["Oh, his prediction? Real genius move.","ايوة توقعه؟ حركة عبقرية بجد."],["Oh, his memory? Real genius move.","ايوة ذاكرته؟ حركة عبقرية بجد."],
+["Nice, his prediction. Real smooth.","تحفة، توقعه. ناعم اوي."],["Nice, that route. Real smooth.","تحفة، الطريق ده. ناعم اوي."],["I'm sure your plan will work out great.","اكيد خطتك هيمشي تمام."],
+["Oh, his prediction? Groundbreaking.","ايوة توقعه؟ اكتشاف القرن."],["Sure, this line makes total sense.","اكيد الطابور ده منطقي جدا."],["Sure, her math makes total sense.","اكيد حسابها منطقي جدا."],
+["I'm sure that theory will work out great.","اكيد النظرية دي هيمشي تمام."],["Oh, her outfit choice? Real genius move.","ايوة اختيارها للبس؟ حركة عبقرية بجد."],["Wow, that font choice. Never would've guessed.","واو اختيار الخط ده. مكنتش هتوقع خالص."],
+["Sure, this schedule makes total sense.","اكيد الجدول ده منطقي جدا."],["I'm sure your timing will work out great.","اكيد توقيتك هيمشي تمام."],["Oh, this offer? Real genius move.","ايوة العرض ده؟ حركة عبقرية بجد."],
+["Oh, his budget? Real genius move.","ايوة ميزانيته؟ حركة عبقرية بجد."],["I'm sure that comment will work out great.","اكيد التعليق ده هيمشي تمام."],["I'm sure his advice will work out great.","اكيد نصيحته هيمشي تمام."],
+["I'm sure that excuse will work out great.","اكيد العذر ده هيمشي تمام."],["Oh, this schedule? Groundbreaking.","ايوة الجدول ده؟ اكتشاف القرن."],["Sure, her outfit choice makes total sense.","اكيد اختيارها للبس منطقي جدا."],
+["Oh, his advice? Groundbreaking.","ايوة نصيحته؟ اكتشاف القرن."],["Oh, this traffic? Groundbreaking.","ايوة الزحمة دي؟ اكتشاف القرن."],["I'm sure his prediction will work out great.","اكيد توقعه هيمشي تمام."],
+["Wow, his advice. Never would've guessed.","واو نصيحته. مكنتش هتوقع خالص."],["Sure, his opinion makes total sense.","اكيد رأيه منطقي جدا."],["Sure, her promise makes total sense.","اكيد وعدها منطقي جدا."],
+["Nice, his budget. Real smooth.","تحفة، ميزانيته. ناعم اوي."],["Oh, your plan? Real genius move.","ايوة خطتك؟ حركة عبقرية بجد."],["Oh, your effort? Real genius move.","ايوة مجهودك؟ حركة عبقرية بجد."],
+["I'm sure that font choice will work out great.","اكيد اختيار الخط ده هيمشي تمام."],["Sure, that excuse makes total sense.","اكيد العذر ده منطقي جدا."],["Sure, that solution makes total sense.","اكيد الحل ده منطقي جدا."],
+["Sure, this meeting makes total sense.","اكيد الاجتماع ده منطقي جدا."],["Sure, your plan makes total sense.","اكيد خطتك منطقي جدا."],["Nice, her tone. Real smooth.","تحفة، نبرتها. ناعم اوي."],
+["Oh, this line? Groundbreaking.","ايوة الطابور ده؟ اكتشاف القرن."],["Sure, that strategy makes total sense.","اكيد الاستراتيجية دي منطقي جدا."],["I'm sure this deadline will work out great.","اكيد الديدلاين ده هيمشي تمام."],
+["Nice, your timing. Real smooth.","تحفة، توقيتك. ناعم اوي."],["Oh, this offer? Groundbreaking.","ايوة العرض ده؟ اكتشاف القرن."],["Sure, his advice makes total sense.","اكيد نصيحته منطقي جدا."],
+["Nice, his opinion. Real smooth.","تحفة، رأيه. ناعم اوي."],["Wow, her promise. Never would've guessed.","واو وعدها. مكنتش هتوقع خالص."],["Oh, her explanation? Groundbreaking.","ايوة توضيحها؟ اكتشاف القرن."],
+["Nice, her feedback. Real smooth.","تحفة، رأيها. ناعم اوي."],["Oh, his attitude? Groundbreaking.","ايوة تصرفاته؟ اكتشاف القرن."],["Sure, that font choice makes total sense.","اكيد اختيار الخط ده منطقي جدا."],
+["Sure, that theory makes total sense.","اكيد النظرية دي منطقي جدا."],["Nice, this update. Real smooth.","تحفة، التحديث ده. ناعم اوي."],["Sure, your effort makes total sense.","اكيد مجهودك منطقي جدا."],
+["Oh, that response? Real genius move.","ايوة الرد ده؟ حركة عبقرية بجد."],["I'm sure this Wi-Fi will work out great.","اكيد الواي فاي ده هيمشي تمام."],["Oh, that comment? Groundbreaking.","ايوة التعليق ده؟ اكتشاف القرن."],
+["Nice, his attitude. Real smooth.","تحفة، تصرفاته. ناعم اوي."],["Oh, that decision? Real genius move.","ايوة القرار ده؟ حركة عبقرية بجد."],["Nice, her promise. Real smooth.","تحفة، وعدها. ناعم اوي."],
+["Oh, your effort? Groundbreaking.","ايوة مجهودك؟ اكتشاف القرن."],["Oh, her tone? Groundbreaking.","ايوة نبرتها؟ اكتشاف القرن."],["Nice, that idea. Real smooth.","تحفة، الفكرة دي. ناعم اوي."],
+["Oh, that route? Groundbreaking.","ايوة الطريق ده؟ اكتشاف القرن."],["I'm sure that strategy will work out great.","اكيد الاستراتيجية دي هيمشي تمام."],["Wow, that idea. Never would've guessed.","واو الفكرة دي. مكنتش هتوقع خالص."],
+["Oh, his driving? Groundbreaking.","ايوة سواقته؟ اكتشاف القرن."],["Oh, this meeting? Groundbreaking.","ايوة الاجتماع ده؟ اكتشاف القرن."],["Nice, this Wi-Fi. Real smooth.","تحفة، الواي فاي ده. ناعم اوي."],
+["Wow, this schedule. Never would've guessed.","واو الجدول ده. مكنتش هتوقع خالص."],["Oh, that route? Real genius move.","ايوة الطريق ده؟ حركة عبقرية بجد."],["Oh, her promise? Real genius move.","ايوة وعدها؟ حركة عبقرية بجد."],
+["Wow, this Wi-Fi. Never would've guessed.","واو الواي فاي ده. مكنتش هتوقع خالص."],["Sure, this weather makes total sense.","اكيد الجو ده منطقي جدا."],["Oh, this recipe? Real genius move.","ايوة الوصفة دي؟ حركة عبقرية بجد."],
+["Sure, that route makes total sense.","اكيد الطريق ده منطقي جدا."],["I'm sure your effort will work out great.","اكيد مجهودك هيمشي تمام."],["Sure, your timing makes total sense.","اكيد توقيتك منطقي جدا."],
+["Oh, his apology? Real genius move.","ايوة اعتذاره؟ حركة عبقرية بجد."],["I'm sure her math will work out great.","اكيد حسابها هيمشي تمام."],["Nice, her outfit. Real smooth.","تحفة، هدومها. ناعم اوي."],
+["Oh, that font choice? Real genius move.","ايوة اختيار الخط ده؟ حركة عبقرية بجد."],["Sure, her tone makes total sense.","اكيد نبرتها منطقي جدا."],["Oh, this new rule? Groundbreaking.","ايوة القاعدة الجديدة دي؟ اكتشاف القرن."],
+["Sure, his logic makes total sense.","اكيد منطقه منطقي جدا."],["Oh, her feedback? Groundbreaking.","ايوة رأيها؟ اكتشاف القرن."],["Sure, her feedback makes total sense.","اكيد رأيها منطقي جدا."],
+["I'm sure her cooking will work out great.","اكيد طبيخها هيمشي تمام."],["Oh, this Wi-Fi? Real genius move.","ايوة الواي فاي ده؟ حركة عبقرية بجد."],["Oh, his apology? Groundbreaking.","ايوة اعتذاره؟ اكتشاف القرن."],
+["Oh, her tone? Real genius move.","ايوة نبرتها؟ حركة عبقرية بجد."],["Nice, this meeting. Real smooth.","تحفة، الاجتماع ده. ناعم اوي."],["I'm sure this update will work out great.","اكيد التحديث ده هيمشي تمام."],
+["Oh, that theory? Real genius move.","ايوة النظرية دي؟ حركة عبقرية بجد."],["Wow, his budget. Never would've guessed.","واو ميزانيته. مكنتش هتوقع خالص."],["Nice, his advice. Real smooth.","تحفة، نصيحته. ناعم اوي."],
+["Sure, this traffic makes total sense.","اكيد الزحمة دي منطقي جدا."],["I'm sure this schedule will work out great.","اكيد الجدول ده هيمشي تمام."],["Oh, your timing? Groundbreaking.","ايوة توقيتك؟ اكتشاف القرن."],
+["Wow, your timing. Never would've guessed.","واو توقيتك. مكنتش هتوقع خالص."],["Oh, that solution? Real genius move.","ايوة الحل ده؟ حركة عبقرية بجد."],["I'm sure her singing will work out great.","اكيد غناها هيمشي تمام."],
+["I'm sure her promise will work out great.","اكيد وعدها هيمشي تمام."],["Wow, her math. Never would've guessed.","واو حسابها. مكنتش هتوقع خالص."],["Nice, this weather. Real smooth.","تحفة، الجو ده. ناعم اوي."],
+["Nice, his parking. Real smooth.","تحفة، طريقة ركنه. ناعم اوي."],["Wow, her tone. Never would've guessed.","واو نبرتها. مكنتش هتوقع خالص."],["Wow, this recipe. Never would've guessed.","واو الوصفة دي. مكنتش هتوقع خالص."],
+["I'm sure her outfit choice will work out great.","اكيد اختيارها للبس هيمشي تمام."],["Oh, his excuse? Groundbreaking.","ايوة عذره؟ اكتشاف القرن."],["Oh, his handwriting? Real genius move.","ايوة خطه؟ حركة عبقرية بجد."],
+["Oh, that? Shocking.","ايوة كده؟ مفاجأة بجد (بسخرية)"],["What a brilliant call.","قرار عبقري بجد (بسخرية)"]
+],
+rights: [
+["I know my worth.","انا عارف قيمتي"],["I won't let you disrespect me.","مش هخليك تقلل من احترامي"],["That's not okay, and I won't accept it.","ده مش تمام ومش هقبله"],
+["I deserve better than this.","انا مستاهل احسن من كده"],["Don't test my patience.","متلعبش بصبري"],["I'm not backing down.","مش هتراجع"],
+["Respect me, or leave me alone.","احترمني او سيبني في حالي"],["I have every right to speak up.","من حقي اني اتكلم"],["Don't push me.","متضغطش عليا"],
+["I stand by what I said.","انا ثابت على كلامي"],["You don't get to talk to me like that.","مش من حقك تتكلم معايا كده"],["I won't apologize for setting boundaries.","مش هعتذر عن اني بحدد حدودي"],
+["Enough is enough.","كفاية بقى"],["I'm done being quiet about this.","مش هسكت على الموضوع ده تاني"],["Nobody gets to talk over me.","محدش هيقاطعني وانا بتكلم"],
+["This is my final answer.","ده ردي النهائي"],["I won't let this slide.","مش هسيبها كده"],["That's a red line for me.","ده خط احمر بالنسبة لي"],
+["I'm allowed to say no.","من حقي اقول لأ"],["I don't owe anyone an explanation.","مش لازم اقول تفسير لحد"],["My boundaries are not up for debate.","حدودي مش موضوع نقاش"],
+["I refuse to be silenced.","مرفوض اني اتسكت"],["Watch how you talk to me.","خلي بالك ازاي بتتكلم معايا"],["I'll say this once, and I mean it.","هقولها مرة واحدة وانا جاد فيها"],
+["Don't twist my words.","متحرفش كلامي"],["I earned this, and I'll defend it.","انا استحقيت ده وهدافع عنه"],["I won't shrink myself for anyone.","مش هصغر من نفسي لحد"],
+["That crosses the line.","ده تجاوز الحد"],["I'm setting a boundary, not asking permission.","انا بحدد حدودي مش بستأذن"],["You will respect my decision.","لازم تحترم قراري"],
+["I'm not here to please everyone.","انا مش هنا عشان ارضي الكل"],["I speak for myself now.","بقيت اتكلم عن نفسي"],["Don't mistake my kindness for weakness.","متفتكرش طيبتي ضعف"],
+["I know when to walk away.","عارف امتى امشي"],["I choose my peace over your comfort.","بختار راحتي على راحتك"],["I won't tolerate disrespect.","مش هقبل قلة الاحترام"],
+["This conversation is over.","الكلام ده خلص"],["I'm allowed to change my mind.","من حقي اغير رأيي"],["I don't argue with people who don't listen.","مش بتناقش مع ناس مش بتسمع"],
+["I stand tall in what I believe.","بقف بثبات ورا اللي انا مقتنع بيه"],["You don't control my emotions.","انت مش بتتحكم في مشاعري"],["I'm done explaining myself.","مش هفضل اوضح نفسي تاني"],
+["I know my value, and it's not up for negotiation.","عارف قيمتي ومش موضوع للتفاوض"],["I protect my peace at all costs.","بحمي راحة بالي مهما حصل"],["Nobody talks down to me.","محدش يقلل مني"],
+["I'm not asking for permission anymore.","مش هستأذن تاني"],["I earned my seat at this table.","انا استحقيت مكاني هنا"],["That's my final decision.","ده قراري النهائي"],
+["I won't be a pushover.","مش هبقى واحد سهل يتلعب فيه"],["I fought for this, and I won't give it up.","اتعبت عشان اوصل لده ومش هسيبه"],
+["Nobody gets to control my focus.","محدش هيتحكم في تركيزي."],["I won't apologize for protecting my self-respect.","مش هعتذر عن اني بحمي احترامي لنفسي."],["I respect myself enough to guard my well-being.","بحترم نفسي كفاية عشان احافظ على تمام حالي."],
+["I respect myself enough to guard my focus.","بحترم نفسي كفاية عشان احافظ على تركيزي."],["I won't let anyone waste my energy.","مش هخلي حد يضيع طاقتي."],["I won't let anyone waste my focus.","مش هخلي حد يضيع تركيزي."],
+["I won't apologize for protecting my identity.","مش هعتذر عن اني بحمي هويتي."],["Nobody gets to control my honesty.","محدش هيتحكم في صراحتي."],["I won't let anyone waste my convictions.","مش هخلي حد يضيع قناعاتي."],
+["My convictions belongs to me, and only me.","قناعاتي ملكي انا بس."],["I respect myself enough to guard my convictions.","بحترم نفسي كفاية عشان احافظ على قناعاتي."],["My boundaries belongs to me, and only me.","حدودي ملكي انا بس."],
+["I protect my boundaries no matter what.","بحمي حدودي مهما حصل."],["I won't let anyone waste my priorities.","مش هخلي حد يضيع اولوياتي."],["Nobody gets to control my privacy.","محدش هيتحكم في خصوصيتي."],
+["Nobody gets to control my rights.","محدش هيتحكم في حقوقي."],["I protect my honesty no matter what.","بحمي صراحتي مهما حصل."],["Nobody gets to control my future.","محدش هيتحكم في مستقبلي."],
+["I protect my needs no matter what.","بحمي احتياجاتي مهما حصل."],["My patience is not up for negotiation.","صبري مش موضوع للتفاوض."],["My peace is not up for negotiation.","راحة بالي مش موضوع للتفاوض."],
+["Nobody gets to control my say in this.","محدش هيتحكم في كلمتي في ده."],["I protect my choices no matter what.","بحمي اختياراتي مهما حصل."],["I won't let anyone waste my voice in this.","مش هخلي حد يضيع رأيي في الموضوع ده."],
+["I respect myself enough to guard my future.","بحترم نفسي كفاية عشان احافظ على مستقبلي."],["I protect my standards no matter what.","بحمي معاييري مهما حصل."],["I respect myself enough to guard my limits.","بحترم نفسي كفاية عشان احافظ على حدود قدرتي."],
+["Nobody gets to control my priorities.","محدش هيتحكم في اولوياتي."],["I won't let anyone waste my emotions.","مش هخلي حد يضيع مشاعري."],["Nobody gets to control my worth.","محدش هيتحكم في قيمتي."],
+["Nobody gets to control my peace.","محدش هيتحكم في راحة بالي."],["My values belongs to me, and only me.","مبادئي ملكي انا بس."],["Nobody gets to control my space.","محدش هيتحكم في مساحتي."],
+["I won't apologize for protecting my potential.","مش هعتذر عن اني بحمي امكانياتي."],["I protect my voice in this no matter what.","بحمي رأيي في الموضوع ده مهما حصل."],["My standards is not up for negotiation.","معاييري مش موضوع للتفاوض."],
+["I won't apologize for protecting my right to rest.","مش هعتذر عن اني بحمي حقي في الراحة."],["Nobody gets to control my growth.","محدش هيتحكم في تطوري."],["Nobody gets to control my standards.","محدش هيتحكم في معاييري."],
+["I protect my confidence no matter what.","بحمي ثقتي بنفسي مهما حصل."],["I respect myself enough to guard my feelings.","بحترم نفسي كفاية عشان احافظ على مشاعري."],["Nobody gets to control my limits.","محدش هيتحكم في حدود قدرتي."],
+["I respect myself enough to guard my say in this.","بحترم نفسي كفاية عشان احافظ على كلمتي في ده."],["I respect myself enough to guard my energy.","بحترم نفسي كفاية عشان احافظ على طاقتي."],["I protect my feelings no matter what.","بحمي مشاعري مهما حصل."],
+["I protect my say in this no matter what.","بحمي كلمتي في ده مهما حصل."],["My well-being is not up for negotiation.","تمام حالي مش موضوع للتفاوض."],["My choices belongs to me, and only me.","اختياراتي ملكي انا بس."],
+["My feelings is not up for negotiation.","مشاعري مش موضوع للتفاوض."],["I won't let anyone waste my voice.","مش هخلي حد يضيع صوتي."],["I won't let anyone waste my sanity.","مش هخلي حد يضيع اتزاني النفسي."],
+["My energy belongs to me, and only me.","طاقتي ملكي انا بس."],["I respect myself enough to guard my patience.","بحترم نفسي كفاية عشان احافظ على صبري."],["I protect my privacy no matter what.","بحمي خصوصيتي مهما حصل."],
+["I respect myself enough to guard my voice in this.","بحترم نفسي كفاية عشان احافظ على رأيي في الموضوع ده."],["I protect my mental health no matter what.","بحمي صحتي النفسية مهما حصل."],["Nobody gets to control my potential.","محدش هيتحكم في امكانياتي."],
+["I won't let anyone waste my growth.","مش هخلي حد يضيع تطوري."],["My limits is not up for negotiation.","حدود قدرتي مش موضوع للتفاوض."],["Nobody gets to control my right to say no.","محدش هيتحكم في حقي اني اقول لأ."],
+["My feelings belongs to me, and only me.","مشاعري ملكي انا بس."],["I protect my peace no matter what.","بحمي راحة بالي مهما حصل."],["My say in this is not up for negotiation.","كلمتي في ده مش موضوع للتفاوض."],
+["My right to rest is not up for negotiation.","حقي في الراحة مش موضوع للتفاوض."],["My self-worth is not up for negotiation.","تقديري لنفسي مش موضوع للتفاوض."],["I won't let anyone waste my needs.","مش هخلي حد يضيع احتياجاتي."],
+["My growth is not up for negotiation.","تطوري مش موضوع للتفاوض."],["I won't apologize for protecting my worth.","مش هعتذر عن اني بحمي قيمتي."],["I protect my voice no matter what.","بحمي صوتي مهما حصل."],
+["My ambitions belongs to me, and only me.","طموحاتي ملكي انا بس."],["My future is not up for negotiation.","مستقبلي مش موضوع للتفاوض."],["I won't apologize for protecting my growth.","مش هعتذر عن اني بحمي تطوري."],
+["My effort belongs to me, and only me.","مجهودي ملكي انا بس."],["I protect my rights no matter what.","بحمي حقوقي مهما حصل."],["Nobody gets to control my boundaries.","محدش هيتحكم في حدودي."],
+["I won't let anyone waste my decision.","مش هخلي حد يضيع قراري."],["My honesty is not up for negotiation.","صراحتي مش موضوع للتفاوض."],["I respect myself enough to guard my rights.","بحترم نفسي كفاية عشان احافظ على حقوقي."],
+["My calm is not up for negotiation.","هدوئي مش موضوع للتفاوض."],["I protect my convictions no matter what.","بحمي قناعاتي مهما حصل."],["My space belongs to me, and only me.","مساحتي ملكي انا بس."],
+["My effort is not up for negotiation.","مجهودي مش موضوع للتفاوض."],["I protect my ambitions no matter what.","بحمي طموحاتي مهما حصل."],["My self-respect is not up for negotiation.","احترامي لنفسي مش موضوع للتفاوض."],
+["My ambitions is not up for negotiation.","طموحاتي مش موضوع للتفاوض."],["I protect my dignity no matter what.","بحمي كرامتي مهما حصل."],["I protect my right to say no no matter what.","بحمي حقي اني اقول لأ مهما حصل."],
+["I won't let anyone waste my self-worth.","مش هخلي حد يضيع تقديري لنفسي."],["My self-respect belongs to me, and only me.","احترامي لنفسي ملكي انا بس."],["Nobody gets to control my decision.","محدش هيتحكم في قراري."],
+["My self-worth belongs to me, and only me.","تقديري لنفسي ملكي انا بس."],["Nobody gets to control my voice in this.","محدش هيتحكم في رأيي في الموضوع ده."],["I won't apologize for protecting my standards.","مش هعتذر عن اني بحمي معاييري."],
+["I respect myself enough to guard my needs.","بحترم نفسي كفاية عشان احافظ على احتياجاتي."],["My voice is not up for negotiation.","صوتي مش موضوع للتفاوض."],["I won't apologize for protecting my emotions.","مش هعتذر عن اني بحمي مشاعري."],
+["I won't apologize for protecting my ambitions.","مش هعتذر عن اني بحمي طموحاتي."],["My decision is not up for negotiation.","قراري مش موضوع للتفاوض."],["I won't apologize for protecting my space.","مش هعتذر عن اني بحمي مساحتي."],
+["My sanity is not up for negotiation.","اتزاني النفسي مش موضوع للتفاوض."],["My future belongs to me, and only me.","مستقبلي ملكي انا بس."],["My emotions belongs to me, and only me.","مشاعري ملكي انا بس."],
+["My convictions is not up for negotiation.","قناعاتي مش موضوع للتفاوض."],["I protect my emotions no matter what.","بحمي مشاعري مهما حصل."],["My truth belongs to me, and only me.","حقيقتي ملكي انا بس."],
+["My truth is not up for negotiation.","حقيقتي مش موضوع للتفاوض."],["I respect myself enough to guard my right to rest.","بحترم نفسي كفاية عشان احافظ على حقي في الراحة."],["I respect myself enough to guard my self-respect.","بحترم نفسي كفاية عشان احافظ على احترامي لنفسي."],
+["My voice belongs to me, and only me.","صوتي ملكي انا بس."],["I won't let anyone waste my mental health.","مش هخلي حد يضيع صحتي النفسية."],["I won't let anyone waste my truth.","مش هخلي حد يضيع حقيقتي."],
+["Nobody gets to control my needs.","محدش هيتحكم في احتياجاتي."],["I won't let anyone waste my well-being.","مش هخلي حد يضيع تمام حالي."],["Nobody gets to control my choices.","محدش هيتحكم في اختياراتي."],
+["I respect myself enough to guard my potential.","بحترم نفسي كفاية عشان احافظ على امكانياتي."],["I protect my potential no matter what.","بحمي امكانياتي مهما حصل."],["I won't apologize for protecting my decision.","مش هعتذر عن اني بحمي قراري."],
+["I won't let anyone waste my privacy.","مش هخلي حد يضيع خصوصيتي."],["I respect myself enough to guard my honesty.","بحترم نفسي كفاية عشان احافظ على صراحتي."],["I respect myself enough to guard my choices.","بحترم نفسي كفاية عشان احافظ على اختياراتي."],
+["I respect myself enough to guard my identity.","بحترم نفسي كفاية عشان احافظ على هويتي."],["I protect my worth no matter what.","بحمي قيمتي مهما حصل."],["I respect myself enough to guard my dignity.","بحترم نفسي كفاية عشان احافظ على كرامتي."],
+["My boundaries is not up for negotiation.","حدودي مش موضوع للتفاوض."],["I respect myself enough to guard my decision.","بحترم نفسي كفاية عشان احافظ على قراري."],["I won't apologize for protecting my rights.","مش هعتذر عن اني بحمي حقوقي."],
+["Nobody gets to control my time.","محدش هيتحكم في وقتي."],["My space is not up for negotiation.","مساحتي مش موضوع للتفاوض."],["Nobody gets to control my effort.","محدش هيتحكم في مجهودي."],
+["I won't let anyone waste my worth.","مش هخلي حد يضيع قيمتي."],["Nobody gets to control my energy.","محدش هيتحكم في طاقتي."],["I won't apologize for protecting my boundaries.","مش هعتذر عن اني بحمي حدودي."],
+["I won't apologize for protecting my well-being.","مش هعتذر عن اني بحمي تمام حالي."],["I won't let anyone waste my confidence.","مش هخلي حد يضيع ثقتي بنفسي."],["Nobody gets to control my calm.","محدش هيتحكم في هدوئي."],
+["My right to say no belongs to me, and only me.","حقي اني اقول لأ ملكي انا بس."],["My worth belongs to me, and only me.","قيمتي ملكي انا بس."],["I won't let anyone waste my time.","مش هخلي حد يضيع وقتي."],
+["I won't apologize for protecting my future.","مش هعتذر عن اني بحمي مستقبلي."],["My time belongs to me, and only me.","وقتي ملكي انا بس."],["My decision belongs to me, and only me.","قراري ملكي انا بس."],
+["I won't let anyone waste my self-respect.","مش هخلي حد يضيع احترامي لنفسي."],["My mental health is not up for negotiation.","صحتي النفسية مش موضوع للتفاوض."],["I won't apologize for protecting my say in this.","مش هعتذر عن اني بحمي كلمتي في ده."],
+["I won't apologize for protecting my effort.","مش هعتذر عن اني بحمي مجهودي."],["My say in this belongs to me, and only me.","كلمتي في ده ملكي انا بس."],["I won't apologize for protecting my feelings.","مش هعتذر عن اني بحمي مشاعري."],
+["My rights belongs to me, and only me.","حقوقي ملكي انا بس."],["Nobody gets to control my voice.","محدش هيتحكم في صوتي."],["My limits belongs to me, and only me.","حدود قدرتي ملكي انا بس."],
+["Nobody gets to control my well-being.","محدش هيتحكم في تمام حالي."],["I protect my self-respect no matter what.","بحمي احترامي لنفسي مهما حصل."],["I won't apologize for protecting my peace.","مش هعتذر عن اني بحمي راحة بالي."],
+["I respect myself enough to guard my values.","بحترم نفسي كفاية عشان احافظ على مبادئي."],["I protect my sanity no matter what.","بحمي اتزاني النفسي مهما حصل."],["Nobody gets to control my feelings.","محدش هيتحكم في مشاعري."],
+["Nobody gets to control my emotions.","محدش هيتحكم في مشاعري."],["I protect my time no matter what.","بحمي وقتي مهما حصل."],["I protect my identity no matter what.","بحمي هويتي مهما حصل."],
+["I won't let anyone waste my identity.","مش هخلي حد يضيع هويتي."],["My emotions is not up for negotiation.","مشاعري مش موضوع للتفاوض."],["My worth is not up for negotiation.","قيمتي مش موضوع للتفاوض."],
+["My needs belongs to me, and only me.","احتياجاتي ملكي انا بس."],["I won't let anyone waste my feelings.","مش هخلي حد يضيع مشاعري."],["My rights is not up for negotiation.","حقوقي مش موضوع للتفاوض."],
+["I protect my patience no matter what.","بحمي صبري مهما حصل."],["My mental health belongs to me, and only me.","صحتي النفسية ملكي انا بس."],["My dignity belongs to me, and only me.","كرامتي ملكي انا بس."],
+["My voice in this is not up for negotiation.","رأيي في الموضوع ده مش موضوع للتفاوض."],["I respect myself enough to guard my standards.","بحترم نفسي كفاية عشان احافظ على معاييري."],["I respect myself enough to guard my peace.","بحترم نفسي كفاية عشان احافظ على راحة بالي."],
+["I respect myself enough to guard my voice.","بحترم نفسي كفاية عشان احافظ على صوتي."],["I won't let anyone waste my limits.","مش هخلي حد يضيع حدود قدرتي."],["I won't let anyone waste my rights.","مش هخلي حد يضيع حقوقي."],
+["I protect my focus no matter what.","بحمي تركيزي مهما حصل."],["My needs is not up for negotiation.","احتياجاتي مش موضوع للتفاوض."],["I respect myself enough to guard my sanity.","بحترم نفسي كفاية عشان احافظ على اتزاني النفسي."],
+["I won't apologize for protecting my focus.","مش هعتذر عن اني بحمي تركيزي."],["I won't let anyone waste my potential.","مش هخلي حد يضيع امكانياتي."],["I respect myself enough to guard my right to say no.","بحترم نفسي كفاية عشان احافظ على حقي اني اقول لأ."],
+["I respect myself enough to guard my calm.","بحترم نفسي كفاية عشان احافظ على هدوئي."],["I won't apologize for protecting my values.","مش هعتذر عن اني بحمي مبادئي."],["I won't apologize for protecting my needs.","مش هعتذر عن اني بحمي احتياجاتي."],
+["I respect myself enough to guard my privacy.","بحترم نفسي كفاية عشان احافظ على خصوصيتي."],["My values is not up for negotiation.","مبادئي مش موضوع للتفاوض."],["My patience belongs to me, and only me.","صبري ملكي انا بس."],
+["I won't apologize for protecting my choices.","مش هعتذر عن اني بحمي اختياراتي."],["I protect my future no matter what.","بحمي مستقبلي مهما حصل."],["I respect myself enough to guard my priorities.","بحترم نفسي كفاية عشان احافظ على اولوياتي."],
+["I respect myself enough to guard my emotions.","بحترم نفسي كفاية عشان احافظ على مشاعري."],["I won't apologize for protecting my right to say no.","مش هعتذر عن اني بحمي حقي اني اقول لأ."],["My potential belongs to me, and only me.","امكانياتي ملكي انا بس."],
+["My dignity is not up for negotiation.","كرامتي مش موضوع للتفاوض."],["I protect my values no matter what.","بحمي مبادئي مهما حصل."],["My standards belongs to me, and only me.","معاييري ملكي انا بس."],
+["I won't let anyone waste my future.","مش هخلي حد يضيع مستقبلي."],["I won't let anyone waste my values.","مش هخلي حد يضيع مبادئي."],["I respect myself enough to guard my worth.","بحترم نفسي كفاية عشان احافظ على قيمتي."],
+["I won't let anyone waste my calm.","مش هخلي حد يضيع هدوئي."],["My focus belongs to me, and only me.","تركيزي ملكي انا بس."],["I won't apologize for protecting my time.","مش هعتذر عن اني بحمي وقتي."],
+["Nobody gets to control my sanity.","محدش هيتحكم في اتزاني النفسي."],["I respect myself enough to guard my time.","بحترم نفسي كفاية عشان احافظ على وقتي."],["I won't apologize for protecting my self-worth.","مش هعتذر عن اني بحمي تقديري لنفسي."],
+["I won't let anyone waste my say in this.","مش هخلي حد يضيع كلمتي في ده."],["I won't let anyone waste my dignity.","مش هخلي حد يضيع كرامتي."],["I won't apologize for protecting my energy.","مش هعتذر عن اني بحمي طاقتي."],
+["My growth belongs to me, and only me.","تطوري ملكي انا بس."],["I respect myself enough to guard my growth.","بحترم نفسي كفاية عشان احافظ على تطوري."],["I won't let anyone waste my right to rest.","مش هخلي حد يضيع حقي في الراحة."],
+["I protect my space no matter what.","بحمي مساحتي مهما حصل."],["My voice in this belongs to me, and only me.","رأيي في الموضوع ده ملكي انا بس."],["I won't apologize for protecting my calm.","مش هعتذر عن اني بحمي هدوئي."],
+["I won't let anyone waste my honesty.","مش هخلي حد يضيع صراحتي."],["I won't let anyone waste my ambitions.","مش هخلي حد يضيع طموحاتي."],["My peace belongs to me, and only me.","راحة بالي ملكي انا بس."],
+["I won't let anyone waste my choices.","مش هخلي حد يضيع اختياراتي."],["I won't let anyone waste my right to say no.","مش هخلي حد يضيع حقي اني اقول لأ."],["My calm belongs to me, and only me.","هدوئي ملكي انا بس."],
+["Nobody gets to control my truth.","محدش هيتحكم في حقيقتي."],["My honesty belongs to me, and only me.","صراحتي ملكي انا بس."],["Nobody gets to control my patience.","محدش هيتحكم في صبري."],
+["Nobody gets to control my right to rest.","محدش هيتحكم في حقي في الراحة."],["I protect my priorities no matter what.","بحمي اولوياتي مهما حصل."],["My confidence is not up for negotiation.","ثقتي بنفسي مش موضوع للتفاوض."],
+["I respect myself enough to guard my self-worth.","بحترم نفسي كفاية عشان احافظ على تقديري لنفسي."],["My right to say no is not up for negotiation.","حقي اني اقول لأ مش موضوع للتفاوض."],["I won't apologize for protecting my truth.","مش هعتذر عن اني بحمي حقيقتي."],
+["Nobody gets to control my self-respect.","محدش هيتحكم في احترامي لنفسي."],["My priorities is not up for negotiation.","اولوياتي مش موضوع للتفاوض."],["I respect myself enough to guard my truth.","بحترم نفسي كفاية عشان احافظ على حقيقتي."],
+["My priorities belongs to me, and only me.","اولوياتي ملكي انا بس."],["I won't let anyone waste my space.","مش هخلي حد يضيع مساحتي."],["I won't apologize for protecting my mental health.","مش هعتذر عن اني بحمي صحتي النفسية."],
+["I won't let anyone waste my peace.","مش هخلي حد يضيع راحة بالي."],["I respect myself enough to guard my mental health.","بحترم نفسي كفاية عشان احافظ على صحتي النفسية."],["My privacy belongs to me, and only me.","خصوصيتي ملكي انا بس."],
+["I won't apologize for protecting my voice.","مش هعتذر عن اني بحمي صوتي."],["I won't apologize for protecting my voice in this.","مش هعتذر عن اني بحمي رأيي في الموضوع ده."],["My identity belongs to me, and only me.","هويتي ملكي انا بس."],
+["Nobody gets to control my mental health.","محدش هيتحكم في صحتي النفسية."],["I won't apologize for protecting my dignity.","مش هعتذر عن اني بحمي كرامتي."],["I respect myself enough to guard my space.","بحترم نفسي كفاية عشان احافظ على مساحتي."],
+["I respect myself enough to guard my confidence.","بحترم نفسي كفاية عشان احافظ على ثقتي بنفسي."],["I won't apologize for protecting my convictions.","مش هعتذر عن اني بحمي قناعاتي."],["Nobody gets to control my self-worth.","محدش هيتحكم في تقديري لنفسي."],
+["I won't apologize for protecting my confidence.","مش هعتذر عن اني بحمي ثقتي بنفسي."],["I won't apologize for protecting my honesty.","مش هعتذر عن اني بحمي صراحتي."],["I protect my growth no matter what.","بحمي تطوري مهما حصل."],
+["My privacy is not up for negotiation.","خصوصيتي مش موضوع للتفاوض."],["Nobody gets to control my convictions.","محدش هيتحكم في قناعاتي."],["I protect my energy no matter what.","بحمي طاقتي مهما حصل."],
+["I protect my calm no matter what.","بحمي هدوئي مهما حصل."],["I won't apologize for protecting my privacy.","مش هعتذر عن اني بحمي خصوصيتي."],["My choices is not up for negotiation.","اختياراتي مش موضوع للتفاوض."],
+["I respect myself enough to guard my boundaries.","بحترم نفسي كفاية عشان احافظ على حدودي."],["My focus is not up for negotiation.","تركيزي مش موضوع للتفاوض."],["I protect my truth no matter what.","بحمي حقيقتي مهما حصل."],
+["I protect my self-worth no matter what.","بحمي تقديري لنفسي مهما حصل."],["My sanity belongs to me, and only me.","اتزاني النفسي ملكي انا بس."],["I protect my decision no matter what.","بحمي قراري مهما حصل."],
+["I won't let anyone waste my effort.","مش هخلي حد يضيع مجهودي."],["My confidence belongs to me, and only me.","ثقتي بنفسي ملكي انا بس."],["My energy is not up for negotiation.","طاقتي مش موضوع للتفاوض."],
+["I protect my well-being no matter what.","بحمي تمام حالي مهما حصل."],["Nobody gets to control my ambitions.","محدش هيتحكم في طموحاتي."],["Nobody gets to control my identity.","محدش هيتحكم في هويتي."],
+["My right to rest belongs to me, and only me.","حقي في الراحة ملكي انا بس."],["Nobody gets to control my confidence.","محدش هيتحكم في ثقتي بنفسي."],["I won't let anyone waste my patience.","مش هخلي حد يضيع صبري."],
+["Nobody gets to control my values.","محدش هيتحكم في مبادئي."],["I respect myself enough to guard my effort.","بحترم نفسي كفاية عشان احافظ على مجهودي."],["My potential is not up for negotiation.","امكانياتي مش موضوع للتفاوض."],
+["I won't let anyone waste my standards.","مش هخلي حد يضيع معاييري."],["I protect my right to rest no matter what.","بحمي حقي في الراحة مهما حصل."],["Nobody gets to control my dignity.","محدش هيتحكم في كرامتي."],
+["My identity is not up for negotiation.","هويتي مش موضوع للتفاوض."],["I protect my limits no matter what.","بحمي حدود قدرتي مهما حصل."],["I protect my effort no matter what.","بحمي مجهودي مهما حصل."],
+["I won't apologize for protecting my patience.","مش هعتذر عن اني بحمي صبري."],["My time is not up for negotiation.","وقتي مش موضوع للتفاوض."],["I won't apologize for protecting my limits.","مش هعتذر عن اني بحمي حدود قدرتي."],
+["I won't apologize for protecting my priorities.","مش هعتذر عن اني بحمي اولوياتي."]
+]
+};
+
+function renderCat(cat){
+  const list = DATA[cat];
+  let html = '<div class="bank-cat active">';
+  list.forEach((pair,i)=>{
+    html += `<div class="sentence-row"><span class="num">${i+1}.</span><span class="eng en">${pair[0]}</span><span class="arb">${pair[1]}</span></div>`;
+  });
+  html += '</div>';
+  document.getElementById('bankContent').innerHTML = html;
+}
+renderCat('street');
+
+document.querySelectorAll('#bankTabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#bankTabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCat(btn.dataset.cat);
+  });
+});
+</script>
+
+</body>
+</html>

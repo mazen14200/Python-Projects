@@ -1,0 +1,7 @@
+duckduckgo_search
+ddgs
+requests
+pillow
+rembg
+onnxruntime
+numpy

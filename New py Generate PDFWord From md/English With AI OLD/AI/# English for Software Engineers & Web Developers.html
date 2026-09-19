@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>English for Software Engineers & Web Developers | A1 → C1</title>
+<style>
+  :root{
+    --bg:#0b0b0d; --panel:#131316; --gold:#d4af37; --gold-soft:#b8952f;
+    --text:#eae6da; --text-dim:#a8a397; --border:#2a271f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--text); font-family:'Segoe UI',Tahoma,Arial,sans-serif;
+    margin:0; padding:0; line-height:1.7;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:40px 24px 100px;}
+  header.hero{
+    text-align:center; padding:60px 20px; border-bottom:2px solid var(--gold);
+    background:linear-gradient(180deg,#161613,#0b0b0d);
+  }
+  header.hero h1{color:var(--gold); font-size:2.1em; margin:0 0 10px; letter-spacing:1px;}
+  header.hero p{color:var(--text-dim); font-size:1.05em;}
+  nav.toc{
+    background:var(--panel); border:1px solid var(--border); border-radius:10px;
+    padding:20px 24px; margin:30px 0; 
+  }
+  nav.toc h2{color:var(--gold); margin-top:0; font-size:1.1em;}
+  nav.toc a{color:var(--text); text-decoration:none; display:block; padding:4px 0; border-bottom:1px dashed var(--border);}
+  nav.toc a:hover{color:var(--gold);}
+  .level-badge{
+    display:inline-block; background:var(--gold); color:#1a1a1a; font-weight:bold;
+    padding:4px 14px; border-radius:20px; font-size:0.85em; margin-bottom:10px;
+  }
+  section.level{margin:60px 0; padding-top:10px;}
+  section.level > h2{
+    color:var(--gold); font-size:1.6em; border-bottom:2px solid var(--gold);
+    padding-bottom:8px; margin-bottom:20px;
+  }
+  .topic{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    padding:24px 26px; margin:24px 0; box-shadow:0 0 0 1px rgba(212,175,55,0.05);
+  }
+  .topic h3{color:var(--gold-soft); font-size:1.25em; margin-top:0; border-left:4px solid var(--gold); padding-left:12px;}
+  .topic h4{color:var(--gold); font-size:1.02em; margin:22px 0 10px;}
+  table.vocab{width:100%; border-collapse:collapse; margin:10px 0;}
+  table.vocab th{
+    color:var(--gold); text-align:left; border-bottom:2px solid var(--gold);
+    padding:8px 10px; font-size:0.9em;
+  }
+  table.vocab td{padding:8px 10px; border-bottom:1px solid var(--border); font-size:0.95em; vertical-align:top;}
+  table.vocab tr:nth-child(even){background:rgba(212,175,55,0.03);}
+  .arabic{direction:rtl; text-align:right; font-family:'Segoe UI',Tahoma,Arial,sans-serif; unicode-bidi:embed;}
+  .qa{margin:8px 0 16px; padding:12px 16px; background:rgba(212,175,55,0.04); border-radius:8px; border:1px solid var(--border);}
+  .qa .q{color:var(--text); font-weight:bold;}
+  .qa .a{color:var(--text-dim); margin-top:6px;}
+  .sentence-bank h2{
+    color:var(--gold); font-size:1.7em; border-bottom:2px solid var(--gold); padding-bottom:8px;
+  }
+  .cat{margin:36px 0;}
+  .cat h3{
+    color:#1a1a1a; background:var(--gold); display:inline-block; padding:6px 18px;
+    border-radius:6px; font-size:1.1em;
+  }
+  ol.sent-list{padding-left:22px; margin-top:14px;}
+  ol.sent-list li{margin-bottom:10px; padding-bottom:10px; border-bottom:1px dashed var(--border);}
+  .en{color:var(--text);}
+  .ar{direction:rtl; text-align:right; color:var(--gold-soft); margin-top:4px; font-size:0.97em;}
+  footer{text-align:center; color:var(--text-dim); padding:40px 0; border-top:1px solid var(--border); margin-top:60px;}
+  .back-top{display:inline-block; margin-top:20px; color:var(--gold); text-decoration:none; font-size:0.85em;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>English for Software Engineers &amp; Web Developers</h1>
+  <p>A Complete Program from A1 to C1 — Vocabulary • Conversation • 750+ Real Sentences (with Egyptian Arabic)</p>
+</header>
+<div class="wrap">
+
+<nav class="toc" id="top">
+  <h2>Contents / المحتويات</h2>
+  <a href="#a1">A1 — Computer &amp; Programming Basics</a>
+  <a href="#a2">A2 — Getting Started with Code &amp; the Web</a>
+  <a href="#b1">B1 — Programming Concepts &amp; Web Development</a>
+  <a href="#b2">B2 — Software Development Process &amp; Web Engineering</a>
+  <a href="#c1">C1 — Software Architecture &amp; Professional Communication</a>
+  <a href="#bank">750+ Sentence Bank (Real Workplace English → Masri)</a>
+</nav>
+<section class="level" id="a1">
+  <span class="level-badge">LEVEL A1</span>
+  <h2>A1 — Computer &amp; Programming Basics</h2>
+
+  <div class="topic">
+    <h3>Topic 1: Computer Basics (Hardware &amp; Software)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>computer</td><td class="arabic">كمبيوتر</td><td>I use my computer every day.</td></tr>
+      <tr><td>laptop</td><td class="arabic">لابتوب</td><td>My laptop is very fast.</td></tr>
+      <tr><td>screen / monitor</td><td class="arabic">شاشة</td><td>The screen is too bright.</td></tr>
+      <tr><td>keyboard</td><td class="arabic">كيبورد / لوحة مفاتيح</td><td>I type on the keyboard.</td></tr>
+      <tr><td>mouse</td><td class="arabic">ماوس</td><td>Click the mouse here.</td></tr>
+      <tr><td>software</td><td class="arabic">برنامج / سوفت وير</td><td>This software is new.</td></tr>
+      <tr><td>hardware</td><td class="arabic">هاردوير / الأجزاء المادية</td><td>The hardware needs a repair.</td></tr>
+      <tr><td>program / app</td><td class="arabic">برنامج / تطبيق</td><td>Open the program, please.</td></tr>
+      <tr><td>file</td><td class="arabic">ملف</td><td>Save the file now.</td></tr>
+      <tr><td>folder</td><td class="arabic">فولدر / مجلد</td><td>Put the file in this folder.</td></tr>
+      <tr><td>internet</td><td class="arabic">إنترنت</td><td>The internet is slow today.</td></tr>
+      <tr><td>password</td><td class="arabic">باسورد / كلمة سر</td><td>I forgot my password.</td></tr>
+      <tr><td>click</td><td class="arabic">تكليك / ضغطة</td><td>Click here to start.</td></tr>
+      <tr><td>type</td><td class="arabic">تكتب</td><td>Type your name here.</td></tr>
+      <tr><td>save</td><td class="arabic">تحفظ / تسيف</td><td>Don't forget to save your work.</td></tr>
+      <tr><td>open</td><td class="arabic">تفتح</td><td>Open the file, please.</td></tr>
+      <tr><td>close</td><td class="arabic">تقفل</td><td>Close the window.</td></tr>
+      <tr><td>code</td><td class="arabic">كود</td><td>He writes code every day.</td></tr>
+      <tr><td>programmer / developer</td><td class="arabic">مبرمج / ديفيلوبر</td><td>She is a programmer.</td></tr>
+      <tr><td>website</td><td class="arabic">موقع إلكتروني</td><td>I built a simple website.</td></tr>
+    </table>
+
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. What do you use your computer for?</div><div class="a">I use my computer for work and to check my email.</div></div>
+    <div class="qa"><div class="q">2. Do you have a laptop or a desktop computer?</div><div class="a">I have a laptop because I can carry it anywhere.</div></div>
+    <div class="qa"><div class="q">3. What software do you use every day?</div><div class="a">I use a code editor and a web browser every day.</div></div>
+    <div class="qa"><div class="q">4. Is your internet fast or slow?</div><div class="a">My internet is usually fast, but sometimes it is slow at night.</div></div>
+    <div class="qa"><div class="q">5. Are you a programmer?</div><div class="a">Yes, I am a programmer. I write code every day.</div></div>
+  </div>
+
+  <div class="topic">
+    <h3>Topic 2: Everyday Computer Actions</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>start / turn on</td><td class="arabic">تشغل</td><td>I turn on my computer at 9 AM.</td></tr>
+      <tr><td>shut down / turn off</td><td class="arabic">تقفل / تطفي</td><td>I shut down my computer at night.</td></tr>
+      <tr><td>install</td><td class="arabic">تنزل / تثبت برنامج</td><td>I need to install this program.</td></tr>
+      <tr><td>update</td><td class="arabic">تحدث</td><td>Please update the app.</td></tr>
+      <tr><td>download</td><td class="arabic">تنزل حاجة من النت</td><td>I will download the file.</td></tr>
+      <tr><td>upload</td><td class="arabic">ترفع حاجة على النت</td><td>Upload the photo here.</td></tr>
+      <tr><td>copy</td><td class="arabic">تعمل نسخة / تنسخ</td><td>Copy this text, please.</td></tr>
+      <tr><td>paste</td><td class="arabic">تلزق</td><td>Paste it in the document.</td></tr>
+      <tr><td>delete</td><td class="arabic">تمسح</td><td>Delete the old file.</td></tr>
+      <tr><td>search</td><td class="arabic">تدور / تبحث</td><td>I will search for the answer.</td></tr>
+      <tr><td>email</td><td class="arabic">إيميل</td><td>Send me an email.</td></tr>
+      <tr><td>message</td><td class="arabic">رسالة</td><td>I got a new message.</td></tr>
+      <tr><td>screen name / username</td><td class="arabic">اليوزر نيم</td><td>What is your username?</td></tr>
+      <tr><td>login</td><td class="arabic">تسجل دخول</td><td>I need to login to the system.</td></tr>
+      <tr><td>logout</td><td class="arabic">تسجل خروج</td><td>Don't forget to logout.</td></tr>
+      <tr><td>error</td><td class="arabic">خطأ / إيرور</td><td>There is an error in the code.</td></tr>
+      <tr><td>fix / repair</td><td class="arabic">تصلح</td><td>I need to fix this error.</td></tr>
+      <tr><td>work / function</td><td class="arabic">يشتغل</td><td>This button doesn't work.</td></tr>
+      <tr><td>slow</td><td class="arabic">بطيء</td><td>My computer is very slow.</td></tr>
+      <tr><td>fast</td><td class="arabic">سريع</td><td>The new laptop is fast.</td></tr>
+    </table>
+
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. What time do you turn on your computer?</div><div class="a">I turn on my computer at nine in the morning.</div></div>
+    <div class="qa"><div class="q">2. Do you install new programs often?</div><div class="a">Yes, I install new programs when I need them for work.</div></div>
+    <div class="qa"><div class="q">3. What do you do when there is an error?</div><div class="a">I try to fix the error, or I ask a colleague for help.</div></div>
+    <div class="qa"><div class="q">4. Do you check your email every day?</div><div class="a">Yes, I check my email every morning and afternoon.</div></div>
+    <div class="qa"><div class="q">5. Is your computer fast or slow?</div><div class="a">My computer is fast, but it becomes slow with many open programs.</div></div>
+  </div>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</section>
+<section class="level" id="a2">
+  <span class="level-badge">LEVEL A2</span>
+  <h2>A2 — Getting Started with Code &amp; the Web</h2>
+
+  <div class="topic">
+    <h3>Topic 1: Getting Started with Programming</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>language (programming)</td><td class="arabic">لغة برمجة</td><td>Python is an easy language to learn.</td></tr>
+      <tr><td>variable</td><td class="arabic">متغير</td><td>This variable stores a number.</td></tr>
+      <tr><td>function</td><td class="arabic">فانكشن / دالة</td><td>I wrote a new function.</td></tr>
+      <tr><td>value</td><td class="arabic">قيمة</td><td>The value of x is five.</td></tr>
+      <tr><td>text editor</td><td class="arabic">محرر نصوص</td><td>I write code in a text editor.</td></tr>
+      <tr><td>run (a program)</td><td class="arabic">تشغل / تعمل ران</td><td>Let's run the program now.</td></tr>
+      <tr><td>bug</td><td class="arabic">باج / خطأ برمجي</td><td>There is a bug in this line.</td></tr>
+      <tr><td>fix a bug</td><td class="arabic">تصلح الباج</td><td>I fixed the bug in ten minutes.</td></tr>
+      <tr><td>project</td><td class="arabic">مشروع</td><td>This is my first project.</td></tr>
+      <tr><td>practice</td><td class="arabic">تتمرن</td><td>I practice coding every day.</td></tr>
+      <tr><td>learn</td><td class="arabic">تتعلم</td><td>I want to learn a new language.</td></tr>
+      <tr><td>beginner</td><td class="arabic">مبتدئ</td><td>I am a beginner in programming.</td></tr>
+      <tr><td>console / terminal</td><td class="arabic">تيرمنال</td><td>Open the terminal and type the command.</td></tr>
+      <tr><td>command</td><td class="arabic">أمر</td><td>Type this command to install it.</td></tr>
+      <tr><td>output</td><td class="arabic">ناتج / آوت بوت</td><td>The output shows the result.</td></tr>
+      <tr><td>input</td><td class="arabic">مدخلات</td><td>The program asks for input.</td></tr>
+      <tr><td>step by step</td><td class="arabic">خطوة خطوة</td><td>I follow the tutorial step by step.</td></tr>
+      <tr><td>tutorial</td><td class="arabic">درس / تيوتوريال</td><td>I watched a great tutorial.</td></tr>
+      <tr><td>simple / easy</td><td class="arabic">بسيط / سهل</td><td>This exercise is simple.</td></tr>
+      <tr><td>difficult / hard</td><td class="arabic">صعب</td><td>This concept is a little difficult.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. Which programming language are you learning?</div><div class="a">I am learning Python because it is simple for beginners.</div></div>
+    <div class="qa"><div class="q">2. Do you practice coding every day?</div><div class="a">Yes, I practice for about one hour every day.</div></div>
+    <div class="qa"><div class="q">3. What do you do when you find a bug?</div><div class="a">I read the error message and try to fix the bug step by step.</div></div>
+    <div class="qa"><div class="q">4. Do you use a text editor or an IDE?</div><div class="a">I use a text editor called VS Code.</div></div>
+    <div class="qa"><div class="q">5. Is programming difficult for you?</div><div class="a">It was difficult at first, but it is easier now with practice.</div></div>
+  </div>
+
+  <div class="topic">
+    <h3>Topic 2: Files, Folders &amp; the Internet</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>browser</td><td class="arabic">متصفح</td><td>I use Chrome as my browser.</td></tr>
+      <tr><td>link</td><td class="arabic">لينك / رابط</td><td>Click this link to open the page.</td></tr>
+      <tr><td>page</td><td class="arabic">صفحة</td><td>This page is loading slowly.</td></tr>
+      <tr><td>server</td><td class="arabic">سيرفر</td><td>The server is down right now.</td></tr>
+      <tr><td>connection</td><td class="arabic">اتصال</td><td>My connection is unstable.</td></tr>
+      <tr><td>network</td><td class="arabic">شبكة</td><td>Connect to the office network.</td></tr>
+      <tr><td>account</td><td class="arabic">حساب</td><td>Create a new account.</td></tr>
+      <tr><td>sign up</td><td class="arabic">تعمل تسجيل / اشتراك</td><td>I need to sign up for this service.</td></tr>
+      <tr><td>download speed</td><td class="arabic">سرعة التحميل</td><td>The download speed here is good.</td></tr>
+      <tr><td>Wi-Fi</td><td class="arabic">واي فاي</td><td>The Wi-Fi is not working.</td></tr>
+      <tr><td>storage</td><td class="arabic">مساحة تخزين</td><td>I need more storage on my laptop.</td></tr>
+      <tr><td>backup</td><td class="arabic">نسخة احتياطية</td><td>Always keep a backup of your files.</td></tr>
+      <tr><td>rename</td><td class="arabic">تغير اسم الملف</td><td>Rename the file, please.</td></tr>
+      <tr><td>move (a file)</td><td class="arabic">تنقل الملف</td><td>Move this file to another folder.</td></tr>
+      <tr><td>compress / zip</td><td class="arabic">تضغط الملف</td><td>Compress the folder before you send it.</td></tr>
+      <tr><td>extract / unzip</td><td class="arabic">تفك الضغط</td><td>Extract the zip file first.</td></tr>
+      <tr><td>attach</td><td class="arabic">ترفق ملف</td><td>Attach the file to the email.</td></tr>
+      <tr><td>size (file size)</td><td class="arabic">حجم الملف</td><td>This file is too large in size.</td></tr>
+      <tr><td>format (file format)</td><td class="arabic">صيغة الملف</td><td>Save it in PDF format.</td></tr>
+      <tr><td>share</td><td class="arabic">تشير / تشارك</td><td>Share the document with the team.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. Which browser do you use?</div><div class="a">I usually use Google Chrome, but sometimes I use Firefox.</div></div>
+    <div class="qa"><div class="q">2. Do you back up your files?</div><div class="a">Yes, I back up my important files on the cloud every week.</div></div>
+    <div class="qa"><div class="q">3. What do you do when the Wi-Fi is not working?</div><div class="a">I restart the router, and if that doesn't work, I call support.</div></div>
+    <div class="qa"><div class="q">4. How do you share large files with your team?</div><div class="a">I compress the file and share it through a cloud link.</div></div>
+    <div class="qa"><div class="q">5. Do you have enough storage on your laptop?</div><div class="a">Not really, I always need to delete old files to make space.</div></div>
+  </div>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</section>
+<section class="level" id="b1">
+  <span class="level-badge">LEVEL B1</span>
+  <h2>B1 — Programming Concepts &amp; Web Development</h2>
+
+  <div class="topic">
+    <h3>Topic 1: Programming Concepts (Loops, Functions, Logic)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>loop</td><td class="arabic">لووب / حلقة تكرار</td><td>This loop repeats ten times.</td></tr>
+      <tr><td>condition / if statement</td><td class="arabic">شرط</td><td>Add a condition to check the value.</td></tr>
+      <tr><td>array / list</td><td class="arabic">مصفوفة / قايمة</td><td>Store the names in an array.</td></tr>
+      <tr><td>object</td><td class="arabic">أوبجكت / كائن</td><td>Create an object with these properties.</td></tr>
+      <tr><td>class</td><td class="arabic">كلاس</td><td>This class defines a User.</td></tr>
+      <tr><td>method</td><td class="arabic">ميثود / دالة داخل كلاس</td><td>Call this method to save the data.</td></tr>
+      <tr><td>parameter / argument</td><td class="arabic">باراميتر</td><td>Pass the parameter to the function.</td></tr>
+      <tr><td>return (a value)</td><td class="arabic">ترجع قيمة</td><td>The function returns the total.</td></tr>
+      <tr><td>data type</td><td class="arabic">نوع البيانات</td><td>Check the data type of this field.</td></tr>
+      <tr><td>string</td><td class="arabic">سترينج / نص</td><td>This is a string, not a number.</td></tr>
+      <tr><td>boolean</td><td class="arabic">بوليان / صح أو غلط</td><td>The result is a boolean value.</td></tr>
+      <tr><td>syntax</td><td class="arabic">سينتاكس / صياغة الكود</td><td>There is a syntax error here.</td></tr>
+      <tr><td>compile</td><td class="arabic">تعمل كومبايل</td><td>The code failed to compile.</td></tr>
+      <tr><td>debug</td><td class="arabic">تعمل ديباج</td><td>I need to debug this function.</td></tr>
+      <tr><td>algorithm</td><td class="arabic">خوارزمية</td><td>We need a faster algorithm.</td></tr>
+      <tr><td>logic</td><td class="arabic">منطق البرمجة</td><td>The logic behind this function is simple.</td></tr>
+      <tr><td>comment (in code)</td><td class="arabic">تعليق / كومنت</td><td>Add a comment to explain this part.</td></tr>
+      <tr><td>library</td><td class="arabic">لايبراري / مكتبة</td><td>We use a library for date formatting.</td></tr>
+      <tr><td>import</td><td class="arabic">تعمل إمبورت</td><td>Import this module at the top.</td></tr>
+      <tr><td>test (verb)</td><td class="arabic">تختبر</td><td>Test the function before you push it.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. Can you explain what a loop does?</div><div class="a">A loop repeats a set of instructions until a condition is met.</div></div>
+    <div class="qa"><div class="q">2. What's the difference between a function and a method?</div><div class="a">A function is independent, while a method belongs to a class or an object.</div></div>
+    <div class="qa"><div class="q">3. How do you usually debug your code?</div><div class="a">I add comments, print the values, and check the logic step by step.</div></div>
+    <div class="qa"><div class="q">4. Do you write comments in your code?</div><div class="a">Yes, I write comments to explain complex parts of the logic.</div></div>
+    <div class="qa"><div class="q">5. What data types do you use most often?</div><div class="a">I mostly use strings, numbers, and booleans in my projects.</div></div>
+  </div>
+
+  <div class="topic">
+    <h3>Topic 2: Web Development Basics (HTML, CSS, Browser)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>HTML</td><td class="arabic">إتش تي إم إل</td><td>HTML builds the structure of the page.</td></tr>
+      <tr><td>CSS</td><td class="arabic">سي إس إس</td><td>CSS controls the design and colors.</td></tr>
+      <tr><td>JavaScript</td><td class="arabic">جافا سكريبت</td><td>JavaScript makes the page interactive.</td></tr>
+      <tr><td>element / tag</td><td class="arabic">إليمنت / تاج</td><td>This element is a button.</td></tr>
+      <tr><td>layout</td><td class="arabic">لاي آوت / تصميم الصفحة</td><td>The layout looks great on mobile.</td></tr>
+      <tr><td>responsive</td><td class="arabic">ريسبونسيف / متجاوب</td><td>The website must be responsive.</td></tr>
+      <tr><td>button</td><td class="arabic">زرار / بتن</td><td>Click the submit button.</td></tr>
+      <tr><td>form</td><td class="arabic">فورم / نموذج</td><td>Fill out the contact form.</td></tr>
+      <tr><td>navigation bar / navbar</td><td class="arabic">شريط التنقل</td><td>The navbar has five links.</td></tr>
+      <tr><td>footer</td><td class="arabic">فوتر / أسفل الصفحة</td><td>The footer has our contact info.</td></tr>
+      <tr><td>header</td><td class="arabic">هيدر / أعلى الصفحة</td><td>The logo is in the header.</td></tr>
+      <tr><td>load (page loads)</td><td class="arabic">الصفحة بتفتح / بتحمل</td><td>The page loads in two seconds.</td></tr>
+      <tr><td>style</td><td class="arabic">تنسيق / ستايل</td><td>I need to style this button.</td></tr>
+      <tr><td>image</td><td class="arabic">صورة</td><td>Add an image to the homepage.</td></tr>
+      <tr><td>font</td><td class="arabic">خط</td><td>Change the font to something modern.</td></tr>
+      <tr><td>color scheme</td><td class="arabic">ألوان التصميم</td><td>We chose a dark color scheme.</td></tr>
+      <tr><td>mobile-friendly</td><td class="arabic">متوافق مع الموبايل</td><td>Make sure the site is mobile-friendly.</td></tr>
+      <tr><td>homepage</td><td class="arabic">الصفحة الرئيسية</td><td>Add a new section to the homepage.</td></tr>
+      <tr><td>domain</td><td class="arabic">دومين / اسم الموقع</td><td>We bought a new domain.</td></tr>
+      <tr><td>hosting</td><td class="arabic">استضافة</td><td>We use a fast hosting provider.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. What's the difference between HTML and CSS?</div><div class="a">HTML builds the structure of the page, while CSS handles the design and style.</div></div>
+    <div class="qa"><div class="q">2. Is the website you're building responsive?</div><div class="a">Yes, it's fully responsive and works well on mobile and desktop.</div></div>
+    <div class="qa"><div class="q">3. What do you usually put in the footer?</div><div class="a">I usually put the contact information and social media links in the footer.</div></div>
+    <div class="qa"><div class="q">4. How do you make a site mobile-friendly?</div><div class="a">I use responsive design and test the layout on different screen sizes.</div></div>
+    <div class="qa"><div class="q">5. Who do you use for hosting?</div><div class="a">We use a cloud hosting provider because it's reliable and fast.</div></div>
+  </div>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</section>
+<section class="level" id="b2">
+  <span class="level-badge">LEVEL B2</span>
+  <h2>B2 — Software Development Process &amp; Web Engineering</h2>
+
+  <div class="topic">
+    <h3>Topic 1: Software Development Process (Agile, Git, SDLC)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>Agile</td><td class="arabic">أجايل / منهجية عمل مرنة</td><td>Our team follows an Agile process.</td></tr>
+      <tr><td>Scrum</td><td class="arabic">سكرم</td><td>We do Scrum with two-week sprints.</td></tr>
+      <tr><td>sprint</td><td class="arabic">سبرنت</td><td>This sprint ends on Friday.</td></tr>
+      <tr><td>backlog</td><td class="arabic">باكلوج / قايمة المهام</td><td>Add this task to the backlog.</td></tr>
+      <tr><td>ticket / task</td><td class="arabic">تيكيت / مهمة</td><td>I'm working on this ticket now.</td></tr>
+      <tr><td>repository / repo</td><td class="arabic">ريبو</td><td>Clone the repo to get started.</td></tr>
+      <tr><td>branch</td><td class="arabic">برانش / فرع</td><td>Create a new branch for this feature.</td></tr>
+      <tr><td>commit</td><td class="arabic">كوميت</td><td>I made a small commit.</td></tr>
+      <tr><td>push</td><td class="arabic">تعمل بوش</td><td>Push your changes to the remote branch.</td></tr>
+      <tr><td>pull request / PR</td><td class="arabic">بل ريكوست</td><td>Open a pull request when you're done.</td></tr>
+      <tr><td>merge</td><td class="arabic">تعمل ميرج / دمج</td><td>Merge this branch into main.</td></tr>
+      <tr><td>conflict (merge conflict)</td><td class="arabic">تعارض / كونفلكت</td><td>We have a merge conflict to resolve.</td></tr>
+      <tr><td>deploy</td><td class="arabic">تنشر / ديبلوي</td><td>We deploy every Thursday.</td></tr>
+      <tr><td>release</td><td class="arabic">إصدار / ريليز</td><td>The new release is stable.</td></tr>
+      <tr><td>feature</td><td class="arabic">فيتشر / ميزة</td><td>This feature is almost ready.</td></tr>
+      <tr><td>requirement</td><td class="arabic">متطلب</td><td>The client added a new requirement.</td></tr>
+      <tr><td>stakeholder</td><td class="arabic">صاحب مصلحة</td><td>We updated the stakeholders on progress.</td></tr>
+      <tr><td>estimate</td><td class="arabic">تقدير للوقت</td><td>Can you give me an estimate?</td></tr>
+      <tr><td>deadline</td><td class="arabic">ديدلاين / موعد نهائي</td><td>The deadline is next Monday.</td></tr>
+      <tr><td>blocker</td><td class="arabic">عائق / بلوكر</td><td>This bug is a blocker for the release.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. Does your team follow Agile or another methodology?</div><div class="a">We follow Scrum, with two-week sprints and a daily standup.</div></div>
+    <div class="qa"><div class="q">2. How do you handle merge conflicts?</div><div class="a">I compare the two versions carefully and decide which changes to keep.</div></div>
+    <div class="qa"><div class="q">3. What's your process before merging a pull request?</div><div class="a">I ask a teammate to review it, run the tests, then merge it into main.</div></div>
+    <div class="qa"><div class="q">4. What do you do when you have a blocker?</div><div class="a">I raise it immediately in the standup so the team can help.</div></div>
+    <div class="qa"><div class="q">5. How often do you deploy new releases?</div><div class="a">We deploy small releases every week and larger ones every month.</div></div>
+  </div>
+
+  <div class="topic">
+    <h3>Topic 2: Web Engineering (APIs, Databases, Frameworks)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>API</td><td class="arabic">إيه بي آي</td><td>The frontend calls this API.</td></tr>
+      <tr><td>endpoint</td><td class="arabic">إندبوينت</td><td>This endpoint returns the user data.</td></tr>
+      <tr><td>request</td><td class="arabic">ريكوست / طلب</td><td>Send a GET request to this URL.</td></tr>
+      <tr><td>response</td><td class="arabic">ريسبونس / رد</td><td>The response took two seconds.</td></tr>
+      <tr><td>backend</td><td class="arabic">باك إند</td><td>He works on the backend team.</td></tr>
+      <tr><td>frontend</td><td class="arabic">فرونت إند</td><td>I'm responsible for the frontend.</td></tr>
+      <tr><td>framework</td><td class="arabic">فريم وورك</td><td>We use React as our framework.</td></tr>
+      <tr><td>database</td><td class="arabic">داتا بيز / قاعدة بيانات</td><td>The database stores all our users.</td></tr>
+      <tr><td>query</td><td class="arabic">كويري / استعلام</td><td>This query is too slow.</td></tr>
+      <tr><td>schema</td><td class="arabic">سكيما / هيكل البيانات</td><td>We updated the database schema.</td></tr>
+      <tr><td>authentication</td><td class="arabic">مصادقة / تسجيل دخول آمن</td><td>We use token-based authentication.</td></tr>
+      <tr><td>authorization</td><td class="arabic">صلاحيات</td><td>Check the user's authorization first.</td></tr>
+      <tr><td>token</td><td class="arabic">توكن</td><td>The server checks the token.</td></tr>
+      <tr><td>middleware</td><td class="arabic">ميدل وير</td><td>Add a middleware to log requests.</td></tr>
+      <tr><td>cache</td><td class="arabic">كاش / ذاكرة مؤقتة</td><td>We cache this data for one hour.</td></tr>
+      <tr><td>route</td><td class="arabic">راوت / مسار</td><td>Add a new route for the login page.</td></tr>
+      <tr><td>state (in frontend)</td><td class="arabic">ستيت / حالة</td><td>This state controls the button.</td></tr>
+      <tr><td>component</td><td class="arabic">كومبوننت / مكوّن</td><td>I built a reusable component.</td></tr>
+      <tr><td>library / package</td><td class="arabic">باكيدج / مكتبة</td><td>We installed a new package.</td></tr>
+      <tr><td>performance</td><td class="arabic">أداء</td><td>We improved the page performance.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. Do you work more on the frontend or the backend?</div><div class="a">I mostly work on the backend, building and maintaining the APIs.</div></div>
+    <div class="qa"><div class="q">2. How does your app handle authentication?</div><div class="a">We use token-based authentication, and each request includes a valid token.</div></div>
+    <div class="qa"><div class="q">3. What framework do you use for the frontend?</div><div class="a">We use React with reusable components and centralized state management.</div></div>
+    <div class="qa"><div class="q">4. How do you improve the performance of your app?</div><div class="a">We cache frequent requests and optimize slow database queries.</div></div>
+    <div class="qa"><div class="q">5. What database do you use in your project?</div><div class="a">We use PostgreSQL for structured data and Redis for caching.</div></div>
+  </div>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</section>
+<section class="level" id="c1">
+  <span class="level-badge">LEVEL C1</span>
+  <h2>C1 — Software Architecture &amp; Professional Communication</h2>
+
+  <div class="topic">
+    <h3>Topic 1: System Design &amp; Software Architecture</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>scalability</td><td class="arabic">قابلية التوسع</td><td>We need to design this for scalability.</td></tr>
+      <tr><td>architecture</td><td class="arabic">آركيتكتشر / معمارية النظام</td><td>The system architecture is quite complex.</td></tr>
+      <tr><td>microservices</td><td class="arabic">مايكروسيرفيسز</td><td>We're moving from a monolith to microservices.</td></tr>
+      <tr><td>monolith</td><td class="arabic">نظام موحّد / مونوليث</td><td>The old system is a monolith.</td></tr>
+      <tr><td>load balancer</td><td class="arabic">لود بالانسر</td><td>The load balancer distributes traffic evenly.</td></tr>
+      <tr><td>latency</td><td class="arabic">تأخير / زمن استجابة</td><td>We need to reduce the latency.</td></tr>
+      <tr><td>throughput</td><td class="arabic">معدل المعالجة</td><td>This design increases throughput significantly.</td></tr>
+      <tr><td>fault tolerance</td><td class="arabic">تحمل الأعطال</td><td>The system needs better fault tolerance.</td></tr>
+      <tr><td>redundancy</td><td class="arabic">تكرار احتياطي</td><td>We added redundancy in case of failure.</td></tr>
+      <tr><td>bottleneck</td><td class="arabic">عنق الزجاجة / نقطة تعطيل</td><td>The database is the main bottleneck.</td></tr>
+      <tr><td>technical debt</td><td class="arabic">الدين التقني</td><td>We accumulated a lot of technical debt.</td></tr>
+      <tr><td>refactor</td><td class="arabic">تعيد هيكلة الكود</td><td>We should refactor this module.</td></tr>
+      <tr><td>maintainability</td><td class="arabic">قابلية الصيانة</td><td>Readable code improves maintainability.</td></tr>
+      <tr><td>infrastructure</td><td class="arabic">البنية التحتية</td><td>Our infrastructure runs on the cloud.</td></tr>
+      <tr><td>container / containerization</td><td class="arabic">كونتينر</td><td>We containerized the app with Docker.</td></tr>
+      <tr><td>orchestration</td><td class="arabic">أوركستريشن / تنسيق الأنظمة</td><td>Kubernetes handles our orchestration.</td></tr>
+      <tr><td>CI/CD pipeline</td><td class="arabic">خط أتمتة النشر</td><td>Our CI/CD pipeline runs automatically.</td></tr>
+      <tr><td>trade-off</td><td class="arabic">مقايضة / تنازل مقابل ميزة</td><td>There's always a trade-off between speed and cost.</td></tr>
+      <tr><td>edge case</td><td class="arabic">حالة استثنائية نادرة</td><td>We need to handle this edge case.</td></tr>
+      <tr><td>root cause</td><td class="arabic">السبب الجذري</td><td>We found the root cause of the outage.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. How would you approach designing a scalable system?</div><div class="a">I'd start by identifying potential bottlenecks, then design for horizontal scaling and add redundancy where it matters most.</div></div>
+    <div class="qa"><div class="q">2. What's the trade-off between microservices and a monolith?</div><div class="a">Microservices offer more flexibility and independent scaling, but they add complexity in communication and deployment compared to a monolith.</div></div>
+    <div class="qa"><div class="q">3. How do you deal with technical debt in a project?</div><div class="a">I prioritize the debt that slows the team down most, and I refactor it gradually alongside new feature work.</div></div>
+    <div class="qa"><div class="q">4. How would you investigate a sudden spike in latency?</div><div class="a">I'd check the monitoring dashboards first, look for a recent deployment or traffic spike, and trace the request to find the root cause.</div></div>
+    <div class="qa"><div class="q">5. What does fault tolerance mean in a distributed system?</div><div class="a">It means the system keeps working correctly even if one component fails, usually through redundancy and graceful failure handling.</div></div>
+  </div>
+
+  <div class="topic">
+    <h3>Topic 2: Professional Communication (Meetings, Reviews, Interviews)</h3>
+    <h4>Top 20 Words</h4>
+    <table class="vocab">
+      <tr><th>English</th><th class="arabic">المعنى بالمصري</th><th>Example</th></tr>
+      <tr><td>stand-up meeting</td><td class="arabic">اجتماع سريع يومي</td><td>Let's keep the stand-up under ten minutes.</td></tr>
+      <tr><td>code review</td><td class="arabic">مراجعة الكود</td><td>I left some comments in the code review.</td></tr>
+      <tr><td>feedback</td><td class="arabic">فيدباك / ملاحظات</td><td>Thanks for the honest feedback.</td></tr>
+      <tr><td>walkthrough</td><td class="arabic">شرح تفصيلي</td><td>Can you give me a walkthrough of the feature?</td></tr>
+      <tr><td>escalate</td><td class="arabic">تصعّد المشكلة</td><td>We had to escalate the issue to management.</td></tr>
+      <tr><td>align / alignment</td><td class="arabic">تتفق / اتفاق على رؤية</td><td>We need to align on the approach first.</td></tr>
+      <tr><td>scope</td><td class="arabic">نطاق العمل</td><td>This feature is out of scope for now.</td></tr>
+      <tr><td>prioritize</td><td class="arabic">ترتب حسب الأولوية</td><td>We should prioritize the critical bug first.</td></tr>
+      <tr><td>trade-off discussion</td><td class="arabic">نقاش عن المقايضات</td><td>Let's have a trade-off discussion before deciding.</td></tr>
+      <tr><td>onboarding</td><td class="arabic">تهيئة موظف جديد</td><td>Onboarding a new developer takes about a week.</td></tr>
+      <tr><td>mentor</td><td class="arabic">موجّه / مرشد</td><td>She's my mentor on the team.</td></tr>
+      <tr><td>strengths and weaknesses</td><td class="arabic">نقاط القوة والضعف</td><td>Let's discuss your strengths and weaknesses.</td></tr>
+      <tr><td>problem-solving</td><td class="arabic">حل المشكلات</td><td>This role requires strong problem-solving skills.</td></tr>
+      <tr><td>whiteboard interview</td><td class="arabic">مقابلة حل مشاكل على السبورة</td><td>I have a whiteboard interview tomorrow.</td></tr>
+      <tr><td>take-home assignment</td><td class="arabic">اختبار مهمة في البيت</td><td>They sent me a take-home assignment.</td></tr>
+      <tr><td>compensation / salary</td><td class="arabic">راتب / تعويض مادي</td><td>We can discuss compensation later.</td></tr>
+      <tr><td>offer</td><td class="arabic">عرض عمل</td><td>I received an offer from the company.</td></tr>
+      <tr><td>negotiate</td><td class="arabic">تفاوض</td><td>I want to negotiate the salary.</td></tr>
+      <tr><td>collaborate</td><td class="arabic">تتعاون</td><td>We collaborate closely with the design team.</td></tr>
+      <tr><td>concise</td><td class="arabic">مختصر ومباشر</td><td>Please keep your update concise.</td></tr>
+    </table>
+    <h4>Conversation Questions</h4>
+    <div class="qa"><div class="q">1. How do you give constructive feedback in a code review?</div><div class="a">I focus on the code, not the person, and I explain the reasoning behind every suggestion I make.</div></div>
+    <div class="qa"><div class="q">2. Tell me about a time you had to escalate an issue.</div><div class="a">A critical bug was blocking the release, so I escalated it to my manager and we reprioritized the sprint.</div></div>
+    <div class="qa"><div class="q">3. How do you handle disagreements about scope with a stakeholder?</div><div class="a">I try to align on priorities first, then present the trade-offs clearly so we can make an informed decision together.</div></div>
+    <div class="qa"><div class="q">4. What are your strengths as a developer?</div><div class="a">I'm strong at problem-solving and I communicate technical trade-offs clearly to non-technical stakeholders.</div></div>
+    <div class="qa"><div class="q">5. How would you negotiate a job offer?</div><div class="a">I'd research the market rate, highlight my relevant experience, and negotiate respectfully based on the value I bring.</div></div>
+  </div>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</section>
+<section class="sentence-bank" id="bank">
+  <h2>750+ Most-Used Sentences in US Software &amp; Web Dev Workplaces</h2>
+  <p style="color:var(--text-dim)">Organized by real work situations, translated into Egyptian Arabic (Masri).</p>
+  <div class="cat">
+    <h3>1. Daily Standup &amp; Status Updates</h3>
+    <ol class="sent-list">
+      <li><div class="en">Yesterday I finished the login feature.</div><div class="ar">إمبارح خلصت فيتشر تسجيل الدخول.</div></li>
+      <li><div class="en">Today I'm working on the payment integration.</div><div class="ar">النهاردة شغال على دمج نظام الدفع.</div></li>
+      <li><div class="en">I don't have any blockers right now.</div><div class="ar">مفيش أي عوائق دلوقتي.</div></li>
+      <li><div class="en">I'm stuck on a bug in the API.</div><div class="ar">أنا واقف عند باج في الـ API.</div></li>
+      <li><div class="en">I need help from the backend team.</div><div class="ar">محتاج مساعدة من فريق الباك إند.</div></li>
+      <li><div class="en">This task is taking longer than expected.</div><div class="ar">المهمة دي واخدة وقت أكتر من المتوقع.</div></li>
+      <li><div class="en">I'll finish this by end of day.</div><div class="ar">هخلص المهمة دي قبل آخر اليوم.</div></li>
+      <li><div class="en">I'm still waiting for the design assets.</div><div class="ar">لسه مستني الأصول التصميمية.</div></li>
+      <li><div class="en">I pushed my changes last night.</div><div class="ar">عملت بوش للتغييرات بتاعتي إمبارح بالليل.</div></li>
+      <li><div class="en">Can we sync after the standup?</div><div class="ar">نقدر نتقابل بعد الستاند أب؟</div></li>
+      <li><div class="en">I'll update the ticket with more details.</div><div class="ar">هحدث التيكيت بتفاصيل أكتر.</div></li>
+      <li><div class="en">The task is almost done, just testing now.</div><div class="ar">المهمة قربت تخلص، بس بختبرها دلوقتي.</div></li>
+      <li><div class="en">I moved this ticket to "In Review."</div><div class="ar">نقلت التيكيت لـ "تحت المراجعة."</div></li>
+      <li><div class="en">Let's discuss this offline after the meeting.</div><div class="ar">نتكلم في الموضوع ده بعد الميتينج على جنب.</div></li>
+      <li><div class="en">I'm blocked because the API isn't ready yet.</div><div class="ar">أنا متوقف لأن الـ API لسه مش جاهز.</div></li>
+      <li><div class="en">I'll pick up a new ticket after this.</div><div class="ar">هاخد تيكيت جديد بعد كده.</div></li>
+      <li><div class="en">I spent most of yesterday debugging.</div><div class="ar">قضيت معظم إمبارح بعمل ديباج.</div></li>
+      <li><div class="en">No updates from my side today.</div><div class="ar">مفيش تحديثات من ناحيتي النهاردة.</div></li>
+      <li><div class="en">I'll need one more day to finish this.</div><div class="ar">هحتاج يوم زيادة عشان أخلص المهمة دي.</div></li>
+      <li><div class="en">Can someone review my PR when they get a chance?</div><div class="ar">حد يقدر يراجع الـ PR بتاعي لما يبقى فاضي؟</div></li>
+      <li><div class="en">I paired with Ahmed on this feature.</div><div class="ar">اشتغلت مع أحمد سوا على الفيتشر ده.</div></li>
+      <li><div class="en">Let's keep the standup short today.</div><div class="ar">خلينا نخلص الستاند أب بسرعة النهاردة.</div></li>
+      <li><div class="en">I'll follow up with the client about this.</div><div class="ar">هتابع مع العميل بخصوص الموضوع ده.</div></li>
+      <li><div class="en">Nothing new to report today.</div><div class="ar">مفيش جديد أقوله النهاردة.</div></li>
+      <li><div class="en">I found the root cause of yesterday's bug.</div><div class="ar">لقيت السبب الجذري لباج إمبارح.</div></li>
+      <li><div class="en">I'm on track to finish by Friday.</div><div class="ar">أنا ماشي حسب الخطة وهخلص يوم الجمعة.</div></li>
+      <li><div class="en">This might slip to next sprint.</div><div class="ar">ممكن المهمة دي تتأجل للسبرنت الجاي.</div></li>
+      <li><div class="en">I need clarification on the requirements.</div><div class="ar">محتاج توضيح للمتطلبات.</div></li>
+      <li><div class="en">Let's raise this in the retro.</div><div class="ar">خلينا نطرح الموضوع ده في الريترو.</div></li>
+      <li><div class="en">I'll demo this feature at the sprint review.</div><div class="ar">هعمل عرض للفيتشر ده في مراجعة السبرنت.</div></li>
+      <li><div class="en">I'm reviewing two pull requests today.</div><div class="ar">براجع اتنين بل ريكوست النهاردة.</div></li>
+      <li><div class="en">I need to talk to the product manager about scope.</div><div class="ar">لازم أتكلم مع مدير المنتج بخصوص نطاق العمل.</div></li>
+      <li><div class="en">I'll be out tomorrow, so I'm wrapping up today.</div><div class="ar">هكون مش موجود بكرة، فبخلص شغلي النهاردة.</div></li>
+      <li><div class="en">I tested the fix locally and it works.</div><div class="ar">اختبرت الفيكس على جهازي واشتغل تمام.</div></li>
+      <li><div class="en">Let's timebox this discussion to five minutes.</div><div class="ar">خلينا نحدد خمس دقايق بس للنقاش ده.</div></li>
+      <li><div class="en">I'll add this to today's agenda.</div><div class="ar">هضيفها لأجندة النهاردة.</div></li>
+      <li><div class="en">The staging environment is broken right now.</div><div class="ar">بيئة الستيجينج فيها مشكلة دلوقتي.</div></li>
+      <li><div class="en">I'll reproduce the bug and report back.</div><div class="ar">هحاول أعيد إنتاج الباج وأرجعلك بالنتيجة.</div></li>
+      <li><div class="en">Let's move this ticket to the next sprint.</div><div class="ar">خلينا ننقل التيكيت ده للسبرنت الجاي.</div></li>
+      <li><div class="en">I'm waiting on approval before I can deploy.</div><div class="ar">مستني موافقة قبل ما أقدر أعمل ديبلوي.</div></li>
+      <li><div class="en">I closed three tickets yesterday.</div><div class="ar">قفلت ثلاث تيكيتس إمبارح.</div></li>
+      <li><div class="en">I need another pair of eyes on this.</div><div class="ar">محتاج حد كمان يشوف الموضوع ده معايا.</div></li>
+      <li><div class="en">This is a quick fix, shouldn't take long.</div><div class="ar">دي فيكس بسيطة، مش هتاخد وقت.</div></li>
+      <li><div class="en">I'll circle back on this after lunch.</div><div class="ar">هرجعلك في الموضوع ده بعد الغدا.</div></li>
+      <li><div class="en">Let's not go too deep into this right now.</div><div class="ar">خلينا منتكلمش في التفاصيل دي دلوقتي.</div></li>
+      <li><div class="en">I'll write the documentation once the feature is stable.</div><div class="ar">هكتب الدوكيومنتيشن لما الفيتشر يستقر.</div></li>
+      <li><div class="en">The client asked for a small change to the UI.</div><div class="ar">العميل طلب تغيير بسيط في الواجهة.</div></li>
+      <li><div class="en">I'm confident we'll hit the deadline.</div><div class="ar">أنا واثق إننا هنوصل للديدلاين في الميعاد.</div></li>
+      <li><div class="en">Let's sync with design before we start.</div><div class="ar">خلينا نتنسق مع فريق التصميم قبل ما نبدأ.</div></li>
+      <li><div class="en">I'll share the update in the team channel.</div><div class="ar">هشير التحديث في قناة الفريق.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>2. Talking About Code &amp; Debugging</h3>
+    <ol class="sent-list">
+      <li><div class="en">This function isn't returning the correct value.</div><div class="ar">الفانكشن دي مش بترجع القيمة الصح.</div></li>
+      <li><div class="en">I think there's a null pointer somewhere here.</div><div class="ar">أعتقد فيه null pointer حتة هنا.</div></li>
+      <li><div class="en">Let me trace through the code line by line.</div><div class="ar">خليني أتابع الكود سطر سطر.</div></li>
+      <li><div class="en">The app crashes when I click this button.</div><div class="ar">الأبلكيشن بيعمل كراش لما أدوس الزرار ده.</div></li>
+      <li><div class="en">I added a console log to check the value.</div><div class="ar">ضفت كونسول لوج عشان أشوف القيمة.</div></li>
+      <li><div class="en">This variable is undefined at this point.</div><div class="ar">المتغير ده undefined في النقطة دي.</div></li>
+      <li><div class="en">Can you reproduce this bug on your machine?</div><div class="ar">تقدر تعيد إنتاج الباج ده عندك؟</div></li>
+      <li><div class="en">I think it's an off-by-one error in the loop.</div><div class="ar">أظن ده خطأ off-by-one جوه اللووب.</div></li>
+      <li><div class="en">The error message says "undefined is not a function."</div><div class="ar">رسالة الإيرور بتقول "undefined is not a function."</div></li>
+      <li><div class="en">Let's use the debugger to step through this.</div><div class="ar">خلينا نستخدم الديباجر عشان نتابع الكود خطوة خطوة.</div></li>
+      <li><div class="en">I fixed the bug by updating the condition.</div><div class="ar">صلحت الباج بتحديث الشرط.</div></li>
+      <li><div class="en">This is an edge case we didn't handle.</div><div class="ar">دي حالة استثنائية معملناش لها حساب.</div></li>
+      <li><div class="en">The stack trace points to this file.</div><div class="ar">الـ stack trace بيشاور على الملف ده.</div></li>
+      <li><div class="en">I think we have a race condition here.</div><div class="ar">أظن عندنا race condition هنا.</div></li>
+      <li><div class="en">The variable was never initialized.</div><div class="ar">المتغير ده معملوش initialize خالص.</div></li>
+      <li><div class="en">Let's add some logging to understand the flow.</div><div class="ar">خلينا نضيف logging عشان نفهم الفلو.</div></li>
+      <li><div class="en">This error only happens in production.</div><div class="ar">الإيرور ده بيحصل بس في البروداكشن.</div></li>
+      <li><div class="en">I isolated the issue to this component.</div><div class="ar">حددت المشكلة إنها في الكومبوننت ده.</div></li>
+      <li><div class="en">The code works but it's not clean.</div><div class="ar">الكود شغال بس مش نضيف.</div></li>
+      <li><div class="en">Let's refactor this function to make it simpler.</div><div class="ar">خلينا نعمل ريفاكتور للفانكشن دي عشان تبقى أبسط.</div></li>
+      <li><div class="en">I think this loop is causing an infinite loop.</div><div class="ar">أظن اللووب ده بيسبب infinite loop.</div></li>
+      <li><div class="en">This function has too many responsibilities.</div><div class="ar">الفانكشن دي شايلة مسؤوليات كتير أوي.</div></li>
+      <li><div class="en">Let me check the logs from last night.</div><div class="ar">خليني أشوف اللوجز من إمبارح بالليل.</div></li>
+      <li><div class="en">I can't figure out why this test is failing.</div><div class="ar">مش عارف ليه التيست ده بيفشل.</div></li>
+      <li><div class="en">It works on my machine, that's strange.</div><div class="ar">شغال عندي، ده حاجة غريبة.</div></li>
+      <li><div class="en">There's a memory leak somewhere in this module.</div><div class="ar">فيه memory leak في مكان ما في الموديول ده.</div></li>
+      <li><div class="en">Let's roll back to the last stable version.</div><div class="ar">خلينا نرجع لآخر نسخة مستقرة.</div></li>
+      <li><div class="en">I found a typo in the variable name.</div><div class="ar">لقيت غلطة إملائية في اسم المتغير.</div></li>
+      <li><div class="en">This function needs better error handling.</div><div class="ar">الفانكشن دي محتاجة error handling أفضل.</div></li>
+      <li><div class="en">The API is returning a 500 error.</div><div class="ar">الـ API بيرجع إيرور 500.</div></li>
+      <li><div class="en">Let's check if the server is running.</div><div class="ar">خلينا نتأكد إن السيرفر شغال.</div></li>
+      <li><div class="en">I think the issue is a caching problem.</div><div class="ar">أظن المشكلة هي مشكلة كاش.</div></li>
+      <li><div class="en">This condition will never be true.</div><div class="ar">الشرط ده مش هيبقى صح أبدًا.</div></li>
+      <li><div class="en">I need to handle the null case here.</div><div class="ar">لازم أعمل هاندلينج لحالة الـ null هنا.</div></li>
+      <li><div class="en">Let's write a unit test for this scenario.</div><div class="ar">خلينا نكتب يونيت تيست للسيناريو ده.</div></li>
+      <li><div class="en">This bug only shows up on Safari.</div><div class="ar">الباج ده بيظهر بس على سفاري.</div></li>
+      <li><div class="en">I checked the network tab and the request failed.</div><div class="ar">شفت الـ network tab ولقيت الريكوست فشل.</div></li>
+      <li><div class="en">Let's add a fallback in case this fails.</div><div class="ar">خلينا نضيف fallback في حالة إن ده فشل.</div></li>
+      <li><div class="en">This part of the code is hard to read.</div><div class="ar">الجزء ده من الكود صعب تقرأه.</div></li>
+      <li><div class="en">I need to update this deprecated function.</div><div class="ar">لازم أحدث الفانكشن دي، بقت deprecated.</div></li>
+      <li><div class="en">The variable name doesn't match its purpose.</div><div class="ar">اسم المتغير مش مطابق للغرض بتاعه.</div></li>
+      <li><div class="en">I think this is a timing issue.</div><div class="ar">أظن دي مشكلة توقيت.</div></li>
+      <li><div class="en">Let's simplify this nested if statement.</div><div class="ar">خلينا نبسط الشرط المتداخل ده.</div></li>
+      <li><div class="en">I'll write a quick script to test this.</div><div class="ar">هكتب سكريبت صغير أعمله تيست.</div></li>
+      <li><div class="en">The bug was caused by a bad merge.</div><div class="ar">الباج كان سببه ميرج غلط.</div></li>
+      <li><div class="en">I need to check the browser console for errors.</div><div class="ar">لازم أشوف الكونسول بتاع المتصفح لو فيه إيرورز.</div></li>
+      <li><div class="en">This function should be pure, without side effects.</div><div class="ar">الفانكشن دي لازم تكون pure، من غير side effects.</div></li>
+      <li><div class="en">Let's add proper validation for user input.</div><div class="ar">خلينا نضيف validation صح للمدخلات.</div></li>
+      <li><div class="en">I think we're hitting a rate limit.</div><div class="ar">أظن إحنا بندوس على rate limit.</div></li>
+      <li><div class="en">This should fix the issue permanently.</div><div class="ar">ده المفروض يحل المشكلة نهائيًا.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>3. Code Review</h3>
+    <ol class="sent-list">
+      <li><div class="en">Can you review my pull request when you have time?</div><div class="ar">تقدر تراجع الـ PR بتاعي لما يكون عندك وقت؟</div></li>
+      <li><div class="en">I left a few comments on your PR.</div><div class="ar">حطيت شوية كومنتات على الـ PR بتاعك.</div></li>
+      <li><div class="en">This looks good to me, approving now.</div><div class="ar">ده شكله كويس بالنسبالي، هعمل approve دلوقتي.</div></li>
+      <li><div class="en">Can you explain why you chose this approach?</div><div class="ar">تقدر توضح ليه اخترت الطريقة دي؟</div></li>
+      <li><div class="en">This function is doing too much, let's split it.</div><div class="ar">الفانكشن دي شايلة حاجات كتير، خلينا نقسمها.</div></li>
+      <li><div class="en">Nice work, this is much cleaner than before.</div><div class="ar">شغل حلو، ده بقى أنضف من الأول.</div></li>
+      <li><div class="en">Can you add a test for this edge case?</div><div class="ar">تقدر تضيف تيست للحالة الاستثنائية دي؟</div></li>
+      <li><div class="en">This variable name could be more descriptive.</div><div class="ar">اسم المتغير ده ممكن يبقى أوضح شوية.</div></li>
+      <li><div class="en">I think this could be simplified.</div><div class="ar">أعتقد ده ممكن يتبسط أكتر.</div></li>
+      <li><div class="en">Please remove this commented-out code.</div><div class="ar">من فضلك امسح الكود المعمول له كومنت ده.</div></li>
+      <li><div class="en">This logic duplicates what's already in the utils file.</div><div class="ar">اللوجيك ده متكرر مع اللي موجود في ملف الـ utils.</div></li>
+      <li><div class="en">Good catch, I missed that case.</div><div class="ar">ملاحظة صح، أنا فاتتني الحالة دي.</div></li>
+      <li><div class="en">I have a small suggestion, not a blocker.</div><div class="ar">عندي اقتراح بسيط، مش شرط ينفذ عشان نمشي.</div></li>
+      <li><div class="en">Can we add a comment explaining this logic?</div><div class="ar">نقدر نضيف كومنت يشرح اللوجيك ده؟</div></li>
+      <li><div class="en">This is a breaking change, we need to be careful.</div><div class="ar">ده تغيير كبير ممكن يكسر حاجة، لازم نبقى حذرين.</div></li>
+      <li><div class="en">Let's make sure this handles the empty state.</div><div class="ar">خلينا نتأكد إن ده بيتعامل مع الحالة الفاضية.</div></li>
+      <li><div class="en">I'll approve once the tests pass.</div><div class="ar">هعمل approve لما التستات تعدي.</div></li>
+      <li><div class="en">This is a solid implementation, well done.</div><div class="ar">التنفيذ ده متين، شغل تمام.</div></li>
+      <li><div class="en">Can we avoid hardcoding this value?</div><div class="ar">نقدر نتجنب إننا نحط القيمة دي هارد كود؟</div></li>
+      <li><div class="en">I'd suggest using a constant here instead.</div><div class="ar">أقترح إننا نستخدم constant هنا بدل كده.</div></li>
+      <li><div class="en">This naming convention doesn't match the rest of the codebase.</div><div class="ar">أسلوب التسمية ده مش متوافق مع باقي الكودبيز.</div></li>
+      <li><div class="en">Let's follow the existing pattern here.</div><div class="ar">خلينا نتبع نفس النمط الموجود هنا.</div></li>
+      <li><div class="en">I think this could cause a performance issue.</div><div class="ar">أظن ده ممكن يسبب مشكلة في الأداء.</div></li>
+      <li><div class="en">Can you rebase this on the latest main?</div><div class="ar">تقدر تعمل rebase على آخر نسخة من الـ main؟</div></li>
+      <li><div class="en">This PR is too large, can we split it?</div><div class="ar">الـ PR ده كبير أوي، نقدر نقسمه؟</div></li>
+      <li><div class="en">I agree with your approach, let's go with it.</div><div class="ar">موافق على الطريقة بتاعتك، خلينا نمشي بيها.</div></li>
+      <li><div class="en">Let's double-check this doesn't break existing tests.</div><div class="ar">خلينا نتأكد إن ده مش هيكسر التستات الموجودة.</div></li>
+      <li><div class="en">This looks like it could throw an error.</div><div class="ar">ده شكله ممكن يرمي إيرور.</div></li>
+      <li><div class="en">Nice, this is exactly what we needed.</div><div class="ar">تمام، ده بالظبط اللي كنا محتاجينه.</div></li>
+      <li><div class="en">Can you add type annotations here?</div><div class="ar">تقدر تضيف type annotations هنا؟</div></li>
+      <li><div class="en">I'm not sure this handles concurrent requests correctly.</div><div class="ar">مش متأكد إن ده بيعالج الطلبات المتزامنة صح.</div></li>
+      <li><div class="en">Let's make this more consistent with the design system.</div><div class="ar">خلينا نخلي ده متوافق أكتر مع نظام التصميم.</div></li>
+      <li><div class="en">This code is not covered by any test.</div><div class="ar">الكود ده مش متغطي بأي تيست.</div></li>
+      <li><div class="en">I'll wait for a second approval before merging.</div><div class="ar">هستنى موافقة تانية قبل ما أعمل ميرج.</div></li>
+      <li><div class="en">Let's move this constant to a config file.</div><div class="ar">خلينا ننقل الـ constant ده لملف الكونفيج.</div></li>
+      <li><div class="en">This looks fine, just a minor typo to fix.</div><div class="ar">ده كويس، بس فيه غلطة إملائية بسيطة تتصلح.</div></li>
+      <li><div class="en">Can you squash these commits before merging?</div><div class="ar">تقدر تعمل squash للكوميتات دي قبل الميرج؟</div></li>
+      <li><div class="en">I think we should add error boundaries here.</div><div class="ar">أعتقد لازم نضيف error boundaries هنا.</div></li>
+      <li><div class="en">Great job handling all the edge cases.</div><div class="ar">شغل عظيم في التعامل مع كل الحالات الاستثنائية.</div></li>
+      <li><div class="en">This dependency seems unnecessary, can we remove it?</div><div class="ar">الديبندنسي دي شكلها مش ضرورية، نقدر نشيلها؟</div></li>
+      <li><div class="en">Let's add a docstring to explain this function.</div><div class="ar">خلينا نضيف docstring يشرح الفانكشن دي.</div></li>
+      <li><div class="en">This approach works, but there might be a simpler way.</div><div class="ar">الطريقة دي شغالة، بس ممكن يكون فيه طريقة أبسط.</div></li>
+      <li><div class="en">I'll take another look after you push the changes.</div><div class="ar">هبص عليها تاني بعد ما تعمل بوش للتغييرات.</div></li>
+      <li><div class="en">This is ready to merge from my side.</div><div class="ar">من ناحيتي، ده جاهز للميرج.</div></li>
+      <li><div class="en">Let's revisit this design decision later.</div><div class="ar">خلينا نرجع لقرار التصميم ده بعدين.</div></li>
+      <li><div class="en">I appreciate the detailed comments in this PR.</div><div class="ar">أشكرك على الكومنتات المفصلة في الـ PR ده.</div></li>
+      <li><div class="en">Please update the documentation along with this change.</div><div class="ar">من فضلك حدث الدوكيومنتيشن مع التغيير ده.</div></li>
+      <li><div class="en">This variable is unused, you can remove it.</div><div class="ar">المتغير ده مش مستخدم، تقدر تشيله.</div></li>
+      <li><div class="en">Let's keep this function pure and testable.</div><div class="ar">خلينا نخلي الفانكشن دي pure وسهلة الاختبار.</div></li>
+      <li><div class="en">I'm merging this now, thanks for the review.</div><div class="ar">هعمل ميرج دلوقتي، شكرًا على المراجعة.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>4. Git &amp; Version Control</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let's clone the repository first.</div><div class="ar">خلينا نعمل clone للريبو الأول.</div></li>
+      <li><div class="en">I created a new branch for this feature.</div><div class="ar">عملت برانش جديد للفيتشر ده.</div></li>
+      <li><div class="en">Don't forget to commit your changes.</div><div class="ar">متنساش تعمل كوميت للتغييرات بتاعتك.</div></li>
+      <li><div class="en">I pushed my code to the remote branch.</div><div class="ar">عملت بوش للكود على البرانش البعيد.</div></li>
+      <li><div class="en">Can you pull the latest changes?</div><div class="ar">تقدر تعمل بول لآخر تغييرات؟</div></li>
+      <li><div class="en">We have a merge conflict in this file.</div><div class="ar">عندنا merge conflict في الملف ده.</div></li>
+      <li><div class="en">Let's resolve the conflict manually.</div><div class="ar">خلينا نحل الكونفلكت يدويًا.</div></li>
+      <li><div class="en">I'll open a pull request once this is ready.</div><div class="ar">هفتح pull request لما ده يبقى جاهز.</div></li>
+      <li><div class="en">Please review my PR before I merge it.</div><div class="ar">من فضلك راجع الـ PR بتاعي قبل ما أعمله ميرج.</div></li>
+      <li><div class="en">I need to rebase this branch on main.</div><div class="ar">لازم أعمل rebase للبرانش ده على الـ main.</div></li>
+      <li><div class="en">Let's squash these commits into one.</div><div class="ar">خلينا نعمل squash للكوميتات دي في واحدة.</div></li>
+      <li><div class="en">I accidentally pushed to the wrong branch.</div><div class="ar">عملت بوش بالغلط على البرانش الغلط.</div></li>
+      <li><div class="en">Can you revert that last commit?</div><div class="ar">تقدر تعمل revert للكوميت الأخيرة دي؟</div></li>
+      <li><div class="en">Let's tag this release as version two.</div><div class="ar">خلينا نعمل تاج للريليز ده كنسخة اتنين.</div></li>
+      <li><div class="en">I forgot to add a commit message.</div><div class="ar">نسيت أضيف رسالة للكوميت.</div></li>
+      <li><div class="en">This branch is out of date with main.</div><div class="ar">البرانش ده مش محدث مع الـ main.</div></li>
+      <li><div class="en">Let's delete this branch after merging.</div><div class="ar">خلينا نمسح البرانش ده بعد الميرج.</div></li>
+      <li><div class="en">I need to check out an older commit.</div><div class="ar">لازم أعمل checkout لكوميت قديمة.</div></li>
+      <li><div class="en">Can you check the commit history for this file?</div><div class="ar">تقدر تشوف تاريخ الكوميتات للملف ده؟</div></li>
+      <li><div class="en">I'll stash my changes and pull the update.</div><div class="ar">هعمل stash للتغييرات بتاعتي وأسحب التحديث.</div></li>
+      <li><div class="en">This repo has too many open branches.</div><div class="ar">الريبو ده فيه برانشات مفتوحة كتير أوي.</div></li>
+      <li><div class="en">Let's add a .gitignore for these files.</div><div class="ar">خلينا نضيف .gitignore للملفات دي.</div></li>
+      <li><div class="en">I accidentally committed a secret key.</div><div class="ar">عملت كوميت بالغلط لمفتاح سري.</div></li>
+      <li><div class="en">Let's protect the main branch from direct pushes.</div><div class="ar">خلينا نحمي البرانش الأساسي من البوش المباشر.</div></li>
+      <li><div class="en">I have to force push, sorry about that.</div><div class="ar">لازم أعمل force push، آسف على كده.</div></li>
+      <li><div class="en">This commit message isn't clear enough.</div><div class="ar">رسالة الكوميت دي مش واضحة كفاية.</div></li>
+      <li><div class="en">Let's use conventional commits going forward.</div><div class="ar">خلينا نستخدم conventional commits من دلوقتي.</div></li>
+      <li><div class="en">I'll cherry-pick that fix into the release branch.</div><div class="ar">هعمل cherry-pick للفيكس ده جوه برانش الريليز.</div></li>
+      <li><div class="en">The build failed on this commit.</div><div class="ar">البيلد فشل على الكوميت ده.</div></li>
+      <li><div class="en">Let's set up a CI pipeline for this repo.</div><div class="ar">خلينا نظبط CI pipeline للريبو ده.</div></li>
+      <li><div class="en">I'll add you as a collaborator on the repo.</div><div class="ar">هضيفك متعاون على الريبو.</div></li>
+      <li><div class="en">This branch has diverged too much from main.</div><div class="ar">البرانش ده بعد كتير عن الـ main.</div></li>
+      <li><div class="en">Let's create a hotfix branch for this urgent bug.</div><div class="ar">خلينا نعمل hotfix branch للباج العاجل ده.</div></li>
+      <li><div class="en">Can you check who made this change?</div><div class="ar">تقدر تشوف مين اللي عمل التغيير ده؟</div></li>
+      <li><div class="en">I'll open a draft PR for early feedback.</div><div class="ar">هفتح draft PR عشان ناخد فيدباك بدري.</div></li>
+      <li><div class="en">This repository needs better documentation.</div><div class="ar">الريبو ده محتاج دوكيومنتيشن أحسن.</div></li>
+      <li><div class="en">Let's use a feature flag instead of a new branch.</div><div class="ar">خلينا نستخدم feature flag بدل ما نعمل برانش جديد.</div></li>
+      <li><div class="en">I merged your changes into develop.</div><div class="ar">عملت ميرج للتغييرات بتاعتك في الـ develop.</div></li>
+      <li><div class="en">Let's tag the current commit before we deploy.</div><div class="ar">خلينا نعمل تاج للكوميت الحالية قبل الديبلوي.</div></li>
+      <li><div class="en">This diff is huge, can we break it down?</div><div class="ar">الديف ده كبير أوي، نقدر نقسمه؟</div></li>
+      <li><div class="en">I need write access to this repository.</div><div class="ar">محتاج صلاحية كتابة على الريبو ده.</div></li>
+      <li><div class="en">Let's check the blame to see who wrote this.</div><div class="ar">خلينا نعمل blame عشان نشوف مين كتب ده.</div></li>
+      <li><div class="en">I set up a Git hook to run tests automatically.</div><div class="ar">ظبطت Git hook عشان يشغل التستات أوتوماتيك.</div></li>
+      <li><div class="en">Can we lock this branch until the release is out?</div><div class="ar">نقدر نقفل البرانش ده لحد ما الريليز يطلع؟</div></li>
+      <li><div class="en">I need to sync my fork with the upstream repo.</div><div class="ar">لازم أزامن الفورك بتاعي مع الريبو الأصلي.</div></li>
+      <li><div class="en">This commit broke the build for everyone.</div><div class="ar">الكوميت ده بوظ البيلد للكل.</div></li>
+      <li><div class="en">Let's write clearer commit messages from now on.</div><div class="ar">خلينا نكتب رسايل كوميت أوضح من دلوقتي.</div></li>
+      <li><div class="en">I'll set up branch naming conventions for the team.</div><div class="ar">هظبط قواعد لتسمية البرانشات للفريق.</div></li>
+      <li><div class="en">This change requires updating the changelog.</div><div class="ar">التغيير ده محتاج تحديث الـ changelog.</div></li>
+      <li><div class="en">Let's archive this old repository, it's no longer used.</div><div class="ar">خلينا نعمل أرشيف للريبو القديم ده، مبقاش مستخدم.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>5. Meetings, Planning &amp; Agile Ceremonies</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let's start the sprint planning meeting.</div><div class="ar">خلينا نبدأ اجتماع تخطيط السبرنت.</div></li>
+      <li><div class="en">How many story points do we give this task?</div><div class="ar">هنحط قد إيه story points للمهمة دي؟</div></li>
+      <li><div class="en">Let's break this epic into smaller tasks.</div><div class="ar">خلينا نقسم الإبيك ده لمهام أصغر.</div></li>
+      <li><div class="en">This is our top priority for this sprint.</div><div class="ar">ده الأولوية القصوى بتاعتنا في السبرنت ده.</div></li>
+      <li><div class="en">Let's move this to the next sprint.</div><div class="ar">خلينا ننقل ده للسبرنت الجاي.</div></li>
+      <li><div class="en">What went well this sprint?</div><div class="ar">إيه اللي مشى كويس في السبرنت ده؟</div></li>
+      <li><div class="en">What could we improve next time?</div><div class="ar">إيه اللي نقدر نحسنه المرة الجاية؟</div></li>
+      <li><div class="en">Let's plan our capacity for the next two weeks.</div><div class="ar">خلينا نخطط لطاقتنا في الأسبوعين الجايين.</div></li>
+      <li><div class="en">This ticket needs more clarification before we start.</div><div class="ar">التيكيت ده محتاج توضيح أكتر قبل ما نبدأ.</div></li>
+      <li><div class="en">Let's define the acceptance criteria first.</div><div class="ar">خلينا نحدد معايير القبول الأول.</div></li>
+      <li><div class="en">I think this is out of scope for now.</div><div class="ar">أعتقد ده خارج نطاق العمل دلوقتي.</div></li>
+      <li><div class="en">Let's add this to the backlog for later.</div><div class="ar">خلينا نضيف ده للباكلوج عشان بعدين.</div></li>
+      <li><div class="en">This feature depends on the API being ready.</div><div class="ar">الفيتشر ده معتمد على إن الـ API يكون جاهز.</div></li>
+      <li><div class="en">Let's set a realistic deadline for this.</div><div class="ar">خلينا نحط ديدلاين واقعي للموضوع ده.</div></li>
+      <li><div class="en">Who's going to own this task?</div><div class="ar">مين اللي هياخد المهمة دي؟</div></li>
+      <li><div class="en">I'll take this one, no problem.</div><div class="ar">هاخد المهمة دي، مفيش مشكلة.</div></li>
+      <li><div class="en">Let's review the roadmap for next quarter.</div><div class="ar">خلينا نراجع الرودماب للربع القادم.</div></li>
+      <li><div class="en">This task is blocked by another team.</div><div class="ar">المهمة دي متوقفة بسبب فريق تاني.</div></li>
+      <li><div class="en">Let's schedule a follow-up meeting for this.</div><div class="ar">خلينا نظبط اجتماع متابعة للموضوع ده.</div></li>
+      <li><div class="en">I'll send a calendar invite for tomorrow.</div><div class="ar">هبعت دعوة كالندر لبكرة.</div></li>
+      <li><div class="en">Can we push this deadline by a few days?</div><div class="ar">نقدر ندفع الديدلاين ده كام يوم؟</div></li>
+      <li><div class="en">Let's finalize the requirements before development starts.</div><div class="ar">خلينا نخلص المتطلبات قبل ما التطوير يبدأ.</div></li>
+      <li><div class="en">This is a nice-to-have, not a must-have.</div><div class="ar">ده حاجة حلوة لو حصلت، مش ضرورية.</div></li>
+      <li><div class="en">Let's prioritize the bugs over new features this week.</div><div class="ar">خلينا نحط الأولوية للباجات عن الفيتشرز الجديدة الأسبوع ده.</div></li>
+      <li><div class="en">I'll update the roadmap with these changes.</div><div class="ar">هحدث الرودماب بالتغييرات دي.</div></li>
+      <li><div class="en">Let's get alignment from the stakeholders first.</div><div class="ar">خلينا ناخد اتفاق من أصحاب المصلحة الأول.</div></li>
+      <li><div class="en">This meeting could have been an email.</div><div class="ar">الاجتماع ده كان ممكن يبقى إيميل.</div></li>
+      <li><div class="en">Let's keep this meeting to thirty minutes.</div><div class="ar">خلينا نخلي الاجتماع ده تلاتين دقيقة بس.</div></li>
+      <li><div class="en">I'll share my screen to show you the design.</div><div class="ar">هشير الشاشة عشان أوريك التصميم.</div></li>
+      <li><div class="en">Let's take this discussion to a separate thread.</div><div class="ar">خلينا ننقل النقاش ده لثريد منفصل.</div></li>
+      <li><div class="en">I'll send the meeting notes afterward.</div><div class="ar">هبعت ملاحظات الاجتماع بعد كده.</div></li>
+      <li><div class="en">Let's revisit this decision next sprint.</div><div class="ar">خلينا نرجع للقرار ده في السبرنت الجاي.</div></li>
+      <li><div class="en">This is a good time to raise any concerns.</div><div class="ar">ده وقت كويس عشان تطرح أي مخاوف.</div></li>
+      <li><div class="en">Let's align on the definition of done.</div><div class="ar">خلينا نتفق على تعريف "خلصنا" للمهمة.</div></li>
+      <li><div class="en">I think we're overcommitting this sprint.</div><div class="ar">أعتقد إحنا واخدين مهام أكتر من طاقتنا السبرنت ده.</div></li>
+      <li><div class="en">Let's split this into two separate tickets.</div><div class="ar">خلينا نقسم ده لتيكيتين منفصلين.</div></li>
+      <li><div class="en">I'll follow up with the design team about this.</div><div class="ar">هتابع مع فريق التصميم بخصوص ده.</div></li>
+      <li><div class="en">Let's set clear expectations before we start.</div><div class="ar">خلينا نحدد توقعات واضحة قبل ما نبدأ.</div></li>
+      <li><div class="en">This is a good candidate for automation.</div><div class="ar">ده مرشح كويس للأتمتة.</div></li>
+      <li><div class="en">Let's park this idea for a future sprint.</div><div class="ar">خلينا نأجل الفكرة دي لسبرنت مقبل.</div></li>
+      <li><div class="en">I'll draft a proposal and share it with the team.</div><div class="ar">هكتب مقترح وأشيره مع الفريق.</div></li>
+      <li><div class="en">Let's do a quick retro on this project.</div><div class="ar">خلينا نعمل ريترو سريع على المشروع ده.</div></li>
+      <li><div class="en">I'd like everyone's input before we decide.</div><div class="ar">حابب آخد رأي الكل قبل ما نقرر.</div></li>
+      <li><div class="en">Let's document this decision for future reference.</div><div class="ar">خلينا نوثق القرار ده عشان نرجعله بعدين.</div></li>
+      <li><div class="en">This meeting is to align on the technical approach.</div><div class="ar">الاجتماع ده عشان نتفق على الأسلوب التقني.</div></li>
+      <li><div class="en">I'll present the findings in tomorrow's meeting.</div><div class="ar">هعرض النتائج في اجتماع بكرة.</div></li>
+      <li><div class="en">Let's wrap up and send the action items.</div><div class="ar">خلينا نقفل الاجتماع ونبعت الأكشن آيتمز.</div></li>
+      <li><div class="en">Who's taking notes for this meeting?</div><div class="ar">مين اللي هياخد نوتس في الاجتماع ده؟</div></li>
+      <li><div class="en">Let's confirm the next steps before we leave.</div><div class="ar">خلينا نتأكد من الخطوات الجاية قبل ما نمشي.</div></li>
+      <li><div class="en">Let's make sure everyone is heard in this discussion.</div><div class="ar">خلينا نتأكد إن رأي الكل اتسمع في النقاش ده.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>6. Web Development (Frontend)</h3>
+    <ol class="sent-list">
+      <li><div class="en">This button doesn't align properly on mobile.</div><div class="ar">الزرار ده مش متظبط صح على الموبايل.</div></li>
+      <li><div class="en">Let's use flexbox to fix this layout.</div><div class="ar">خلينا نستخدم فليكس بوكس عشان نصلح اللاي آوت ده.</div></li>
+      <li><div class="en">The page is not loading fast enough.</div><div class="ar">الصفحة مش بتفتح بسرعة كفاية.</div></li>
+      <li><div class="en">This component re-renders too many times.</div><div class="ar">الكومبوننت ده بيعمل re-render مرات كتير أوي.</div></li>
+      <li><div class="en">Let's lazy load these images to improve performance.</div><div class="ar">خلينا نعمل lazy load للصور دي عشان نحسن الأداء.</div></li>
+      <li><div class="en">The design doesn't match the Figma file.</div><div class="ar">التصميم مش مطابق لملف الفيجما.</div></li>
+      <li><div class="en">This form doesn't validate the email field.</div><div class="ar">الفورم ده مش بيعمل validation لحقل الإيميل.</div></li>
+      <li><div class="en">Let's add a loading spinner while the data fetches.</div><div class="ar">خلينا نضيف سبينر تحميل لحد ما البيانات تيجي.</div></li>
+      <li><div class="en">This modal doesn't close when I click outside.</div><div class="ar">المودال ده مش بيتقفل لما أدوس بره.</div></li>
+      <li><div class="en">Let's make this text more accessible for screen readers.</div><div class="ar">خلينا نخلي النص ده متاح أكتر لقارئات الشاشة.</div></li>
+      <li><div class="en">The colors don't match the brand guidelines.</div><div class="ar">الألوان مش متطابقة مع دليل هوية العلامة.</div></li>
+      <li><div class="en">This component isn't reusable enough.</div><div class="ar">الكومبوننت ده مش قابل لإعادة الاستخدام كفاية.</div></li>
+      <li><div class="en">Let's add hover states to these buttons.</div><div class="ar">خلينا نضيف hover states للأزرار دي.</div></li>
+      <li><div class="en">This page breaks on smaller screen sizes.</div><div class="ar">الصفحة دي بتتكسر على الشاشات الأصغر.</div></li>
+      <li><div class="en">Let's use CSS Grid for this layout instead.</div><div class="ar">خلينا نستخدم CSS Grid للاي آوت ده بدل كده.</div></li>
+      <li><div class="en">The animation feels a bit slow.</div><div class="ar">الأنيميشن حاسس إنه شوية بطيء.</div></li>
+      <li><div class="en">Let's optimize the images before we deploy.</div><div class="ar">خلينا نعمل optimize للصور قبل الديبلوي.</div></li>
+      <li><div class="en">This input doesn't show an error message.</div><div class="ar">الإنبوت ده مش بيظهر رسالة إيرور.</div></li>
+      <li><div class="en">Let's add some padding around this section.</div><div class="ar">خلينا نضيف padding حوالين السكشن ده.</div></li>
+      <li><div class="en">The font size is too small on mobile.</div><div class="ar">حجم الخط صغير أوي على الموبايل.</div></li>
+      <li><div class="en">Let's use a design system for consistency.</div><div class="ar">خلينا نستخدم design system عشان يبقى متناسق.</div></li>
+      <li><div class="en">This dropdown isn't working on Firefox.</div><div class="ar">الدروب داون ده مش شغال على فايرفوكس.</div></li>
+      <li><div class="en">Let's add proper alt text for these images.</div><div class="ar">خلينا نضيف alt text صح للصور دي.</div></li>
+      <li><div class="en">The navigation menu overlaps the content on small screens.</div><div class="ar">قائمة التنقل بتتداخل مع المحتوى على الشاشات الصغيرة.</div></li>
+      <li><div class="en">Let's use a skeleton loader instead of a spinner.</div><div class="ar">خلينا نستخدم skeleton loader بدل السبينر.</div></li>
+      <li><div class="en">This component has too many props.</div><div class="ar">الكومبوننت ده عنده props كتير أوي.</div></li>
+      <li><div class="en">Let's split this into smaller components.</div><div class="ar">خلينا نقسمه لكومبوننتس أصغر.</div></li>
+      <li><div class="en">The state isn't updating when I click submit.</div><div class="ar">الستيت مش بيتحدث لما أدوس submit.</div></li>
+      <li><div class="en">Let's debounce this search input.</div><div class="ar">خلينا نعمل debounce لإنبوت البحث ده.</div></li>
+      <li><div class="en">This page has a lot of unused CSS.</div><div class="ar">الصفحة دي فيها CSS كتير مش مستخدم.</div></li>
+      <li><div class="en">Let's check this on different browsers.</div><div class="ar">خلينا نتأكد من ده على متصفحات مختلفة.</div></li>
+      <li><div class="en">The images are not responsive on tablets.</div><div class="ar">الصور مش ريسبونسيف على التابلت.</div></li>
+      <li><div class="en">Let's add a dark mode toggle to the app.</div><div class="ar">خلينا نضيف زرار للوضع الداكن في الأبلكيشن.</div></li>
+      <li><div class="en">This transition feels a bit jumpy.</div><div class="ar">الانتقال ده حاسس إنه شوية متقطع.</div></li>
+      <li><div class="en">Let's improve the contrast for better readability.</div><div class="ar">خلينا نحسن التباين عشان القراءة تبقى أوضح.</div></li>
+      <li><div class="en">This component doesn't handle empty data well.</div><div class="ar">الكومبوننت ده مش بيتعامل كويس مع البيانات الفاضية.</div></li>
+      <li><div class="en">Let's add proper focus states for keyboard navigation.</div><div class="ar">خلينا نضيف focus states صح للتنقل بالكيبورد.</div></li>
+      <li><div class="en">This bundle size is too large.</div><div class="ar">حجم الباندل ده كبير أوي.</div></li>
+      <li><div class="en">Let's code-split this to reduce the initial load.</div><div class="ar">خلينا نعمل code-split عشان نقلل التحميل الأولي.</div></li>
+      <li><div class="en">The layout shifts when the image loads.</div><div class="ar">اللاي آوت بيتحرك لما الصورة تفتح.</div></li>
+      <li><div class="en">Let's use a placeholder to prevent layout shift.</div><div class="ar">خلينا نستخدم placeholder عشان نمنع تحرك اللاي آوت.</div></li>
+      <li><div class="en">This component is tightly coupled to the API.</div><div class="ar">الكومبوننت ده مرتبط بشكل قوي بالـ API.</div></li>
+      <li><div class="en">Let's separate the UI logic from the data logic.</div><div class="ar">خلينا نفصل لوجيك الواجهة عن لوجيك البيانات.</div></li>
+      <li><div class="en">This CSS class isn't being applied correctly.</div><div class="ar">الكلاس ده مش بيتطبق صح.</div></li>
+      <li><div class="en">Let's clean up unused CSS classes.</div><div class="ar">خلينا ننضف الكلاسات اللي مش مستخدمة.</div></li>
+      <li><div class="en">The button click isn't triggering the function.</div><div class="ar">الضغط على الزرار مش بيشغل الفانكشن.</div></li>
+      <li><div class="en">Let's add an event listener for this action.</div><div class="ar">خلينا نضيف event listener للأكشن ده.</div></li>
+      <li><div class="en">This app doesn't work well offline.</div><div class="ar">الأبلكيشن ده مش شغال كويس أوفلاين.</div></li>
+      <li><div class="en">Let's add a service worker for offline support.</div><div class="ar">خلينا نضيف service worker عشان يدعم الأوفلاين.</div></li>
+      <li><div class="en">This page scores low on Lighthouse.</div><div class="ar">الصفحة دي بتاخد سكور واطي على Lighthouse.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>7. Web Development (Backend &amp; APIs)</h3>
+    <ol class="sent-list">
+      <li><div class="en">This endpoint is returning the wrong status code.</div><div class="ar">الإندبوينت ده بيرجع status code غلط.</div></li>
+      <li><div class="en">Let's add validation for this request body.</div><div class="ar">خلينا نضيف validation لجسم الريكوست ده.</div></li>
+      <li><div class="en">The API response is too slow.</div><div class="ar">ريسبونس الـ API بطيء أوي.</div></li>
+      <li><div class="en">Let's add pagination to this endpoint.</div><div class="ar">خلينا نضيف pagination للإندبوينت ده.</div></li>
+      <li><div class="en">This route needs authentication middleware.</div><div class="ar">الراوت ده محتاج middleware للمصادقة.</div></li>
+      <li><div class="en">The token has expired, we need to refresh it.</div><div class="ar">التوكن انتهى، لازم نعمله ريفريش.</div></li>
+      <li><div class="en">Let's rate-limit this endpoint to prevent abuse.</div><div class="ar">خلينا نحط rate limit للإندبوينت ده عشان نمنع سوء الاستخدام.</div></li>
+      <li><div class="en">This query is missing an index.</div><div class="ar">الكويري ده ناقصه إنديكس.</div></li>
+      <li><div class="en">Let's add proper logging for this service.</div><div class="ar">خلينا نضيف logging صح للسيرفيس ده.</div></li>
+      <li><div class="en">The database connection keeps timing out.</div><div class="ar">اتصال الداتا بيز بيعمل timeout باستمرار.</div></li>
+      <li><div class="en">Let's add a health check endpoint.</div><div class="ar">خلينا نضيف endpoint للـ health check.</div></li>
+      <li><div class="en">This API doesn't handle concurrent requests well.</div><div class="ar">الـ API ده مش بيتعامل كويس مع الريكوستات المتزامنة.</div></li>
+      <li><div class="en">Let's version this API before making breaking changes.</div><div class="ar">خلينا نعمل version للـ API قبل ما نعمل تغييرات كبيرة.</div></li>
+      <li><div class="en">The server is returning a 404 for this route.</div><div class="ar">السيرفر بيرجع 404 للراوت ده.</div></li>
+      <li><div class="en">Let's add error handling for this API call.</div><div class="ar">خلينا نضيف error handling للـ API call ده.</div></li>
+      <li><div class="en">This microservice needs its own database.</div><div class="ar">الميكروسيرفيس ده محتاج داتا بيز خاصة بيه.</div></li>
+      <li><div class="en">Let's set up a message queue between these services.</div><div class="ar">خلينا نظبط message queue بين السيرفيسز دي.</div></li>
+      <li><div class="en">This endpoint exposes too much user data.</div><div class="ar">الإندبوينت ده بيكشف بيانات مستخدم كتير أوي.</div></li>
+      <li><div class="en">Let's sanitize this input before saving it.</div><div class="ar">خلينا نعمل sanitize للمدخل ده قبل ما نحفظه.</div></li>
+      <li><div class="en">This request is missing a required parameter.</div><div class="ar">الريكوست ده ناقصه باراميتر مطلوب.</div></li>
+      <li><div class="en">Let's set a proper timeout for this request.</div><div class="ar">خلينا نحط timeout مناسب للريكوست ده.</div></li>
+      <li><div class="en">This database migration failed halfway through.</div><div class="ar">المايجريشن بتاع الداتا بيز فشل في النص.</div></li>
+      <li><div class="en">Let's roll back the migration and try again.</div><div class="ar">خلينا نعمل rollback للمايجريشن ونجرب تاني.</div></li>
+      <li><div class="en">This endpoint should be protected by an API key.</div><div class="ar">الإندبوينت ده لازم يكون محمي بمفتاح API.</div></li>
+      <li><div class="en">Let's add unit tests for this controller.</div><div class="ar">خلينا نضيف يونيت تستات للكونترولر ده.</div></li>
+      <li><div class="en">The server crashed under heavy load.</div><div class="ar">السيرفر عمل كراش تحت ضغط عالي.</div></li>
+      <li><div class="en">Let's add caching to reduce database load.</div><div class="ar">خلينا نضيف كاش عشان نقلل الضغط على الداتا بيز.</div></li>
+      <li><div class="en">This API doesn't follow REST conventions.</div><div class="ar">الـ API ده مش متبع قواعد REST.</div></li>
+      <li><div class="en">Let's document this endpoint in Swagger.</div><div class="ar">خلينا نوثق الإندبوينت ده في Swagger.</div></li>
+      <li><div class="en">This query has an N+1 problem.</div><div class="ar">الكويري ده عنده مشكلة N+1.</div></li>
+      <li><div class="en">Let's use a join instead of multiple queries.</div><div class="ar">خلينا نستخدم join بدل استعلامات متعددة.</div></li>
+      <li><div class="en">The environment variables aren't loading correctly.</div><div class="ar">متغيرات البيئة مش بتتحمل صح.</div></li>
+      <li><div class="en">Let's move these secrets to a vault.</div><div class="ar">خلينا ننقل الأسرار دي لـ vault.</div></li>
+      <li><div class="en">This webhook isn't firing when the event happens.</div><div class="ar">الويب هوك ده مش بيشتغل لما الحدث يحصل.</div></li>
+      <li><div class="en">Let's add retry logic for failed requests.</div><div class="ar">خلينا نضيف retry logic للريكوستات اللي بتفشل.</div></li>
+      <li><div class="en">This service is tightly coupled to another one.</div><div class="ar">السيرفيس ده مرتبط بشكل قوي بسيرفيس تاني.</div></li>
+      <li><div class="en">Let's decouple these two services.</div><div class="ar">خلينا نفصل السيرفيسين دول عن بعض.</div></li>
+      <li><div class="en">This endpoint should return an empty array, not null.</div><div class="ar">الإندبوينت ده لازم يرجع array فاضية، مش null.</div></li>
+      <li><div class="en">Let's add integration tests for the whole flow.</div><div class="ar">خلينا نضيف integration tests للفلو كله.</div></li>
+      <li><div class="en">The API is not backward compatible.</div><div class="ar">الـ API مش متوافق مع النسخ القديمة.</div></li>
+      <li><div class="en">Let's deprecate this old endpoint gradually.</div><div class="ar">خلينا نعمل deprecate للإندبوينت القديم بالتدريج.</div></li>
+      <li><div class="en">This service consumes too much memory.</div><div class="ar">السيرفيس ده بيستهلك ذاكرة كتير أوي.</div></li>
+      <li><div class="en">Let's profile this endpoint to find the bottleneck.</div><div class="ar">خلينا نعمل profile للإندبوينت عشان نلاقي عنق الزجاجة.</div></li>
+      <li><div class="en">This response is missing the CORS headers.</div><div class="ar">الريسبونس ده ناقصه هيدرز الـ CORS.</div></li>
+      <li><div class="en">Let's enable CORS for this domain.</div><div class="ar">خلينا نفعل CORS للدومين ده.</div></li>
+      <li><div class="en">This background job is taking too long.</div><div class="ar">الجوب اللي شغال في الخلفية واخد وقت كتير.</div></li>
+      <li><div class="en">Let's move this to an async queue.</div><div class="ar">خلينا ننقل ده لـ async queue.</div></li>
+      <li><div class="en">This database table needs an index on this column.</div><div class="ar">الجدول ده محتاج إنديكس على العمود ده.</div></li>
+      <li><div class="en">Let's set up monitoring and alerts for this service.</div><div class="ar">خلينا نظبط monitoring وتنبيهات للسيرفيس ده.</div></li>
+      <li><div class="en">This API key was accidentally exposed in the code.</div><div class="ar">مفتاح الـ API اتكشف بالغلط في الكود.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>8. Databases</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let's design the database schema first.</div><div class="ar">خلينا نصمم سكيما الداتا بيز الأول.</div></li>
+      <li><div class="en">This table has too many columns.</div><div class="ar">الجدول ده فيه أعمدة كتير أوي.</div></li>
+      <li><div class="en">Let's normalize this data to avoid duplication.</div><div class="ar">خلينا نعمل normalize للبيانات دي عشان نتجنب التكرار.</div></li>
+      <li><div class="en">This query is scanning the whole table.</div><div class="ar">الكويري ده بيمسح الجدول كله.</div></li>
+      <li><div class="en">Let's add an index to speed this up.</div><div class="ar">خلينا نضيف إنديكس عشان نسرّع ده.</div></li>
+      <li><div class="en">We need a backup strategy for this database.</div><div class="ar">محتاجين استراتيجية باك أب للداتا بيز دي.</div></li>
+      <li><div class="en">Let's set up automated daily backups.</div><div class="ar">خلينا نظبط باك أب يومي أوتوماتيك.</div></li>
+      <li><div class="en">This foreign key constraint is failing.</div><div class="ar">قيد الـ foreign key ده بيفشل.</div></li>
+      <li><div class="en">Let's use a transaction here to keep the data consistent.</div><div class="ar">خلينا نستخدم transaction هنا عشان نحافظ على تناسق البيانات.</div></li>
+      <li><div class="en">This column should have a unique constraint.</div><div class="ar">العمود ده لازم يكون عليه unique constraint.</div></li>
+      <li><div class="en">Let's write a migration to add this new field.</div><div class="ar">خلينا نكتب مايجريشن عشان نضيف الحقل الجديد ده.</div></li>
+      <li><div class="en">This data model doesn't scale well.</div><div class="ar">موديل البيانات ده مش بيتوسع كويس.</div></li>
+      <li><div class="en">Let's choose the right data type for this field.</div><div class="ar">خلينا نختار نوع البيانات المناسب للحقل ده.</div></li>
+      <li><div class="en">This table is missing a primary key.</div><div class="ar">الجدول ده ناقصه primary key.</div></li>
+      <li><div class="en">Let's use a NoSQL database for this use case.</div><div class="ar">خلينا نستخدم داتا بيز NoSQL للحالة دي.</div></li>
+      <li><div class="en">This database is running out of storage.</div><div class="ar">الداتا بيز دي مساحتها بتخلص.</div></li>
+      <li><div class="en">Let's archive old records to free up space.</div><div class="ar">خلينا نعمل أرشيف للسجلات القديمة عشان نفضي مساحة.</div></li>
+      <li><div class="en">This query needs to be optimized.</div><div class="ar">الكويري ده محتاج يتحسن.</div></li>
+      <li><div class="en">Let's check the query execution plan.</div><div class="ar">خلينا نشوف خطة تنفيذ الكويري.</div></li>
+      <li><div class="en">This join is taking too long to run.</div><div class="ar">الجوين ده واخد وقت كتير عشان يتنفذ.</div></li>
+      <li><div class="en">Let's denormalize this table for better read performance.</div><div class="ar">خلينا نعمل denormalize للجدول ده عشان أداء القراءة يبقى أحسن.</div></li>
+      <li><div class="en">This data is inconsistent across tables.</div><div class="ar">البيانات دي مش متسقة بين الجداول.</div></li>
+      <li><div class="en">Let's add a cascade delete for this relationship.</div><div class="ar">خلينا نضيف cascade delete للعلاقة دي.</div></li>
+      <li><div class="en">This database needs replication for high availability.</div><div class="ar">الداتا بيز دي محتاجة replication عشان توافر عالي.</div></li>
+      <li><div class="en">Let's set up a read replica for this service.</div><div class="ar">خلينا نظبط read replica للسيرفيس ده.</div></li>
+      <li><div class="en">This connection pool is exhausted.</div><div class="ar">الـ connection pool خلص.</div></li>
+      <li><div class="en">Let's increase the connection pool size.</div><div class="ar">خلينا نزود حجم الـ connection pool.</div></li>
+      <li><div class="en">This query returns duplicate rows.</div><div class="ar">الكويري ده بيرجع صفوف مكررة.</div></li>
+      <li><div class="en">Let's use DISTINCT to remove duplicates.</div><div class="ar">خلينا نستخدم DISTINCT عشان نشيل التكرار.</div></li>
+      <li><div class="en">This data needs to be encrypted at rest.</div><div class="ar">البيانات دي لازم تتشفر وهي متخزنة.</div></li>
+      <li><div class="en">Let's set up automated data retention policies.</div><div class="ar">خلينا نظبط سياسات احتفاظ بالبيانات أوتوماتيك.</div></li>
+      <li><div class="en">This table has grown too large.</div><div class="ar">الجدول ده كبر أوي.</div></li>
+      <li><div class="en">Let's partition this table by date.</div><div class="ar">خلينا نعمل partition للجدول ده حسب التاريخ.</div></li>
+      <li><div class="en">This migration will require some downtime.</div><div class="ar">المايجريشن ده هياخد وقت توقف.</div></li>
+      <li><div class="en">Let's run this migration during off-peak hours.</div><div class="ar">خلينا نشغل المايجريشن ده في ساعات هادية.</div></li>
+      <li><div class="en">This schema change is a breaking change.</div><div class="ar">تغيير السكيما ده تغيير كبير هيكسر حاجات.</div></li>
+      <li><div class="en">Let's version the schema changes carefully.</div><div class="ar">خلينا نعمل version لتغييرات السكيما بحرص.</div></li>
+      <li><div class="en">This query is vulnerable to SQL injection.</div><div class="ar">الكويري ده معرض لـ SQL injection.</div></li>
+      <li><div class="en">Let's use parameterized queries to prevent that.</div><div class="ar">خلينا نستخدم parameterized queries عشان نمنع ده.</div></li>
+      <li><div class="en">This database needs a proper indexing strategy.</div><div class="ar">الداتا بيز دي محتاجة استراتيجية إنديكسات صح.</div></li>
+      <li><div class="en">Let's check if this column should be nullable.</div><div class="ar">خلينا نشوف لو العمود ده لازم يكون nullable.</div></li>
+      <li><div class="en">This query returns too many rows at once.</div><div class="ar">الكويري ده بيرجع صفوف كتير أوي مرة واحدة.</div></li>
+      <li><div class="en">Let's set a reasonable limit on this query.</div><div class="ar">خلينا نحط حد معقول للكويري ده.</div></li>
+      <li><div class="en">This table has a lot of dead rows to clean up.</div><div class="ar">الجدول ده فيه صفوف قديمة كتير محتاجة تنضيف.</div></li>
+      <li><div class="en">Let's run a vacuum on this table.</div><div class="ar">خلينا نشغل vacuum على الجدول ده.</div></li>
+      <li><div class="en">This data type doesn't match what the API expects.</div><div class="ar">نوع البيانات ده مش مطابق لما الـ API متوقعه.</div></li>
+      <li><div class="en">Let's add a default value for this field.</div><div class="ar">خلينا نضيف قيمة افتراضية للحقل ده.</div></li>
+      <li><div class="en">This schema hasn't been updated in a while.</div><div class="ar">السكيما دي معملهاش تحديث من فترة.</div></li>
+      <li><div class="en">Let's document the relationships between these tables.</div><div class="ar">خلينا نوثق العلاقات بين الجداول دي.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>9. Testing &amp; QA</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let's write a unit test for this function.</div><div class="ar">خلينا نكتب يونيت تيست للفانكشن ده.</div></li>
+      <li><div class="en">This test is failing intermittently.</div><div class="ar">التيست ده بيفشل بشكل متقطع.</div></li>
+      <li><div class="en">Let's mock this API call in the test.</div><div class="ar">خلينا نعمل mock للـ API call في التيست.</div></li>
+      <li><div class="en">Our test coverage dropped this sprint.</div><div class="ar">نسبة تغطية التيستات نزلت السبرنت ده.</div></li>
+      <li><div class="en">Let's add an integration test for this flow.</div><div class="ar">خلينا نضيف integration test للفلو ده.</div></li>
+      <li><div class="en">This feature hasn't been tested manually yet.</div><div class="ar">الفيتشر ده لسه معملوش له اختبار يدوي.</div></li>
+      <li><div class="en">Let's write end-to-end tests for the checkout flow.</div><div class="ar">خلينا نكتب end-to-end tests لفلو الشراء.</div></li>
+      <li><div class="en">This bug slipped through QA.</div><div class="ar">الباج ده فات من غير ما فريق الجودة يمسكه.</div></li>
+      <li><div class="en">Let's add this scenario to our regression suite.</div><div class="ar">خلينا نضيف السيناريو ده لمجموعة تستات الريجريشن.</div></li>
+      <li><div class="en">This test suite takes too long to run.</div><div class="ar">مجموعة التستات دي واخدة وقت كتير عشان تتنفذ.</div></li>
+      <li><div class="en">Let's parallelize the test runs.</div><div class="ar">خلينا نشغل التستات بالتوازي.</div></li>
+      <li><div class="en">This test is flaky, let's investigate.</div><div class="ar">التيست ده مش مستقر، خلينا نبحث السبب.</div></li>
+      <li><div class="en">Let's add assertions to check the response format.</div><div class="ar">خلينا نضيف assertions عشان نتأكد من شكل الريسبونس.</div></li>
+      <li><div class="en">This feature needs more test cases.</div><div class="ar">الفيتشر ده محتاج test cases أكتر.</div></li>
+      <li><div class="en">Let's set up automated testing in the CI pipeline.</div><div class="ar">خلينا نظبط تستات أوتوماتيك في الـ CI pipeline.</div></li>
+      <li><div class="en">This test is checking the wrong condition.</div><div class="ar">التيست ده بيتأكد من الشرط الغلط.</div></li>
+      <li><div class="en">Let's add snapshot tests for this component.</div><div class="ar">خلينا نضيف snapshot tests للكومبوننت ده.</div></li>
+      <li><div class="en">We found a critical bug during QA testing.</div><div class="ar">لقينا باج خطير أثناء اختبار الجودة.</div></li>
+      <li><div class="en">Let's log this bug with steps to reproduce.</div><div class="ar">خلينا نسجل الباج ده مع خطوات إعادة إنتاجه.</div></li>
+      <li><div class="en">This bug is a high priority, please fix it today.</div><div class="ar">الباج ده أولوية عالية، من فضلك اصلحه النهاردة.</div></li>
+      <li><div class="en">Let's do exploratory testing on this feature.</div><div class="ar">خلينا نعمل اختبار استكشافي للفيتشر ده.</div></li>
+      <li><div class="en">This test environment doesn't match production.</div><div class="ar">بيئة الاختبار دي مش مطابقة للبروداكشن.</div></li>
+      <li><div class="en">Let's create test data that mirrors real users.</div><div class="ar">خلينا نعمل بيانات اختبار شبه المستخدمين الحقيقيين.</div></li>
+      <li><div class="en">This test failed because of a timing issue.</div><div class="ar">التيست ده فشل بسبب مشكلة توقيت.</div></li>
+      <li><div class="en">Let's add a wait condition before this assertion.</div><div class="ar">خلينا نضيف شرط انتظار قبل الـ assertion ده.</div></li>
+      <li><div class="en">This is ready for QA sign-off.</div><div class="ar">ده جاهز عشان فريق الجودة يوافق عليه.</div></li>
+      <li><div class="en">Let's retest this after the fix is deployed.</div><div class="ar">خلينا نعيد الاختبار بعد ما الفيكس يتنشر.</div></li>
+      <li><div class="en">This edge case isn't covered by any test.</div><div class="ar">الحالة الاستثنائية دي مش متغطية بأي تيست.</div></li>
+      <li><div class="en">Let's do a smoke test before the release.</div><div class="ar">خلينا نعمل smoke test قبل الريليز.</div></li>
+      <li><div class="en">This test setup is too complicated.</div><div class="ar">إعداد التيست ده معقد أوي.</div></li>
+      <li><div class="en">Let's simplify our test fixtures.</div><div class="ar">خلينا نبسط الـ fixtures بتاعة التيستات.</div></li>
+      <li><div class="en">This bug only happens with specific input.</div><div class="ar">الباج ده بيحصل بس مع مدخلات معينة.</div></li>
+      <li><div class="en">Let's add boundary tests for this input field.</div><div class="ar">خلينا نضيف اختبارات للحدود لحقل الإدخال ده.</div></li>
+      <li><div class="en">This is a regression from the last release.</div><div class="ar">ده ريجريشن من الريليز اللي فات.</div></li>
+      <li><div class="en">Let's verify this fix doesn't break anything else.</div><div class="ar">خلينا نتأكد إن الفيكس ده مش هيكسر حاجة تانية.</div></li>
+      <li><div class="en">This test needs to run in isolation.</div><div class="ar">التيست ده لازم يتشغل لوحده.</div></li>
+      <li><div class="en">Let's clean up the test database after each run.</div><div class="ar">خلينا ننضف داتا بيز التيست بعد كل تشغيلة.</div></li>
+      <li><div class="en">This feature passed all the acceptance tests.</div><div class="ar">الفيتشر ده عدى كل اختبارات القبول.</div></li>
+      <li><div class="en">Let's schedule a full regression test before launch.</div><div class="ar">خلينا نظبط اختبار ريجريشن كامل قبل الإطلاق.</div></li>
+      <li><div class="en">This bug report needs more information.</div><div class="ar">تقرير الباج ده محتاج معلومات أكتر.</div></li>
+      <li><div class="en">Let's write clearer steps to reproduce this bug.</div><div class="ar">خلينا نكتب خطوات أوضح لإعادة إنتاج الباج ده.</div></li>
+      <li><div class="en">This ticket needs a severity level assigned.</div><div class="ar">التيكيت ده محتاج نحدد له مستوى خطورة.</div></li>
+      <li><div class="en">Let's verify this on both staging and production.</div><div class="ar">خلينا نتأكد من ده على الستيجينج والبروداكشن.</div></li>
+      <li><div class="en">This test is checking an outdated assumption.</div><div class="ar">التيست ده بيتأكد من افتراض قديم.</div></li>
+      <li><div class="en">Let's update the test to match the new behavior.</div><div class="ar">خلينا نحدث التيست عشان يطابق السلوك الجديد.</div></li>
+      <li><div class="en">This is ready to be closed as resolved.</div><div class="ar">ده جاهز يتقفل باعتباره اتحل.</div></li>
+      <li><div class="en">Let's add automated visual regression testing.</div><div class="ar">خلينا نضيف اختبار ريجريشن بصري أوتوماتيك.</div></li>
+      <li><div class="en">This test doesn't cover the mobile view.</div><div class="ar">التيست ده مش بيغطي عرض الموبايل.</div></li>
+      <li><div class="en">Let's add cross-browser testing before the release.</div><div class="ar">خلينا نضيف اختبار عبر المتصفحات قبل الريليز.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>10. Deployment, DevOps &amp; Cloud</h3>
+    <ol class="sent-list">
+      <li><div class="en">We're deploying to production tonight.</div><div class="ar">هنعمل ديبلوي للبروداكشن الليلة.</div></li>
+      <li><div class="en">Let's make sure the staging tests pass first.</div><div class="ar">خلينا نتأكد إن تستات الستيجينج عدت الأول.</div></li>
+      <li><div class="en">This deployment failed halfway through.</div><div class="ar">الديبلوي ده فشل في النص.</div></li>
+      <li><div class="en">Let's roll back to the previous version.</div><div class="ar">خلينا نرجع للنسخة اللي فاتت.</div></li>
+      <li><div class="en">We need to scale up the servers for this launch.</div><div class="ar">محتاجين نزود عدد السيرفرات عشان الإطلاق ده.</div></li>
+      <li><div class="en">Let's set up auto-scaling for this service.</div><div class="ar">خلينا نظبط auto-scaling للسيرفيس ده.</div></li>
+      <li><div class="en">The pipeline is stuck on the build step.</div><div class="ar">البايبلاين واقف عند خطوة البيلد.</div></li>
+      <li><div class="en">Let's check the deployment logs for errors.</div><div class="ar">خلينا نشوف لوجز الديبلوي عشان نلاقي أي إيرورز.</div></li>
+      <li><div class="en">This environment variable is missing in production.</div><div class="ar">متغير البيئة ده ناقص في البروداكشن.</div></li>
+      <li><div class="en">Let's set up a blue-green deployment strategy.</div><div class="ar">خلينا نظبط استراتيجية blue-green للديبلوي.</div></li>
+      <li><div class="en">We had an outage for about ten minutes.</div><div class="ar">حصل عندنا انقطاع لمدة حوالي عشر دقايق.</div></li>
+      <li><div class="en">Let's write a post-mortem for this incident.</div><div class="ar">خلينا نكتب post-mortem للحادثة دي.</div></li>
+      <li><div class="en">This service is running on Kubernetes now.</div><div class="ar">السيرفيس ده شغال على كوبرنيتيز دلوقتي.</div></li>
+      <li><div class="en">Let's containerize this application with Docker.</div><div class="ar">خلينا نعمل containerize للأبلكيشن ده باستخدام دوكر.</div></li>
+      <li><div class="en">This build is taking too long to finish.</div><div class="ar">البيلد ده واخد وقت كتير عشان يخلص.</div></li>
+      <li><div class="en">Let's cache the dependencies to speed up the build.</div><div class="ar">خلينا نعمل كاش للديبندنسيز عشان نسرّع البيلد.</div></li>
+      <li><div class="en">We need to monitor the CPU usage on this server.</div><div class="ar">محتاجين نراقب استخدام الـ CPU على السيرفر ده.</div></li>
+      <li><div class="en">Let's set up alerts for high memory usage.</div><div class="ar">خلينا نظبط تنبيهات لاستهلاك الذاكرة العالي.</div></li>
+      <li><div class="en">This service went down at 3 AM.</div><div class="ar">السيرفيس ده وقع الساعة ثلاثة الصبح.</div></li>
+      <li><div class="en">Let's set up an on-call rotation for the team.</div><div class="ar">خلينا نظبط جدول on-call للفريق.</div></li>
+      <li><div class="en">This deployment needs approval before it goes live.</div><div class="ar">الديبلوي ده محتاج موافقة قبل ما يبقى شغال فعلي.</div></li>
+      <li><div class="en">Let's do a canary release for this feature.</div><div class="ar">خلينا نعمل canary release للفيتشر ده.</div></li>
+      <li><div class="en">The infrastructure costs went up last month.</div><div class="ar">تكاليف البنية التحتية زادت الشهر اللي فات.</div></li>
+      <li><div class="en">Let's optimize our cloud resources to cut costs.</div><div class="ar">خلينا نحسن مواردنا في الكلاود عشان نقلل التكاليف.</div></li>
+      <li><div class="en">This job failed in the CI pipeline.</div><div class="ar">الجوب ده فشل في الـ CI pipeline.</div></li>
+      <li><div class="en">Let's add a rollback step to the pipeline.</div><div class="ar">خلينا نضيف خطوة rollback للبايبلاين.</div></li>
+      <li><div class="en">We're migrating to a new cloud provider.</div><div class="ar">إحنا بنعمل migrate لمزود كلاود جديد.</div></li>
+      <li><div class="en">Let's set up infrastructure as code for this project.</div><div class="ar">خلينا نظبط infrastructure as code للمشروع ده.</div></li>
+      <li><div class="en">This certificate is about to expire.</div><div class="ar">الشهادة دي هتخلص قريب.</div></li>
+      <li><div class="en">Let's automate the certificate renewal process.</div><div class="ar">خلينا نعمل أتمتة لعملية تجديد الشهادة.</div></li>
+      <li><div class="en">This service needs a proper firewall configuration.</div><div class="ar">السيرفيس ده محتاج إعداد فايروول صح.</div></li>
+      <li><div class="en">Let's restrict access to this environment.</div><div class="ar">خلينا نقيد الوصول للبيئة دي.</div></li>
+      <li><div class="en">This deployment window is between midnight and two.</div><div class="ar">وقت الديبلوي ده بين الساعة اتناشر والاتنين بالليل.</div></li>
+      <li><div class="en">Let's freeze deployments during the holiday season.</div><div class="ar">خلينا نوقف الديبلويات خلال موسم الإجازات.</div></li>
+      <li><div class="en">This service is currently in a degraded state.</div><div class="ar">السيرفيس ده حاليًا في حالة أداء ضعيف.</div></li>
+      <li><div class="en">Let's page the on-call engineer.</div><div class="ar">خلينا نبعت تنبيه للمهندس المناوب.</div></li>
+      <li><div class="en">This incident is now resolved.</div><div class="ar">الحادثة دي اتحلت دلوقتي.</div></li>
+      <li><div class="en">Let's document the root cause of this outage.</div><div class="ar">خلينا نوثق السبب الجذري للانقطاع ده.</div></li>
+      <li><div class="en">This server needs a security patch.</div><div class="ar">السيرفر ده محتاج باتش أمني.</div></li>
+      <li><div class="en">Let's schedule the maintenance window in advance.</div><div class="ar">خلينا نحدد وقت الصيانة مقدمًا.</div></li>
+      <li><div class="en">Let's run a load test before the big launch.</div><div class="ar">خلينا نعمل load test قبل الإطلاق الكبير.</div></li>
+      <li><div class="en">This region is experiencing higher latency than usual.</div><div class="ar">المنطقة دي بتشوف زمن استجابة أعلى من المعتاد.</div></li>
+      <li><div class="en">Let's set up a status page for our users.</div><div class="ar">خلينا نظبط صفحة حالة للمستخدمين.</div></li>
+      <li><div class="en">This deployment pipeline needs better test coverage.</div><div class="ar">خط النشر ده محتاج تغطية اختبارات أحسن.</div></li>
+      <li><div class="en">Let's add a manual approval step before production.</div><div class="ar">خلينا نضيف خطوة موافقة يدوية قبل البروداكشن.</div></li>
+      <li><div class="en">This service needs a dedicated database instance.</div><div class="ar">السيرفيس ده محتاج instance داتا بيز خاص بيه.</div></li>
+      <li><div class="en">Let's set up disaster recovery for this system.</div><div class="ar">خلينا نظبط خطة تعافي من الكوارث للنظام ده.</div></li>
+      <li><div class="en">This region needs a backup data center.</div><div class="ar">المنطقة دي محتاجة مركز بيانات احتياطي.</div></li>
+      <li><div class="en">Let's review our incident response process.</div><div class="ar">خلينا نراجع عملية الاستجابة للحوادث بتاعتنا.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>11. Job Interviews (Technical)</h3>
+    <ol class="sent-list">
+      <li><div class="en">Tell me about yourself and your experience.</div><div class="ar">احكيلي عن نفسك وعن خبرتك.</div></li>
+      <li><div class="en">Can you walk me through your resume?</div><div class="ar">تقدر تاخدني في جولة سريعة على السيرة الذاتية بتاعتك؟</div></li>
+      <li><div class="en">What programming languages are you most comfortable with?</div><div class="ar">إيه لغات البرمجة اللي أنت مرتاح فيها أكتر؟</div></li>
+      <li><div class="en">Can you describe a challenging project you worked on?</div><div class="ar">تقدر تحكيلي عن مشروع صعب اشتغلت فيه؟</div></li>
+      <li><div class="en">How would you approach solving this problem?</div><div class="ar">إزاي هتتعامل مع حل المشكلة دي؟</div></li>
+      <li><div class="en">Let's write some code to solve this on the whiteboard.</div><div class="ar">خلينا نكتب كود لحل ده على السبورة.</div></li>
+      <li><div class="en">What's the time complexity of this solution?</div><div class="ar">إيه complexity الوقت لهذا الحل؟</div></li>
+      <li><div class="en">Can you optimize this algorithm further?</div><div class="ar">تقدر تحسن الخوارزمية دي أكتر؟</div></li>
+      <li><div class="en">How do you handle disagreements with a teammate?</div><div class="ar">إزاي بتتعامل مع الخلافات مع زميل في الشغل؟</div></li>
+      <li><div class="en">Tell me about a time you failed and what you learned.</div><div class="ar">احكيلي عن مرة فشلت فيها وإيه اللي اتعلمته.</div></li>
+      <li><div class="en">Why do you want to work here?</div><div class="ar">ليه عايز تشتغل هنا؟</div></li>
+      <li><div class="en">What are you looking for in your next role?</div><div class="ar">إيه اللي بتدور عليه في دورك الجاي؟</div></li>
+      <li><div class="en">Do you have any experience with system design?</div><div class="ar">عندك خبرة في تصميم الأنظمة؟</div></li>
+      <li><div class="en">How would you design a URL shortener?</div><div class="ar">إزاي هتصمم خدمة اختصار روابط؟</div></li>
+      <li><div class="en">What's your experience with cloud platforms like AWS?</div><div class="ar">إيه خبرتك مع منصات الكلاود زي AWS؟</div></li>
+      <li><div class="en">Can you explain this concept in simple terms?</div><div class="ar">تقدر تشرح المفهوم ده بشكل بسيط؟</div></li>
+      <li><div class="en">Do you have any questions for me?</div><div class="ar">عندك أي أسئلة ليا؟</div></li>
+      <li><div class="en">What does a typical day look like on your team?</div><div class="ar">اليوم العادي بيبقى شكله إيه في فريقكم؟</div></li>
+      <li><div class="en">What's the tech stack you use?</div><div class="ar">إيه الـ tech stack اللي بتستخدموه؟</div></li>
+      <li><div class="en">How do you review code within the team?</div><div class="ar">إزاي بتراجعوا الكود جوه الفريق؟</div></li>
+      <li><div class="en">I have five years of experience in web development.</div><div class="ar">عندي خمس سنين خبرة في تطوير الويب.</div></li>
+      <li><div class="en">I'm most comfortable with JavaScript and Python.</div><div class="ar">أنا مرتاح أكتر مع JavaScript وPython.</div></li>
+      <li><div class="en">I led a team of four developers on this project.</div><div class="ar">قدت فريق من أربع مطورين في المشروع ده.</div></li>
+      <li><div class="en">I improved the page load time by forty percent.</div><div class="ar">حسّنت وقت تحميل الصفحة بأربعين بالمية.</div></li>
+      <li><div class="en">I'm excited about this role because of the impact.</div><div class="ar">متحمس للدور ده بسبب التأثير اللي بيعمله.</div></li>
+      <li><div class="en">I'd approach this by breaking it into smaller steps.</div><div class="ar">هتعامل مع ده بتقسيمه لخطوات أصغر.</div></li>
+      <li><div class="en">This solution has a time complexity of O(n log n).</div><div class="ar">الحل ده complexity الوقت بتاعه O(n log n).</div></li>
+      <li><div class="en">I'd start by clarifying the requirements.</div><div class="ar">هبدأ بتوضيح المتطلبات الأول.</div></li>
+      <li><div class="en">I enjoy mentoring junior developers.</div><div class="ar">بستمتع إني أوجّه المطورين الجدد.</div></li>
+      <li><div class="en">I'm comfortable working in a fast-paced environment.</div><div class="ar">أنا مرتاح إني أشتغل في بيئة سريعة الإيقاع.</div></li>
+      <li><div class="en">I take ownership of my mistakes and fix them quickly.</div><div class="ar">بتحمل مسؤولية غلطاتي وباصلحها بسرعة.</div></li>
+      <li><div class="en">I'm looking for a role with more technical challenges.</div><div class="ar">بدور على دور فيه تحديات تقنية أكتر.</div></li>
+      <li><div class="en">I collaborate closely with product and design.</div><div class="ar">بتعاون بشكل قريب مع فريق المنتج والتصميم.</div></li>
+      <li><div class="en">I'd love to learn more about your engineering culture.</div><div class="ar">حابب أعرف أكتر عن ثقافة الهندسة عندكم.</div></li>
+      <li><div class="en">What's the next step in the interview process?</div><div class="ar">إيه الخطوة الجاية في عملية المقابلة؟</div></li>
+      <li><div class="en">Thank you for your time today.</div><div class="ar">شكرًا لوقتك النهاردة.</div></li>
+      <li><div class="en">I'll follow up with a thank-you email.</div><div class="ar">هبعت إيميل شكر بعد كده.</div></li>
+      <li><div class="en">Can you tell me more about the team structure?</div><div class="ar">تقدر تحكيلي أكتر عن هيكل الفريق؟</div></li>
+      <li><div class="en">What does success look like in this role after six months?</div><div class="ar">النجاح في الدور ده شكله إيه بعد ستة شهور؟</div></li>
+      <li><div class="en">I'd be happy to walk you through my portfolio.</div><div class="ar">يسعدني إني أوريك محفظة أعمالي.</div></li>
+      <li><div class="en">Can you describe your experience with agile teams?</div><div class="ar">تقدر تحكيلي عن خبرتك مع فرق الأجايل؟</div></li>
+      <li><div class="en">How do you keep up with new technologies?</div><div class="ar">إزاي بتفضل متابع للتكنولوجيا الجديدة؟</div></li>
+      <li><div class="en">I read documentation and build small side projects.</div><div class="ar">بقرأ الدوكيومنتيشن وبعمل مشاريع صغيرة جنبية.</div></li>
+      <li><div class="en">What's your salary expectation for this role?</div><div class="ar">توقعاتك للراتب للدور ده إيه؟</div></li>
+      <li><div class="en">I'm flexible, but I expect a competitive offer.</div><div class="ar">أنا مرن، بس متوقع عرض تنافسي.</div></li>
+      <li><div class="en">Do you prefer working remotely or in the office?</div><div class="ar">بتفضل الشغل من البيت ولا في المكتب؟</div></li>
+      <li><div class="en">I'm comfortable with either, but I enjoy some in-person collaboration.</div><div class="ar">أنا مرتاح مع الاتنين، بس بستمتع بالتعاون وجهًا لوجه أحيانًا.</div></li>
+      <li><div class="en">What's the biggest technical challenge your team is facing?</div><div class="ar">إيه أكبر تحدي تقني بيواجه فريقكم؟</div></li>
+      <li><div class="en">I'm confident I can add value from day one.</div><div class="ar">واثق إني هقدر أضيف قيمة من أول يوم.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>12. Explaining Technical Concepts to Non-Technical People</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let me explain this in simple terms.</div><div class="ar">خليني أشرح ده بشكل بسيط.</div></li>
+      <li><div class="en">Think of the database as a big filing cabinet.</div><div class="ar">تخيل الداتا بيز زي دولاب ملفات كبير.</div></li>
+      <li><div class="en">The server is like the engine behind the website.</div><div class="ar">السيرفر زي المحرك اللي بيشغل الموقع من ورا.</div></li>
+      <li><div class="en">This bug means something isn't working as expected.</div><div class="ar">الباج ده معناه حاجة مش شغالة زي المتوقع.</div></li>
+      <li><div class="en">This feature will take about two weeks to build.</div><div class="ar">الفيتشر ده هياخد حوالي أسبوعين عشان يتبني.</div></li>
+      <li><div class="en">We need more time to make sure this is stable.</div><div class="ar">محتاجين وقت أكتر عشان نتأكد إن ده مستقر.</div></li>
+      <li><div class="en">This isn't a quick fix, it requires some rework.</div><div class="ar">ده مش إصلاح سريع، محتاج إعادة شغل شوية.</div></li>
+      <li><div class="en">Let me give you a high-level overview.</div><div class="ar">خليني أديك نظرة عامة سريعة.</div></li>
+      <li><div class="en">This is a trade-off between speed and cost.</div><div class="ar">ده مقايضة بين السرعة والتكلفة.</div></li>
+      <li><div class="en">We can build this faster, but with more risk.</div><div class="ar">نقدر نبنيه بسرعة أكتر، بس بمخاطرة أعلى.</div></li>
+      <li><div class="en">This will make the website faster for users.</div><div class="ar">ده هيخلي الموقع أسرع للمستخدمين.</div></li>
+      <li><div class="en">This change is invisible to the user, but important internally.</div><div class="ar">التغيير ده مش هيبان للمستخدم، بس مهم من جوه.</div></li>
+      <li><div class="en">Let me show you a demo of the feature.</div><div class="ar">خليني أوريك عرض توضيحي للفيتشر.</div></li>
+      <li><div class="en">This issue is affecting a small number of users.</div><div class="ar">المشكلة دي بتأثر على عدد قليل من المستخدمين.</div></li>
+      <li><div class="en">We're prioritizing this because it affects revenue.</div><div class="ar">بنحط أولوية لده لأنه بيأثر على الإيرادات.</div></li>
+      <li><div class="en">This is a temporary fix, we'll do a proper solution later.</div><div class="ar">ده إصلاح مؤقت، هنعمل حل صح بعدين.</div></li>
+      <li><div class="en">I'll send you a summary in an email.</div><div class="ar">هبعتلك ملخص في إيميل.</div></li>
+      <li><div class="en">Let's avoid jargon and keep this simple.</div><div class="ar">خلينا نتجنب المصطلحات المعقدة ونخلي ده بسيط.</div></li>
+      <li><div class="en">This part of the system is what breaks most often.</div><div class="ar">الجزء ده من النظام هو اللي بيتعطل أكتر حاجة.</div></li>
+      <li><div class="en">We're investing time now to save time later.</div><div class="ar">إحنا بنصرف وقت دلوقتي عشان نوفر وقت بعدين.</div></li>
+      <li><div class="en">Let's not overpromise on the timeline.</div><div class="ar">خلينا منوعدش بأكتر من اللي نقدر نعمله في الوقت المحدد.</div></li>
+      <li><div class="en">This dashboard shows the health of the system.</div><div class="ar">الداشبورد ده بيوضح حالة النظام.</div></li>
+      <li><div class="en">A green status means everything is working fine.</div><div class="ar">الحالة الخضرا معناها كل حاجة شغالة تمام.</div></li>
+      <li><div class="en">This red alert means we need to act quickly.</div><div class="ar">التنبيه الأحمر ده معناه محتاجين نتحرك بسرعة.</div></li>
+      <li><div class="en">Let's set realistic expectations with the client.</div><div class="ar">خلينا نحدد توقعات واقعية مع العميل.</div></li>
+      <li><div class="en">This is more complex than it looks on the surface.</div><div class="ar">ده أعقد مما يبدو من برا.</div></li>
+      <li><div class="en">I'll break this down into three simple steps.</div><div class="ar">هقسم ده لتلات خطوات بسيطة.</div></li>
+      <li><div class="en">The short answer is yes, but it needs testing.</div><div class="ar">الإجابة المختصرة هي أيوه، بس محتاج اختبار.</div></li>
+      <li><div class="en">Let me draw a quick diagram to explain this.</div><div class="ar">خليني أرسم رسم بسيط أشرح بيه ده.</div></li>
+      <li><div class="en">This change is low risk and easy to reverse.</div><div class="ar">التغيير ده منخفض المخاطر وسهل نرجع فيه.</div></li>
+      <li><div class="en">Let's not rush this, quality matters here.</div><div class="ar">خلينا مانستعجلش، الجودة مهمة هنا.</div></li>
+      <li><div class="en">I understand this is frustrating, let me explain why it happened.</div><div class="ar">فاهم إن ده محبط، خليني أشرحلك ليه حصل.</div></li>
+      <li><div class="en">This will require input from both teams.</div><div class="ar">ده هيحتاج مساهمة من الفريقين.</div></li>
+      <li><div class="en">Let's align on the goal before diving into details.</div><div class="ar">خلينا نتفق على الهدف قبل ما نغوص في التفاصيل.</div></li>
+      <li><div class="en">This is similar to what we did last time.</div><div class="ar">ده شبه اللي عملناه المرة اللي فاتت.</div></li>
+      <li><div class="en">Here's a simple analogy that might help.</div><div class="ar">إليك مثال بسيط ممكن يساعد.</div></li>
+      <li><div class="en">I'll keep you updated as we make progress.</div><div class="ar">هفضل مبعتلك تحديثات مع تقدمنا.</div></li>
+      <li><div class="en">This is a common issue in web applications.</div><div class="ar">دي مشكلة شائعة في تطبيقات الويب.</div></li>
+      <li><div class="en">Let's schedule a demo so you can see it firsthand.</div><div class="ar">خلينا نظبط عرض توضيحي عشان تشوفه بنفسك.</div></li>
+      <li><div class="en">I hope that clears things up, feel free to ask more.</div><div class="ar">أتمنى ده يكون وضح الصورة، اسأل أي حاجة تانية براحتك.</div></li>
+      <li><div class="en">Think of an API as a waiter taking your order to the kitchen.</div><div class="ar">تخيل الـ API زي جرسون بياخد أوردرك للمطبخ.</div></li>
+      <li><div class="en">This is like a traffic light controlling access to a resource.</div><div class="ar">ده زي إشارة المرور اللي بتتحكم في الوصول لمورد معين.</div></li>
+      <li><div class="en">Let's avoid technical detail and focus on the business impact.</div><div class="ar">خلينا نتجنب التفاصيل التقنية ونركز على التأثير على البيزنس.</div></li>
+      <li><div class="en">This will reduce errors and save the team time.</div><div class="ar">ده هيقلل الأخطاء ويوفر وقت للفريق.</div></li>
+      <li><div class="en">Let's use a real example to explain this better.</div><div class="ar">خلينا نستخدم مثال حقيقي عشان نشرح ده أحسن.</div></li>
+      <li><div class="en">This is a one-time cost, not a recurring one.</div><div class="ar">ده تكلفة مرة واحدة، مش متكررة.</div></li>
+      <li><div class="en">Let's align expectations before we commit to a date.</div><div class="ar">خلينا نتفق على التوقعات قبل ما نلتزم بتاريخ.</div></li>
+      <li><div class="en">This won't be visible to users right away.</div><div class="ar">ده مش هيبان للمستخدمين على طول.</div></li>
+      <li><div class="en">Let's put this in a one-pager for the leadership team.</div><div class="ar">خلينا نحطه في ورقة واحدة عشان فريق القيادة.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>13. Email &amp; Slack Communication</h3>
+    <ol class="sent-list">
+      <li><div class="en">Hi team, quick update on the project status.</div><div class="ar">هاي تيم، تحديث سريع عن حالة المشروع.</div></li>
+      <li><div class="en">Just following up on my previous message.</div><div class="ar">بس بتابع على الرسالة اللي بعتها قبل كده.</div></li>
+      <li><div class="en">Let me know if you have any questions.</div><div class="ar">قولي لو عندك أي أسئلة.</div></li>
+      <li><div class="en">Thanks for the quick response.</div><div class="ar">شكرًا على الرد السريع.</div></li>
+      <li><div class="en">Could you take a look at this when you get a chance?</div><div class="ar">تقدر تشوف ده لما يكون عندك وقت؟</div></li>
+      <li><div class="en">Attaching the document for your review.</div><div class="ar">مرفق المستند عشان تراجعه.</div></li>
+      <li><div class="en">Please let me know by end of day.</div><div class="ar">من فضلك رد عليا قبل آخر اليوم.</div></li>
+      <li><div class="en">I'll loop in the design team on this.</div><div class="ar">هضيف فريق التصميم في الموضوع ده.</div></li>
+      <li><div class="en">CCing the manager for visibility.</div><div class="ar">حاطط المدير في نسخة عشان يكون على علم.</div></li>
+      <li><div class="en">Sorry for the late reply.</div><div class="ar">آسف على الرد المتأخر.</div></li>
+      <li><div class="en">Can we hop on a quick call?</div><div class="ar">نقدر نعمل مكالمة سريعة؟</div></li>
+      <li><div class="en">I'll send a calendar invite shortly.</div><div class="ar">هبعت دعوة كالندر بعد شوية.</div></li>
+      <li><div class="en">Just to confirm, we're going with option two.</div><div class="ar">بس عشان أأكد، هنمشي بالخيار التاني.</div></li>
+      <li><div class="en">I've made the changes you requested.</div><div class="ar">عملت التغييرات اللي طلبتها.</div></li>
+      <li><div class="en">Please find the updated file attached.</div><div class="ar">تجد الملف المحدث مرفق.</div></li>
+      <li><div class="en">Let me know if this works for you.</div><div class="ar">قولي لو ده مناسب بالنسبالك.</div></li>
+      <li><div class="en">I'll get back to you on this tomorrow.</div><div class="ar">هرجعلك في الموضوع ده بكرة.</div></li>
+      <li><div class="en">Quick question about this ticket.</div><div class="ar">سؤال سريع بخصوص التيكيت ده.</div></li>
+      <li><div class="en">Just wanted to give you a heads-up.</div><div class="ar">بس حابب أنبهك مقدمًا.</div></li>
+      <li><div class="en">Can you clarify what you mean by this?</div><div class="ar">تقدر توضح قصدك إيه بالظبط؟</div></li>
+      <li><div class="en">Sounds good, let's move forward with this.</div><div class="ar">حلو، خلينا نكمل قدام بيه.</div></li>
+      <li><div class="en">I'll ping you once it's ready.</div><div class="ar">هعملك بينج لما يبقى جاهز.</div></li>
+      <li><div class="en">Let's take this conversation offline.</div><div class="ar">خلينا ننقل الكلام ده على جنب.</div></li>
+      <li><div class="en">I'm out of office until Monday.</div><div class="ar">أنا مش موجود في الشغل لحد الاتنين.</div></li>
+      <li><div class="en">Please reach out to my colleague in the meantime.</div><div class="ar">من فضلك كلم زميلي في الوقت ده.</div></li>
+      <li><div class="en">I appreciate your patience on this.</div><div class="ar">أقدر صبرك في الموضوع ده.</div></li>
+      <li><div class="en">Let's circle back next week.</div><div class="ar">خلينا نرجع للموضوع ده الأسبوع الجاي.</div></li>
+      <li><div class="en">I'll keep this thread updated.</div><div class="ar">هفضل محدث الثريد ده.</div></li>
+      <li><div class="en">Apologies for the confusion earlier.</div><div class="ar">آسف على اللخبطة اللي حصلت قبل كده.</div></li>
+      <li><div class="en">Please prioritize this if possible.</div><div class="ar">من فضلك حط أولوية لده لو ممكن.</div></li>
+      <li><div class="en">Let's set up a quick sync to discuss this.</div><div class="ar">خلينا نظبط سنك سريع نتناقش فيه.</div></li>
+      <li><div class="en">I've shared the doc with edit access.</div><div class="ar">شيرت الملف بصلاحية تعديل.</div></li>
+      <li><div class="en">This is a friendly reminder about tomorrow's deadline.</div><div class="ar">ده تذكير ودي بخصوص ديدلاين بكرة.</div></li>
+      <li><div class="en">I've flagged this as high priority.</div><div class="ar">حطيت عليه علامة إنه أولوية عالية.</div></li>
+      <li><div class="en">Let me know your availability this week.</div><div class="ar">قولي إمتى متاح الأسبوع ده.</div></li>
+      <li><div class="en">Thanks in advance for your help.</div><div class="ar">شكرًا مقدمًا على مساعدتك.</div></li>
+      <li><div class="en">I'll draft a response and share it with you.</div><div class="ar">هكتب رد وأشيره معاك.</div></li>
+      <li><div class="en">Just checking in to see how this is going.</div><div class="ar">بس بتأكد إزاي الموضوع ده ماشي.</div></li>
+      <li><div class="en">Feel free to reach out if anything comes up.</div><div class="ar">تواصل معايا براحتك لو حصل أي حاجة.</div></li>
+      <li><div class="en">Looking forward to hearing your thoughts.</div><div class="ar">مستني أعرف رأيك.</div></li>
+      <li><div class="en">Bumping this to the top of your inbox.</div><div class="ar">بحط الرسالة دي فوق عشان تلاقيها بسهولة.</div></li>
+      <li><div class="en">This is time-sensitive, please respond when you can.</div><div class="ar">الموضوع ده مستعجل، من فضلك رد لما تقدر.</div></li>
+      <li><div class="en">I've updated the ticket with the latest status.</div><div class="ar">حدثت التيكيت بآخر حالة.</div></li>
+      <li><div class="en">Let's keep this channel focused on this project only.</div><div class="ar">خلينا نخلي القناة دي مخصصة للمشروع ده بس.</div></li>
+      <li><div class="en">I'll DM you the details separately.</div><div class="ar">هبعتلك التفاصيل في رسالة خاصة.</div></li>
+      <li><div class="en">Great catch, thanks for flagging this.</div><div class="ar">ملاحظة ممتازة، شكرًا إنك نبهتنا.</div></li>
+      <li><div class="en">Let's not forget to update the client on this.</div><div class="ar">خلينا منسناش نحدث العميل بخصوص ده.</div></li>
+      <li><div class="en">I'll summarize the decisions from this thread.</div><div class="ar">هلخص القرارات من الثريد ده.</div></li>
+      <li><div class="en">Thanks everyone for jumping on this so quickly.</div><div class="ar">شكرًا للكل إنكم اتحركتوا بسرعة كده.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>14. Problem Solving &amp; Troubleshooting</h3>
+    <ol class="sent-list">
+      <li><div class="en">Let's isolate the problem first.</div><div class="ar">خلينا نحدد المشكلة الأول.</div></li>
+      <li><div class="en">Can we reproduce this issue consistently?</div><div class="ar">نقدر نعيد إنتاج المشكلة دي بشكل ثابت؟</div></li>
+      <li><div class="en">Let's check if this happens in all environments.</div><div class="ar">خلينا نتأكد لو ده بيحصل في كل البيئات.</div></li>
+      <li><div class="en">What changed right before this started happening?</div><div class="ar">إيه اللي اتغير قبل ما ده يبدأ يحصل؟</div></li>
+      <li><div class="en">Let's check the recent deployments.</div><div class="ar">خلينا نشوف الديبلويات الأخيرة.</div></li>
+      <li><div class="en">Let's narrow down the scope of the problem.</div><div class="ar">خلينا نضيق نطاق المشكلة.</div></li>
+      <li><div class="en">This could be a symptom of a bigger issue.</div><div class="ar">ده ممكن يكون عرض لمشكلة أكبر.</div></li>
+      <li><div class="en">Let's check the logs around this time.</div><div class="ar">خلينا نشوف اللوجز حوالين الوقت ده.</div></li>
+      <li><div class="en">We need more information to understand this issue.</div><div class="ar">محتاجين معلومات أكتر عشان نفهم المشكلة دي.</div></li>
+      <li><div class="en">Let's rule out network issues first.</div><div class="ar">خلينا نستبعد مشاكل الشبكة الأول.</div></li>
+      <li><div class="en">This might be related to the recent update.</div><div class="ar">ده ممكن يكون له علاقة بالتحديث الأخير.</div></li>
+      <li><div class="en">Let's check if other users are affected too.</div><div class="ar">خلينا نشوف لو مستخدمين تانيين متأثرين كمان.</div></li>
+      <li><div class="en">I have a hypothesis, let's test it.</div><div class="ar">عندي فرضية، خلينا نختبرها.</div></li>
+      <li><div class="en">Let's eliminate the possibilities one by one.</div><div class="ar">خلينا نستبعد الاحتمالات واحد واحد.</div></li>
+      <li><div class="en">This seems to be a configuration issue.</div><div class="ar">ده شكله مشكلة في الإعدادات.</div></li>
+      <li><div class="en">Let's compare this with the working environment.</div><div class="ar">خلينا نقارن ده بالبيئة اللي شغالة.</div></li>
+      <li><div class="en">The problem seems to be intermittent.</div><div class="ar">المشكلة شكلها متقطعة.</div></li>
+      <li><div class="en">Let's add more logging to catch this next time.</div><div class="ar">خلينا نضيف لوجينج أكتر عشان نمسك ده المرة الجاية.</div></li>
+      <li><div class="en">We finally found the root cause.</div><div class="ar">أخيرًا لقينا السبب الجذري.</div></li>
+      <li><div class="en">Let's apply a temporary workaround for now.</div><div class="ar">خلينا نطبق حل مؤقت دلوقتي.</div></li>
+      <li><div class="en">This is a known issue with this library.</div><div class="ar">دي مشكلة معروفة مع اللايبراري دي.</div></li>
+      <li><div class="en">Let's check if there's an existing fix online.</div><div class="ar">خلينا نشوف لو فيه فيكس موجود أونلاين.</div></li>
+      <li><div class="en">This might just be a browser caching issue.</div><div class="ar">ده ممكن يكون بس مشكلة كاش في المتصفح.</div></li>
+      <li><div class="en">Let's clear the cache and try again.</div><div class="ar">خلينا نمسح الكاش ونجرب تاني.</div></li>
+      <li><div class="en">Let's check if the issue is on our end or theirs.</div><div class="ar">خلينا نتأكد لو المشكلة من عندنا ولا من عندهم.</div></li>
+      <li><div class="en">This is likely a permissions issue.</div><div class="ar">ده على الأغلب مشكلة صلاحيات.</div></li>
+      <li><div class="en">Let's double-check the configuration file.</div><div class="ar">خلينا نتأكد كويس من ملف الإعدادات.</div></li>
+      <li><div class="en">This bug is hard to pin down.</div><div class="ar">الباج ده صعب نحدده بالظبط.</div></li>
+      <li><div class="en">Let's take a step back and rethink our approach.</div><div class="ar">خلينا ناخد خطوة لورا ونفكر تاني في الطريقة.</div></li>
+      <li><div class="en">This could be caused by a race condition.</div><div class="ar">ده ممكن يكون سببه race condition.</div></li>
+      <li><div class="en">Let's add better error messages to help debugging.</div><div class="ar">خلينا نضيف رسايل إيرور أوضح عشان تساعد في الديباج.</div></li>
+      <li><div class="en">This is a known limitation of the framework.</div><div class="ar">دي قيود معروفة في الفريم وورك.</div></li>
+      <li><div class="en">Let's check the third-party service status.</div><div class="ar">خلينا نشوف حالة خدمة الطرف الثالث.</div></li>
+      <li><div class="en">This issue started after the last deployment.</div><div class="ar">المشكلة دي بدأت بعد آخر ديبلوي.</div></li>
+      <li><div class="en">Let's revert this change and see if it helps.</div><div class="ar">خلينا نرجع في التغيير ده ونشوف لو هيساعد.</div></li>
+      <li><div class="en">We solved it, it was a typo in the config.</div><div class="ar">حليناها، كانت غلطة إملائية في الكونفيج.</div></li>
+      <li><div class="en">Let's write up what we learned from this incident.</div><div class="ar">خلينا نكتب اللي اتعلمناه من الحادثة دي.</div></li>
+      <li><div class="en">This will help us catch similar issues faster next time.</div><div class="ar">ده هيساعدنا نمسك مشاكل شبيهة بسرعة أكتر المرة الجاية.</div></li>
+      <li><div class="en">Let's add a monitor to catch this automatically.</div><div class="ar">خلينا نضيف مونيتور عشان يمسك ده أوتوماتيك.</div></li>
+      <li><div class="en">I think we've covered all the possible causes.</div><div class="ar">أعتقد إننا غطينا كل الأسباب المحتملة.</div></li>
+      <li><div class="en">Let's check if this is a data issue, not a code issue.</div><div class="ar">خلينا نتأكد لو المشكلة في البيانات، مش في الكود.</div></li>
+      <li><div class="en">This looks like a timezone mismatch.</div><div class="ar">ده شكله عدم تطابق في المنطقة الزمنية.</div></li>
+      <li><div class="en">Let's check the exact input that caused this.</div><div class="ar">خلينا نشوف المدخل بالظبط اللي سبب ده.</div></li>
+      <li><div class="en">This only fails under high traffic.</div><div class="ar">ده بيفشل بس تحت ضغط زوار عالي.</div></li>
+      <li><div class="en">Let's simulate high traffic in a test environment.</div><div class="ar">خلينا نحاكي ضغط عالي في بيئة اختبار.</div></li>
+      <li><div class="en">This might be a browser extension conflict.</div><div class="ar">ده ممكن يكون تعارض مع إكستنشن في المتصفح.</div></li>
+      <li><div class="en">Let's ask the user to try it in incognito mode.</div><div class="ar">خلينا نطلب من المستخدم يجرب في وضع التصفح المتخفي.</div></li>
+      <li><div class="en">This bug is only reproducible with certain user roles.</div><div class="ar">الباج ده بيتكرر بس مع أدوار مستخدمين معينة.</div></li>
+      <li><div class="en">Let's check the permissions for that specific role.</div><div class="ar">خلينا نتأكد من الصلاحيات للدور ده بالتحديد.</div></li>
+    </ol>
+  </div>
+  <div class="cat">
+    <h3>15. Career &amp; Professional Development</h3>
+    <ol class="sent-list">
+      <li><div class="en">I want to grow into a senior engineer role.</div><div class="ar">عايز أتطور لدور مهندس سينيور.</div></li>
+      <li><div class="en">I'm working on improving my system design skills.</div><div class="ar">بشتغل على تحسين مهاراتي في تصميم الأنظمة.</div></li>
+      <li><div class="en">Let's set some goals for this quarter.</div><div class="ar">خلينا نحط أهداف للربع ده.</div></li>
+      <li><div class="en">I'd like some feedback on my performance.</div><div class="ar">حابب آخد فيدباك عن أدائي.</div></li>
+      <li><div class="en">You did a great job leading this project.</div><div class="ar">عملت شغل عظيم في قيادة المشروع ده.</div></li>
+      <li><div class="en">I think you could improve your communication with stakeholders.</div><div class="ar">أعتقد إنك ممكن تحسن تواصلك مع أصحاب المصلحة.</div></li>
+      <li><div class="en">Let's discuss your career path during our one-on-one.</div><div class="ar">خلينا نتكلم عن مسارك الوظيفي في الواحد على واحد بتاعنا.</div></li>
+      <li><div class="en">I'm interested in moving into a tech lead role.</div><div class="ar">مهتم إني أتحول لدور تك ليد.</div></li>
+      <li><div class="en">I'd like to take on more ownership of this area.</div><div class="ar">حابب آخد مسؤولية أكبر في المجال ده.</div></li>
+      <li><div class="en">Let's identify some learning opportunities for you.</div><div class="ar">خلينا نحدد فرص تعلم ليك.</div></li>
+      <li><div class="en">I've been learning about cloud architecture on my own time.</div><div class="ar">بتعلم عن هندسة الكلاود في وقتي الخاص.</div></li>
+      <li><div class="en">I'd like to attend this conference to learn more.</div><div class="ar">حابب أحضر الكونفرانس ده عشان أتعلم أكتر.</div></li>
+      <li><div class="en">Thanks for the mentorship, it's really helped me grow.</div><div class="ar">شكرًا على التوجيه، ساعدني فعلًا إني أتطور.</div></li>
+      <li><div class="en">I want to build stronger skills in testing.</div><div class="ar">عايز أبني مهارات أقوى في مجال التستينج.</div></li>
+      <li><div class="en">Let's plan a roadmap for your growth this year.</div><div class="ar">خلينا نخطط رودماب لتطورك السنة دي.</div></li>
+      <li><div class="en">I'd like more visibility into how decisions are made.</div><div class="ar">حابب رؤية أوضح لإزاي بتتاخد القرارات.</div></li>
+      <li><div class="en">I really enjoy mentoring junior developers on my team.</div><div class="ar">بستمتع جدًا إني أوجّه المطورين الجدد في فريقي.</div></li>
+      <li><div class="en">I'd like to work on a project with more impact.</div><div class="ar">حابب أشتغل في مشروع بتأثير أكبر.</div></li>
+      <li><div class="en">Let's talk about your promotion timeline.</div><div class="ar">خلينا نتكلم عن الجدول الزمني للترقية بتاعتك.</div></li>
+      <li><div class="en">I appreciate the trust you've shown in giving me this project.</div><div class="ar">أقدر الثقة اللي وضحتها فيا وأنت بتديني المشروع ده.</div></li>
+      <li><div class="en">I want to develop my public speaking skills.</div><div class="ar">عايز أطور مهارات التحدث أمام الناس.</div></li>
+      <li><div class="en">Let's set a check-in date to review your progress.</div><div class="ar">خلينا نحدد تاريخ متابعة عشان نراجع تقدمك.</div></li>
+      <li><div class="en">I've been struggling to balance my workload lately.</div><div class="ar">بعاني في توازن حمل شغلي في الفترة الأخيرة.</div></li>
+      <li><div class="en">I'd like to switch teams to explore a new domain.</div><div class="ar">حابب أغير فريق عشان أستكشف مجال جديد.</div></li>
+      <li><div class="en">Let's write down your goals for the next six months.</div><div class="ar">خلينا نكتب أهدافك للستة شهور الجايين.</div></li>
+      <li><div class="en">I want to become more comfortable with public presentations.</div><div class="ar">عايز أبقى أكتر راحة في العروض التقديمية أمام الناس.</div></li>
+      <li><div class="en">I've noticed real improvement in your code quality.</div><div class="ar">لاحظت تحسن حقيقي في جودة الكود بتاعك.</div></li>
+      <li><div class="en">Let's discuss what's blocking your growth right now.</div><div class="ar">خلينا نتناقش في اللي بيوقف نموك دلوقتي.</div></li>
+      <li><div class="en">I'd like to explore opportunities outside my current team.</div><div class="ar">حابب أستكشف فرص برة فريقي الحالي.</div></li>
+      <li><div class="en">I feel like I've plateaued in this role.</div><div class="ar">حاسس إني وقفت عند مستوى معين في الدور ده.</div></li>
+      <li><div class="en">Let's put together a development plan together.</div><div class="ar">خلينا نحط خطة تطوير سوا.</div></li>
+      <li><div class="en">I've taken the initiative to improve our documentation.</div><div class="ar">أخدت المبادرة إني أحسن الدوكيومنتيشن بتاعتنا.</div></li>
+      <li><div class="en">I'm proud of what our team accomplished this year.</div><div class="ar">فخور باللي فريقنا حققه السنة دي.</div></li>
+      <li><div class="en">Let's celebrate this milestone with the team.</div><div class="ar">خلينا نحتفل بالإنجاز ده مع الفريق.</div></li>
+      <li><div class="en">I'd like to negotiate a raise based on my recent contributions.</div><div class="ar">حابب أتفاوض على زيادة بناءً على مساهماتي الأخيرة.</div></li>
+      <li><div class="en">I'm grateful for the growth I've had here.</div><div class="ar">ممتن للتطور اللي حصلي هنا.</div></li>
+      <li><div class="en">Let's revisit your goals at the end of the year.</div><div class="ar">خلينا نرجع لأهدافك في آخر السنة.</div></li>
+      <li><div class="en">I want to be more strategic in how I spend my time.</div><div class="ar">عايز أبقى أكتر استراتيجية في إزاي بصرف وقتي.</div></li>
+      <li><div class="en">I'd love your advice on how to grow in this direction.</div><div class="ar">حابب نصيحتك في إزاي أتطور في الاتجاه ده.</div></li>
+      <li><div class="en">Thank you for believing in my potential.</div><div class="ar">شكرًا لإنك آمنت بإمكانياتي.</div></li>
+    </ol>
+  </div>
+
+  <div class="cat">
+    <h3>16. Bonus: Quick Everyday Tech Phrases</h3>
+    <ol class="sent-list">
+      <li><div class="en">Can you screen-share for a second?</div><div class="ar">تقدر تشير الشاشة ثانية واحدة؟</div></li>
+      <li><div class="en">My connection is a bit unstable today.</div><div class="ar">النت بتاعي شوية مش مستقر النهاردة.</div></li>
+      <li><div class="en">Let me refresh the page and try again.</div><div class="ar">خليني أعمل ريفريش للصفحة وأجرب تاني.</div></li>
+      <li><div class="en">Sorry, I was on mute.</div><div class="ar">آسف، كنت على mute.</div></li>
+      <li><div class="en">Can everyone see my screen okay?</div><div class="ar">الكل شايف شاشتي كويس؟</div></li>
+      <li><div class="en">Let's take a five-minute break.</div><div class="ar">خلينا ناخد بريك خمس دقايق.</div></li>
+      <li><div class="en">I'll drop the link in the chat.</div><div class="ar">هحط اللينك في الشات.</div></li>
+      <li><div class="en">Can you repeat that, you cut out for a second?</div><div class="ar">تقدر تعيد اللي قولته، الصوت قطع ثانية؟</div></li>
+      <li><div class="en">Let's wrap up for today.</div><div class="ar">خلينا نقفل شغل النهاردة.</div></li>
+      <li><div class="en">I'll pick this up first thing tomorrow.</div><div class="ar">هبدأ فيها أول حاجة بكرة الصبح.</div></li>
+      <li><div class="en">Good work today, team.</div><div class="ar">شغل حلو النهاردة يا جماعة.</div></li>
+      <li><div class="en">Let's touch base again next week.</div><div class="ar">خلينا نتكلم تاني الأسبوع الجاي.</div></li>
+      <li><div class="en">I'm heading offline, see you tomorrow.</div><div class="ar">أنا هقفل الجهاز، أشوفكوا بكرة.</div></li>
+      <li><div class="en">Thanks for your patience with all of this.</div><div class="ar">شكرًا على صبرك مع كل ده.</div></li>
+      <li><div class="en">Let's make this a habit going forward.</div><div class="ar">خلينا نخلي ده عادة من دلوقتي وطالع.</div></li>
+      <li><div class="en">I'll keep this short and simple.</div><div class="ar">هخلي الكلام قصير وبسيط.</div></li>
+      <li><div class="en">Great teamwork, everyone.</div><div class="ar">شغل جماعي حلو، عاش يا جدعان.</div></li>
+    </ol>
+  </div>
+</section>
+<footer>
+  <p>English for Software Engineers &amp; Web Developers — A1 to C1 Program</p>
+  <a class="back-top" href="#top">↑ Back to Contents</a>
+</footer>
+</div>
+</body>
+</html>
