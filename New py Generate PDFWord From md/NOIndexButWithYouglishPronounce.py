@@ -1507,10 +1507,6 @@ def build_document(markdown_content, source_name):
         add_rich_paragraph(doc, stripped)
         i += 1
 
-        # Regular paragraph.
-        add_rich_paragraph(doc, stripped)
-        i += 1
-
     # Add Top bookmark at start of first content paragraph and Bottom at end.
     if doc.paragraphs:
         add_bookmark(doc.paragraphs[0], 'ContentTop', 9000)

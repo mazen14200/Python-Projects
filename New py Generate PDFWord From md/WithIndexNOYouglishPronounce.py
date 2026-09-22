@@ -1343,9 +1343,6 @@ def build_document(markdown_content, source_name):
             i += 1
             continue
 
-        # Regular paragraph.
-        add_rich_paragraph(doc, stripped)
-        i += 1
 
         # Regular paragraph.
         add_rich_paragraph(doc, stripped)
